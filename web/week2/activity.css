@@ -1,0 +1,22 @@
+.div1 {
+
+    background-color: lightblue;
+    font-size: 25px;
+}
+
+.div2 {
+
+    background-color: lightgray;
+    font-size: 45px;
+}
+
+.div3 {
+
+    background-color: lightgreen;
+    font-size: 55px;
+}
+
+div:hover {
+
+    font-weight: bold;
+}

@@ -1,0 +1,106 @@
+body {
+
+    background-image: url(../images/dark-grey-terrazzo.png);
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+    min-width: 300px;
+    
+
+}
+
+main {
+
+    background-color: white;
+    border-radius: 7px;
+}
+
+
+.title, footer {
+
+    color: white;
+    text-align: center;
+}
+
+footer {
+
+    padding-top: 5px;
+}
+
+main {
+
+    padding: 10px;
+}
+
+.intro {
+
+    text-align: center;
+}
+
+#click {
+
+    padding: 15px
+}
+
+#click a{
+
+    padding: 10px;
+    background-color:orange;
+    font-weight: bold;
+    font-size: 25px;
+    border: 3px solid black;
+    width: 150px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#click a:hover {
+
+    background-color: black;
+    color: orange;
+}
+
+a {
+
+    text-decoration: none;
+    color: black;
+}
+
+h2 {
+
+margin: 0px;
+}
+
+#assignments {
+
+    margin-top: 5px;
+}
+
+#assignments a {
+
+    color: white;
+}
+
+#assignments a:hover {
+
+    color: orange;
+}
+
+#content-container {
+
+    width: 70%;
+    margin: 10px auto auto auto;
+    background-color:black;
+    color: white;
+    border-radius: 7px;
+    padding: 10px 15px;
+
+}
+
+
+.image {
+
+    width: 100%;
+    height: auto;
+}
+
