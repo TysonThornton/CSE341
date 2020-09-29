@@ -42,7 +42,11 @@
     </main>
 
     <footer>
-        &copy; 2020 | Tyson Thornton
+        &copy; 2020 | Tyson Thornton |
+        <?php
+        $date = strtotime("8:00pm September 26 2020");
+        echo "Created date is " . date("Y-m-d h:i:sa", $date);
+        ?>
     </footer>
 </body>
 
