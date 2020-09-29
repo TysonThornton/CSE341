@@ -20,7 +20,7 @@
 
         <div class="intro">
             <p>My name is Tyson Thornton. To find out a little more about me</p>
-            <div id="click"><a href="homepage.html">Click Here</a></div>
+            <div id="click"><a href="homepage.php">Click Here</a></div>
         </div>
 
         <div id="content-container">
