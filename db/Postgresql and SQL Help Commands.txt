@@ -1,0 +1,12 @@
+**Show all tables and columns
+\dt
+
+** Drop (delete) a table
+DROP TABLE session;
+
+** Quit the application and go back to the regular command prompt
+\q
+
+** Look at the information in a table including columns
+SELECT * FROM public.user;
+
