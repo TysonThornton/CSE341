@@ -13,7 +13,7 @@
         <h1>Some Of My Interests</h1>
 
     </div>
-    <main>
+    <main> 
 
         <div id="content-container">
             <h2>Dogs</h2>
