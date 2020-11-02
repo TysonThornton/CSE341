@@ -16,8 +16,6 @@ session_start();
 
     <?php
 
-    echo $_SESSION['cart_items'];
-
       if (isset ($_SESSION['cart_items']))
       {
           
@@ -39,7 +37,7 @@ session_start();
 
       }
 
-      print_r($_SESSION);
+    
 
     ?>
     
