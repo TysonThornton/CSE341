@@ -80,7 +80,7 @@ session_start();
         <span>$22.00</span>
         <input type="checkbox" value="CASH" name="CASH" id="CASH">
     </div>
-    <input type="submit" value="ADD SELECTED ITEMS TO CART">
+    <input type="submit" value="ADD SELECTED ITEMS TO CART"><br><br>
     </form>
 
     <a href="viewCart.php">View Items in your cart</a>
@@ -144,14 +144,15 @@ session_start();
     {
         
         $cart_items = $_SESSION['cart_items'];
-        $array_length = count($cart_items);
-        $count = 1;
-        foreach ($cart_items as $item) {
-          $x = 'vinyl'.$count;
-          $$x = $item; 
-          $count++;
-        }
 
+        $cart_items[0] = $vinyl1;
+        $cart_items[1] = $vinyl2;
+        $cart_items[2] = $vinyl3;
+        $cart_items[3] = $vinyl4;
+        $cart_items[4] = $viny15;
+        $cart_items[5] = $vinyl6;
+
+        
         echo $vinyl1;
         echo $vinyl2;
         echo $vinyl3;
