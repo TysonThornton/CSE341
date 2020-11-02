@@ -131,7 +131,10 @@ session_start();
 
       if (isset ($_SESSION['cart_items']))
       {
-          echo $_SESSION['cart_items'];
+          $cart_items = $_SESSION['cart_items'];
+          foreach ($cart_items as $item) {
+              echo $item;
+          }
       }
 ?>
 
