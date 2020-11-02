@@ -17,7 +17,7 @@ session_start();
 
 
     <div class="product">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+    <form action="viewCart.php" method="post">
         <img src="/images/Beatles.jpg" alt="Beatles vinyl">
         <h2>The Beatles</h2>
         <h3>Abbey Road</h3>
@@ -130,13 +130,13 @@ session_start();
 
       $_SESSION['cart_items'] = $cart_items;
 
-      if (isset ($_SESSION['cart_items']))
-      {
-          $cart_items = $_SESSION['cart_items'];
-          foreach ($cart_items as $item) {
-              echo $item;
-          }
-      }
+    //   if (isset ($_SESSION['cart_items']))
+    //   {
+    //       $cart_items = $_SESSION['cart_items'];
+    //       foreach ($cart_items as $item) {
+    //           echo $item;
+    //       }
+    //   }
 ?>
 
 </body>
