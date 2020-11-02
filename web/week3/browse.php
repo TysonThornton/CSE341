@@ -127,6 +127,18 @@ session_start();
           array_push($cart_items, $cart_item);
       }
 
+      if (isset($_POST["SINATRA"]))
+      {
+        $cart_item = "SINATRA";
+          array_push($cart_items, $cart_item);
+      }
+
+      if (isset($_POST["CASH"]))
+      {
+        $cart_item = "CASH";
+          array_push($cart_items, $cart_item);
+      }
+
 
       
 
@@ -140,28 +152,7 @@ session_start();
     //       }
     //   }
 
-    if (isset ($_SESSION['cart_items']))
-    {
-        
-        $cart_items = $_SESSION['cart_items'];
-
-        $vinyl1 = $cart_items[0];
-        $vinyl2 = $cart_items[1]; 
-        $vinyl3 = $cart_items[2]; 
-        $vinyl4 = $cart_items[3]; 
-        $viny15 = $cart_items[4]; 
-        $vinyl6 = $cart_items[5]; 
-
-        
-        echo $vinyl1;
-        echo $vinyl2;
-        echo $vinyl3;
-        echo $vinyl4;
-        echo $vinyl5;
-        echo $vinyl6;
-
-
-    }
+    
 
 
     
