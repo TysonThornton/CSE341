@@ -17,7 +17,7 @@ session_start();
 
 
     <div class="product">
-    <form action="viewCart.php" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <img src="/images/Beatles.jpg" alt="Beatles vinyl">
         <h2>The Beatles</h2>
         <h3>Abbey Road</h3>
@@ -82,6 +82,8 @@ session_start();
     </div>
     <input type="submit" value="ADD SELECTED ITEMS TO CART">
     </form>
+
+    <a href="viewCart.php">View Items in your cart</a>
 
 
     <?php
