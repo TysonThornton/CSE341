@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,7 @@
     <?php
 
     echo $_SESSION['cart_items'];
-    
+
       if (isset ($_SESSION['cart_items']))
       {
           

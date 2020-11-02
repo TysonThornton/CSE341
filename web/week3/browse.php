@@ -141,29 +141,6 @@ session_start();
     //   }
 
 
-
-    echo $_SESSION['cart_items'];
-    
-    if (isset ($_SESSION['cart_items']))
-    {
-        
-        $cart_items = $_SESSION['cart_items'];
-        $array_length = count($cart_items);
-        $count = 1;
-        foreach ($cart_items as $item) {
-          $x = 'vinyl'.$count;
-          $$x = $item; 
-          $count++;
-        }
-
-        echo $vinyl1;
-        echo $vinyl2;
-        echo $vinyl3;
-        echo $vinyl4;
-        echo $vinyl5;
-        echo $vinyl6;
-
-    }
 ?>
 
 </body>
