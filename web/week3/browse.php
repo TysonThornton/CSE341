@@ -145,12 +145,12 @@ session_start();
         
         $cart_items = $_SESSION['cart_items'];
 
-        $cart_items[0] = $vinyl1;
-        $cart_items[1] = $vinyl2;
-        $cart_items[2] = $vinyl3;
-        $cart_items[3] = $vinyl4;
-        $cart_items[4] = $viny15;
-        $cart_items[5] = $vinyl6;
+        $vinyl1 = $cart_items[0];
+        $vinyl2 = $cart_items[1]; 
+        $vinyl3 = $cart_items[2]; 
+        $vinyl4 = $cart_items[3]; 
+        $viny15 = $cart_items[4]; 
+        $vinyl6 = $cart_items[5]; 
 
         
         echo $vinyl1;
