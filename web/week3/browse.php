@@ -21,7 +21,6 @@ session_start();
         <h2>The Beatles</h2>
         <h3>Abbey Road</h3>
         <span>$30.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="BEATLES" name="BEATLES" id="BEATLES"> 
     </div>
 
@@ -30,7 +29,6 @@ session_start();
         <h2>Adele</h2>
         <h3>21</h3>
         <span>$25.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="ADELE" name="ADELE" id="ADELE">
     </div>
 
@@ -39,7 +37,6 @@ session_start();
         <h2>Michael Jackson</h2>
         <h3>Thriller</h3>
         <span>$35.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="MJ" name="MJ" id="MJ">
     </div>
 
@@ -48,7 +45,6 @@ session_start();
         <h2>Def Leppard</h2>
         <h3>Hysteria</h3>
         <span>$20.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="LEPPARD" name="LEPPARD" id="LEPPARD">
     </div>
 
@@ -57,7 +53,6 @@ session_start();
         <h2>One Direction</h2>
         <h3>Made In The A.M.</h3>
         <span>$28.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="ONED" name="ONED" id="ONED">
     </div>
 
@@ -66,7 +61,6 @@ session_start();
         <h2>Bob Marley</h2>
         <h3>Legend</h3>
         <span>$29.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="MARLEY" name="MARLEY" id="MARLEY">
     </div>
 
@@ -75,7 +69,6 @@ session_start();
         <h2>Frank Sinatra</h2>
         <h3>Ultimate Sinatra [2 LP]</h3>
         <span>$36.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="SINATRA" name="SINATRA" id="SINATRA">
     </div>
 
@@ -84,22 +77,61 @@ session_start();
         <h2>Johnny Cash</h2>
         <h3>The Essential Johnny Cash</h3>
         <span>$22.00</span>
-        <label>Add To Cart</label>
         <input type="checkbox" value="CASH" name="CASH" id="CASH">
     </div>
-    <input type="submit" value="Proceed to Checkout">
+    <input type="submit" value="ADD SELECTED ITEMS TO CART">
     </form>
 
 
     <?php
+
+    $cart_items = array();
+
+
       if (isset($_POST["BEATLES"]))
       {
-        $_SESSION["ITEM1"] = "BEATLES";
+          $cart_item = "BEATLES";
+          array_push($cart_items, $cart_item);
       }
-      
-      if (isset($_SESSION["ITEM1"]))
+
+      if (isset($_POST["ADELE"]))
       {
-      	echo $_SESSION["ITEM1"];
+        $cart_item = "ADELE";
+          array_push($cart_items, $cart_item);
+      }
+
+      if (isset($_POST["MJ"]))
+      {
+        $cart_item = "MJ";
+          array_push($cart_items, $cart_item);
+      }
+
+      if (isset($_POST["LEPPARD"]))
+      {
+        $cart_item = "LEPPARD";
+          array_push($cart_items, $cart_item);
+      }
+
+      if (isset($_POST["ONED"]))
+      {
+        $cart_item = "ONED";
+          array_push($cart_items, $cart_item);
+      }
+
+      if (isset($_POST["MARLEY"]))
+      {
+        $cart_item = "MARLEY";
+          array_push($cart_items, $cart_item);
+      }
+
+
+      
+
+      $_SESSION['cart_items'] = $cart_items;
+
+      if (isset ($_SESSION['cart_items']))
+      {
+          echo $_SESSION['cart_items'];
       }
 ?>
 
