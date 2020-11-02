@@ -160,12 +160,14 @@ session_start();
         echo $vinyl5;
         echo $vinyl6;
 
+        foreach ($cart_items as $value) {
+            echo $value;
+        }
+
     }
 
 
-    foreach ($cart_items as $value) {
-        echo $value;
-    }
+    
     
     
 
