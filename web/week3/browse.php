@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,6 +89,19 @@
     </div>
     <input type="submit" value="Proceed to Checkout">
     </form>
+
+
+    <?php
+      if (isset($_POST["BEATLES"]))
+      {
+        $_SESSION["ITEM1"] = "BEATLES";
+      }
+      
+      if (isset($_SESSION["ITEM1"]))
+      {
+      	echo $_SESSION["ITEM1"];
+      }
+?>
 
 </body>
 </html>
