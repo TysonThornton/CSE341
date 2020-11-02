@@ -10,6 +10,9 @@
     <p>Below are all the vinyl records currently in your cart</p>
 
     <?php
+
+    echo $_SESSION['cart_items'];
+    
       if (isset ($_SESSION['cart_items']))
       {
           
