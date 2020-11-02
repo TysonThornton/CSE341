@@ -26,7 +26,7 @@
         <div id="content-container">
             <h2>Below are links to my assignments:</h2>
             <ul id="assignments">
-                <li><a href="#">Coming Soon</a></li>
+                <li><a href="../week3/browse.php">Shopping Cart</a></li>
                 <li><a href="#">Coming Soon</a></li>
                 <li><a href="#">Coming Soon</a></li>
                 <li><a href="#">Coming Soon</a></li>

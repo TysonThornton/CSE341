@@ -29,15 +29,16 @@ if (isset ($_SESSION['cart_items']))
         $vinyl6 = $cart_items[5]; 
 
         
-        echo $vinyl1;
-        echo $vinyl2;
-        echo $vinyl3;
-        echo $vinyl4;
-        echo $vinyl5;
-        echo $vinyl6;
+        // echo $vinyl1;
+        // echo $vinyl2;
+        // echo $vinyl3;
+        // echo $vinyl4;
+        // echo $vinyl5;
+        // echo $vinyl6;
 
 
     }
+
 
     
 
