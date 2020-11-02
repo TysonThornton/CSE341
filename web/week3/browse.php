@@ -93,7 +93,7 @@ session_start();
 
       if (isset($_POST["BEATLES"]))
       {
-          $cart_item = "BEATLES";
+          $cart_item = array("name" => "BEATLES", "album" => "Abbey Road", "image" => "/images/Beatles.jpg", "price" => "30");
           array_push($cart_items, $cart_item);
       }
 
@@ -161,6 +161,13 @@ session_start();
         echo $vinyl6;
 
     }
+
+
+    foreach ($cart_items as $value) {
+        echo $value;
+    }
+    
+    
 
 ?>
 
