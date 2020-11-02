@@ -13,6 +13,7 @@ session_start();
 <body>
     <h1>Browse Items</h1>
     <p>Below are vinyl records available for purchase</p>
+    <p>Please select to add to cart</p>
 
 
     <div class="product">
