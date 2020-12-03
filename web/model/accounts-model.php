@@ -5,16 +5,16 @@
 function getUser($userEmail)
 {
     $db = dbConnect();
-    $sql = 'SELECT username, useremail, userpassword FROM public.user WHERE useremail = $1';
-    $userData = pg_prepare($db, 'query', 'SELECT username, useremail, userpassword FROM public.user WHERE useremail = $1');
-    $userData = pg_execute($db, 'query', array($userEmail));
-    echo $userData;
+    $sql = 'SELECT username, useremail, userpassword FROM public.user WHERE useremail = :email';
+    // $userData = pg_prepare($db, 'query', $sql);
+    // $userData = pg_execute($db, 'query', array($userEmail));
+    
 
     
-    // $stmt = $db->prepare($sql);
-    // $stmt->bindValue(':email', $userEmail, PDO::PARAM_STR);
-    // $stmt->execute();
-    // $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-    // $stmt->closeCursor();
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':email', $userEmail, PDO::PARAM_STR);
+    $stmt->execute();
+    $userData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
     return $userData;
 }
