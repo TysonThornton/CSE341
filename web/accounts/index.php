@@ -46,6 +46,7 @@ switch ($action) {
         
         // Query the client data based on the email address
         $userData = getUser($userEmail);
+        echo $userData;
   
   
         // A valid user exists, log them in
@@ -56,7 +57,6 @@ switch ($action) {
         array_pop($userData);
         // Store the array into the session
         $_SESSION['userData'] = $userData;
-        echo $_SESSION['userData']['username'];
 
         $message = '<p class="notice">YOU ARE LOGGED IN.</p>';
   
