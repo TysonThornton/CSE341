@@ -125,7 +125,7 @@ switch ($action) {
             session_destroy();
       
             // include 'C:\xampp\htdocs\acme\index.php';
-            header('location: /web/');
+            header('location: ../index.php');
             exit;
 
     default:

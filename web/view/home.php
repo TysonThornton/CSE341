@@ -68,10 +68,8 @@
 
             $un = $_SESSION['userData']['username'];
         }
-
-        echo "<a href='/acme/reviews/'><p>Welcome $un</p></a><p>|</p>"; 
-
-        echo "<a id='logoutHeader' href='../accounts/index.php?action=Logout'>Logout</a>";
+ 
+        echo "<a id='logout' href='../accounts/index.php?action=Logout'>Logout</a>";
      };
 ?>
 
