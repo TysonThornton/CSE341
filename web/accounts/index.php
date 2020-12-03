@@ -62,7 +62,7 @@ switch ($action) {
         $message = '<p class="notice">YOU ARE LOGGED IN.</p>';
   
         // Send them to the admin view
-        header('location: ../index.php');
+        header('location: ../view/home.php');
         
         exit;
 
