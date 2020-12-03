@@ -28,7 +28,7 @@ switch ($action) {
         $userEmail = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_EMAIL);
         $userPassword = filter_input(INPUT_POST, 'userPassword', FILTER_SANITIZE_STRING);
   
-  
+        echo $userEmail;
   
         // Recreate the $clientEmail variable and assign it to the value returned from checkEmail() in the functions.php library
         $userEmail = checkEmail($userEmail);
@@ -44,7 +44,7 @@ switch ($action) {
            exit;
         }
         // A valid password exists, proceed with the login process
-        echo 'Logging in';
+        
         // Query the client data based on the email address
         $userData = getUser($userEmail);
         echo $userData;
