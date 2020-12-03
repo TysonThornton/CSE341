@@ -128,6 +128,100 @@ switch ($action) {
             header('location: ../index.php');
             exit;
 
+
+        case 'Profile':
+            include '../view/profile.php';
+            exit;
+
+
+        case 'updateAccountInfo':
+            // This will insert updated client info into db
+            // Filter and store the data
+            $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
+            $userEmail = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_EMAIL);
+            $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
+        
+            $sessionEmail = $_SESSION['userData']['useremail'];
+            if ($userEmail != $sessionEmail) {
+                // Recreate the $clientEmail variable and assign it to the value returned from checkEmail() in the functions.php library
+                $userEmail = checkEmail($userEmail);
+        
+                // Check if email address used already exists in the database.
+                $existingEmail = checkExistingEmail($userEmail);
+                if ($existingEmail) {
+                    $message = '<p class="notice">That email address already exists. Please choose a different one or log into that account.</p>';
+                    include '../view/profile.php';
+                    exit;
+                }
+            }
+        
+            // Check for missing data
+            if (empty($userName) ||  empty($userEmail)) {
+                $message = '<p>Please provide information for all empty fields.</p>';
+                include '../view/profile.php';
+                exit;
+            }
+        
+            // Send the data to the accounts-model
+            $updateResult = updateAccount($userName, $userEmail, $userId);
+        
+            // Check and report the result. There should be a result of 1 record added so build an if statement for that
+            if ($updateResult === 1) {
+                $message = "<p>Thanks for updating the account for $userName. Changes were saved successfully.</p>";
+                $_SESSION['message'] = $message;
+                // send the value in $clientId to a function that gets the info
+                $accountInfo = getAccountInfo($userId);
+                $_SESSION['userData'] = $accountInfo;
+                header('location: ../view/profile.php');
+                exit;
+            } else {
+                $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
+                $_SESSION['message'] = $message;
+                // send the value in $clientId to a function that gets the info
+                $accountInfo = getAccountInfo($userId);
+                $_SESSION['userData'] = $accountInfo;
+                header('location: ../view/profile.php');
+                exit;
+            }
+            break;
+
+            case 'updatePassword':
+
+                $userPassword = filter_input(INPUT_POST, 'userPassword', FILTER_SANITIZE_STRING);
+                $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
+                $userName = $_SESSION['userData']['username'];
+
+                // Make sure password checks out
+                $checkPassword = checkPassword($userPassword);
+          
+                // Check for missing data
+                if (empty($checkPassword)) {
+                   $message = '<p><b><i>Please provide a valid password.</i></b></p>';
+                   $_SESSION['message'] = $message; 
+                   header('location: ../view/profile.php');
+                   exit;
+                }
+          
+                // Send the data to the accounts-model in the model folder through regClient() function
+                $pwUpdateOutcome = updatePassword($checkPassword, $userId);
+          
+                // Check and report the result. There should be a result of 1 record added so build an if statement for that
+                if ($pwUpdateOutcome === 1) {
+                   $message = "<p>You have successfully updated your password.</p>";
+                   $_SESSION['message'] = $message;
+                   header('location: ../view/profile.php');
+                   exit;
+                } else {
+                   $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
+                   $_SESSION['message'] = $message;
+                   header('location: ../view/profile.php');
+                   exit;
+                }
+                
+                break;
+
+            
+
     default:
         include '../index.php';
 
