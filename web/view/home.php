@@ -34,7 +34,7 @@
 
         <div>
             <h2>Login</h2>
-            <form action="/accounts/index.php" method="post" class='loginform'>
+            <form action="../accounts/index.php" method="post" class='loginform'>
                 <label>Email Address</label><br>
                 <input type='email' name="userEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($_SESSION['userData']['userEmail'])) {
                                                                                                                     $sessionEmail = $_SESSION['userData']['userEmail'];
