@@ -28,7 +28,7 @@ switch ($action) {
         $userEmail = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_EMAIL);
         $userPassword = filter_input(INPUT_POST, 'userPassword', FILTER_SANITIZE_STRING);
   
-        echo $userEmail;
+        echo 'TESTING';
   
         // Recreate the $clientEmail variable and assign it to the value returned from checkEmail() in the functions.php library
         $userEmail = checkEmail($userEmail);
