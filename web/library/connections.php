@@ -17,7 +17,7 @@ function dbConnect() {
         
         $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-        echo 'db connect worked successfully <br>';
+        // echo 'db connect worked successfully <br>';
         return $db;
     } catch (PDOException $exc) {
         header('location: /view/500.php');
