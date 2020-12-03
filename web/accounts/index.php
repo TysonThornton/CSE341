@@ -48,18 +48,6 @@ switch ($action) {
         // Query the client data based on the email address
         $userData = getUser($userEmail);
         echo $userData;
-        // Compare the password just submitted against
-        // the hashed password for the matching client
-        $hashCheck = password_verify($userPassword, $userData['userPassword']);
-        // If the hashes don't match create an error
-        // and return to the login view
-        if (!$hashCheck) {
-           $message = '<p class="notice">Please check your password and try again.</p>';
-           include '../view/home.php';
-           exit;
-        }
-  
-  
   
   
         // A valid user exists, log them in
