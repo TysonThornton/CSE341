@@ -47,7 +47,7 @@ switch ($action) {
 
         // Query the client data based on the email address
         $userData = getUser($userEmail);
-        echo $userData['username'];
+        echo $userData;
         // Compare the password just submitted against
         // the hashed password for the matching client
         $hashCheck = password_verify($userPassword, $userData['userPassword']);
