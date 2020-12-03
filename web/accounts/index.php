@@ -114,6 +114,20 @@ switch ($action) {
     
         break;
 
+
+        case 'Logout':
+            // Clear the session data
+            $_SESSION['userData'] = [];
+      
+            // If the user logs out, then the session is destroyed.
+            // Commenting out session_unset() because per php.net "Only use session_unset() for older deprecated code that does not use $_SESSION."
+            // session_unset();
+            session_destroy();
+      
+            // include 'C:\xampp\htdocs\acme\index.php';
+            header('location: /web/');
+            exit;
+
     default:
         include '../index.php';
 

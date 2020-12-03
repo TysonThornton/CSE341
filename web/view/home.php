@@ -32,27 +32,48 @@
         }
         ?>
 
-        <div>
+<?php
+    if (!isset($_SESSION['loggedin'])) {
+
+        if (isset($_SESSION['userData']['userEmail'])) {
+
+            $sessionEmail = $_SESSION['userData']['userEmail'];
+        }
+
+        echo
+        "<div>
+            
             <h2>Login</h2>
-            <form action="/accounts/index.php" method="post" class='loginform'>
+            <form action='/accounts/index.php' method='post' class='loginform'>
                 <label>Email Address</label><br>
-                <input type='email' name="userEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($_SESSION['userData']['userEmail'])) {
-                                                                                                                    $sessionEmail = $_SESSION['userData']['userEmail'];
-                                                                                                                    echo "value='$sessionEmail'";
-                                                                                                                }  ?>><br><br>
+                <input type='email' name='userEmail' placeholder='example@gmail.com' class='input' required"
+                .$sessionEmail.
+                "><br><br>
                 <label>Password</label><br>
                 <span id='loginInstructions'>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
-                <input type='password' name="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                <input type='password' name='userPassword' class='input' required pattern='(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$'>
                 <br><br>
                 <input type='submit' value='Login' class='inputButton'><br><br>
 
                 <!--Add the action key - value pair -->
-                <input type="hidden" name="action" value="Login">
+                <input type='hidden' name='action' value='Login'>
             </form>
         </div>
         <div>
-            <a href="/accounts/index.php?action=registration">Create an Account</a>
-        </div>
+            <a href='/accounts/index.php?action=registration'>Create an Account</a>
+        </div>";
+    } elseif (isset($_SESSION['loggedin'])) {
+
+        if (!isset($_SESSION['username'])) {
+
+            $un = $_SESSION['userData']['username'];
+        }
+
+        echo "<a href='/acme/reviews/'><p>Welcome $un</p></a><p>|</p>"; 
+
+        echo "<a id='logoutHeader' href='../accounts/index.php?action=Logout'>Logout</a>";
+     };
+?>
 
     </main>
     <footer>
