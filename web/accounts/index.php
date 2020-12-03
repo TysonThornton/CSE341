@@ -56,15 +56,63 @@ switch ($action) {
         array_pop($userData);
         // Store the array into the session
         $_SESSION['userData'] = $userData;
+        // echo $_SESSION['userData']['username'];
 
-        echo $_SESSION['userData']['username'];
-
-        $message = '<p class="notice">YOU ARE LOGGED IN.</p>';
+        $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ', you are logged in.</p>';
   
         // Send them to the admin view
         include '../view/home.php';
         
         exit;
+
+    case 'registration':
+        include '../view/registration.php';
+        break;
+
+
+    case 'register':
+        // Filter and store the data
+        $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
+        $userEmail = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_EMAIL);
+        $userPassword = filter_input(INPUT_POST, 'userPassword', FILTER_SANITIZE_STRING);
+    
+        // Check that email is valid format
+        $userEmail = checkEmail($userEmail);
+    
+        // Store the value returned from checkPassword() in functions.php library to a new variable $checkPassword
+        // The checkPassword() function returns a 1 if password matches format or a 0 if it doesnt.
+        $checkPassword = checkPassword($userPassword);
+    
+        // Check if email address used already exists in the database. Function is in the account-model.php which returns a 1 or 0
+        $existingEmail = checkExistingEmail($userEmail);
+        if ($existingEmail) {
+            $message = '<p class="notice">That email address already exists. Please login or choose a different email address to create a new account</p>';
+            include '../view/registration.php';
+            exit;
+        }
+    
+        // Check for missing data 
+        if (empty($userName) || empty($userEmail) || empty($checkPassword)) {
+            $message = '<p><b><i>Please provide information for all empty form fields.</i></b></p>';
+            include '../view/registration.php';
+            exit;
+        }
+    
+        // Send the data to the accounts-model
+        $regOutcome = regClient($userName, $userEmail, $checkPassword);
+    
+        // Check and report the result.
+        if ($regOutcome === 1) {
+            $message = "<p>Thanks for registering $userName. Please use your email and password to login.</p>";
+            include '../view/login.php';
+            exit;
+        } else {
+            $message = "<p>Sorry $userName, but the registration failed. Please try again.</p>";
+            include '../view/registration.php';
+            exit;
+        }
+    
+        break;
 
     default:
         include '../index.php';

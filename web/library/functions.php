@@ -2,17 +2,17 @@
 // This is a library of custom functions to perform a variety of tasks
 
 // This function is used in Accounts Controller
-function checkEmail($clientEmail)
+function checkEmail($userEmail)
 {
 
-    $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
+    $valEmail = filter_var($userEmail, FILTER_VALIDATE_EMAIL);
     return $valEmail;
 }
 
 // This function is used in Accounts Controller
-function checkPassword($clientPassword)
+function checkPassword($userPassword)
 {
 
     $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]])(?=.*[A-Z])(?=.*[a-z])([^\s]){8,}$/';
-    return preg_match($pattern, $clientPassword);
+    return preg_match($pattern, $userPassword);
 }
