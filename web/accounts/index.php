@@ -44,7 +44,7 @@ switch ($action) {
            exit;
         }
         // A valid password exists, proceed with the login process
-
+        echo 'Logging in';
         // Query the client data based on the email address
         $userData = getUser($userEmail);
         echo $userData;
