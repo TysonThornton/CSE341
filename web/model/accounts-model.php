@@ -5,7 +5,7 @@
 function getUser($userEmail)
 {
     $db = dbConnect();
-    $sql = 'SELECT username, useremail, userpassword, FROM public.user WHERE useremail = $1';
+    $sql = 'SELECT username, useremail, userpassword FROM public.user WHERE useremail = $1';
     $userData = pg_prepare($db, 'query', $sql);
     $userData = pg_execute($db, 'query', array($userEmail));
     echo $userData;
