@@ -5,7 +5,9 @@
 function getUser($userEmail)
 {
     $db = dbConnect();
-    $sql = 'SELECT username, useremail, userpassword, FROM public.user WHERE useremail = :email';
+    $sql = "SELECT username, useremail, userpassword, FROM public.user WHERE useremail = '$userEmail'";
+
+    
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':email', $userEmail, PDO::PARAM_STR);
     $stmt->execute();
