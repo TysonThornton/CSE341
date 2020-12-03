@@ -27,6 +27,7 @@
         </div>
 
         <div>
+            <h2>Login</h2>
             <form action="/accounts/index.php" method="post" class='loginform'>
                 <label>Email Address</label><br>
                 <input type='email' name="clientEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($_SESSION['userData']['userEmail'])) {
@@ -44,7 +45,6 @@
             </form>
         </div>
         <div>
-            <h2>Not a member?</h2>
             <a href="/accounts/index.php?action=registration">Create an Account</a>
         </div>
 
