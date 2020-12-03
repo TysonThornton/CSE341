@@ -26,17 +26,23 @@
             <p>Welcome to Vinyl Record Playlist</p>
         </div>
 
+        <?php
+        if (isset($message)) {
+            echo $message; 
+        }
+        ?>
+
         <div>
             <h2>Login</h2>
             <form action="/accounts/index.php" method="post" class='loginform'>
                 <label>Email Address</label><br>
-                <input type='email' name="clientEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($_SESSION['userData']['userEmail'])) {
+                <input type='email' name="userEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($_SESSION['userData']['userEmail'])) {
                                                                                                                     $sessionEmail = $_SESSION['userData']['userEmail'];
                                                                                                                     echo "value='$sessionEmail'";
                                                                                                                 }  ?>><br><br>
                 <label>Password</label><br>
                 <span id='loginInstructions'>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
-                <input type='password' name="clientPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                <input type='password' name="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                 <br><br>
                 <input type='submit' value='Login' class='inputButton'><br><br>
 
