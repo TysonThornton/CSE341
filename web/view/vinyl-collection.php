@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['loggedin'])) {
-    header("Location: ../accounts/index.php?action=Login");
+    header("Location: ../accounts/index.php?action=login");
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 
-        
+
 
         <!-- This will display a message if there is a message, display a heading and directions and the category list if there is one -->
         <?php
