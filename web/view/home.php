@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/header.php'; ?> </header>
-    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/nav.php'; ?></nav>
+    <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
+    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
 
     <main>
@@ -69,7 +69,7 @@
         ?>
 
     </main>
-    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/footer.php'; ?></footer>
+    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
 </body>
 
 </html>
