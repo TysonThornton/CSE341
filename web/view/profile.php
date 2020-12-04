@@ -44,13 +44,13 @@ if (!isset($_SESSION['loggedin'])) {
             <p>Use this form to update your name or email information.</p>
             <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
-                <label for="userName">Username</label><br>
-                <input type='text' name="userName" id="userName" class='input' required <?php
+                <label for="updatedUserName">Username</label><br>
+                <input type='text' name="updatedUserName" id="updatedUserName" class='input' required <?php
                                                                                                         $sessionUserName = $_SESSION['userData']['username'];
                                                                                                         echo "value='$sessionUserName'";
                                                                                                         ?>><br>
-                <label for="userEmail">Email Address</label><br>
-                <input type='email' name="userEmail" id="userEmail" placeholder="example@gmail.com" class='input' required <?php
+                <label for="updatedUserEmail">Email Address</label><br>
+                <input type='email' name="updatedUserEmail" id="updatedUserEmail" placeholder="example@gmail.com" class='input' required <?php
                                                                                                                                 $sessionEmail = $_SESSION['userData']['userEmail'];
                                                                                                                                 echo "value='$sessionEmail'";
                                                                                                                                 ?>><br>
