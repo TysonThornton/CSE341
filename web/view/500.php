@@ -8,12 +8,12 @@
 </head>
 
 <body>
-    <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/header.php'; ?> </header>
-    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/nav.php'; ?></nav>
+    <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
+    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
     <p>Something went wrong. 500 Error Page</p>
 
-    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/footer.php'; ?></footer>
+    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
 
 </body>
 
