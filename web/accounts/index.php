@@ -55,7 +55,7 @@ switch ($action) {
         $enteredPassword = $userData['userpassword'];
       $pwCheck = passwordMatch($userPassword, $enteredPassword);
       if (!$pwCheck) {
-        $message = '<p class="notice">Please check your password and try again.</p>';
+        $message = '<p class="notice">Please check your credentials and try again.</p>';
         include '../view/login.php';
         exit;
      }
@@ -226,7 +226,7 @@ switch ($action) {
                 if ($pwUpdateOutcome === 1) {
                    $message = "<p>You have successfully updated your password.</p>";
                    $_SESSION['message'] = $message;
-                   header('location: ../view/profile.php');
+                   include '../view/profile.php';
                    exit;
                 } else {
                    $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
