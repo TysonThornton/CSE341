@@ -11,15 +11,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>Vinyl Record Playlist</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Vinyl Collection</a>
-        <a href="#">Wishlist</a>
-        <a href="#">Favorites</a>
-    </nav>
+    <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
+    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
+
 
     <main>
         <div>
@@ -50,11 +44,12 @@
         </div>
 
     </main>
-    <footer>
-        <p>
-            &copy;2020 Vinyl Record Playlist
-        </p>
-    </footer>
+    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
+
 </body>
 
 </html>
+<?php
+// Unset the stored message
+unset($_SESSION['message']);
+?>

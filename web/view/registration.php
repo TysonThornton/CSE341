@@ -54,3 +54,7 @@
 </body>
 
 </html>
+<?php
+// Unset the stored message
+unset($_SESSION['message']);
+?>

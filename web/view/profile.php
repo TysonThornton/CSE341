@@ -16,15 +16,9 @@ if (!isset($_SESSION['loggedin'])) {
 </head>
 
 <body>
-    <header>
-        <h1>Vinyl Record Playlist</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Vinyl Collection</a>
-        <a href="#">Wishlist</a>
-        <a href="#">Favorites</a>
-    </nav>
+<header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
+    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
+
 
     <main>
         <h1><?php echo $_SESSION['userData']['username']; ?></h1>
@@ -89,26 +83,9 @@ if (!isset($_SESSION['loggedin'])) {
             <a href="../vinyl/index.php"><h3>Access your vinyl collection</h3></a>
         </div>
 
-
-        <?php
-        $clientLevel = $_SESSION['clientData']['clientLevel'];
-        if ($clientLevel > '1') {
-            $authorizedHeading = '<h2>Administrative Functions</h2>';
-            $authorizedInstructions = '<p>Use the link below to manage products</p>';
-            $authorizedLevel = '<p><a href="/acme/products/index.php?action=products" id="adminFunctionLink">Click here</a> to go to the Prodcuts Management page</p>';
-
-            echo $authorizedHeading;
-            echo $authorizedInstructions;
-            echo $authorizedLevel;
-        }
-        ?>
-
     </main>
-    <footer>
-        <p>
-            &copy;2020 Vinyl Record Playlist
-        </p>
-    </footer>
+    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
+
 </body>
 
 </html>
