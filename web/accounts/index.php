@@ -153,6 +153,10 @@ switch ($action) {
             $userEmail = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_EMAIL);
             $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
         
+            echo $userName;
+            echo $userEmail;
+            echo $userId;
+            
             $sessionEmail = $_SESSION['userData']['useremail'];
             if ($userEmail != $sessionEmail) {
                 // Recreate the $clientEmail variable and assign it to the value returned from checkEmail() in the functions.php library
