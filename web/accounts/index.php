@@ -184,7 +184,7 @@ switch ($action) {
                 // send the value in $clientId to a function that gets the info
                 $accountInfo = getAccountInfo($userId);
                 $_SESSION['userData'] = $accountInfo;
-                header('location: ../view/profile.php');
+                include '../view/profile.php';
                 exit;
             } else {
                 $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
@@ -192,7 +192,7 @@ switch ($action) {
                 // send the value in $clientId to a function that gets the info
                 $accountInfo = getAccountInfo($userId);
                 $_SESSION['userData'] = $accountInfo;
-                header('location: ../view/profile.php');
+                include '../view/profile.php';
                 exit;
             }
             break;
