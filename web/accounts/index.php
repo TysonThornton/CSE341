@@ -46,7 +46,13 @@ switch ($action) {
         
         // Query the client data based on the email address
         $userData = getUser($userEmail);
-  
+        // Compare the password just submitted against db
+      $pwCheck = password_verify($checkPassword, $userData['userpassword']);
+      if (!$pwCheck) {
+        $message = '<p class="notice">Please check your password and try again.</p>';
+        include '../view/login.php';
+        exit;
+     }
   
         // A valid user exists, log them in
         $_SESSION['loggedin'] = TRUE;
@@ -58,7 +64,7 @@ switch ($action) {
         $_SESSION['userData'] = $userData;
         // echo $_SESSION['userData']['username'];
 
-        $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ', you are logged in.</p>';
+        $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ' is logged in.</p>';
   
         // Send them to the admin view
         include '../view/home.php';
@@ -217,7 +223,7 @@ switch ($action) {
                    header('location: ../view/profile.php');
                    exit;
                 }
-                
+
                 break;
 
             

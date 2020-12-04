@@ -40,7 +40,7 @@ if (!isset($_SESSION['loggedin'])) {
         </ul>
 
         <div class="formHeader">
-            <h1>Update Account Info</h1>
+            <h2>Update Account Info</h2>
             <p>Use this form to update your name or email information.</p>
             <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['loggedin'])) {
             </form>
         </div>
         <div class="formHeader">
-            <h3>Change Password</h3>
+            <h2>Change Password</h2>
             <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
                 <label for="userPassword">New Password</label><br>
@@ -85,13 +85,8 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
 
 
-        <div id="adminProductReviews">
-            <h2>Manage Your Product Reviews</h2>
-            <?php if (isset($existingReviewsByUserDisplay)) {
-                echo $existingReviewsByUserDisplay;
-            }
-            ?>
-
+        <div>
+            <a href="../vinyl/index.php"><h3>Access your vinyl collection</h3></a>
         </div>
 
 
