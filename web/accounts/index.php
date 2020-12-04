@@ -69,9 +69,6 @@ switch ($action) {
         // Store the array into the session
         $_SESSION['userData'] = $userData;
 
-        echo $_SESSION['userData']['userid'];
-        echo $_SESSION['userData']['username'];
-
         // echo $_SESSION['userData']['username'];
 
         $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ' is logged in.</p>';
@@ -207,7 +204,7 @@ switch ($action) {
 
             case 'updatePassword':
 
-                $userPassword = filter_input(INPUT_POST, 'userPassword', FILTER_SANITIZE_STRING);
+                $userPassword = filter_input(INPUT_POST, 'updatedUserPassword', FILTER_SANITIZE_STRING);
                 $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
                 $userName = $_SESSION['userData']['username'];
 
@@ -218,7 +215,7 @@ switch ($action) {
                 if (empty($checkPassword)) {
                    $message = '<p><b><i>Please provide a valid password.</i></b></p>';
                    $_SESSION['message'] = $message; 
-                   header('location: ../view/profile.php');
+                   include '../view/profile.php';
                    exit;
                 }
           
@@ -234,7 +231,7 @@ switch ($action) {
                 } else {
                    $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
                    $_SESSION['message'] = $message;
-                   header('location: ../view/profile.php');
+                   include '../view/profile.php';
                    exit;
                 }
 

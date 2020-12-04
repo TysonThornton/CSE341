@@ -68,9 +68,9 @@ if (!isset($_SESSION['loggedin'])) {
             <h2>Change Password</h2>
             <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
-                <label for="userPassword">New Password</label><br>
+                <label for="updatedUserPassword">New Password</label><br>
                 <span id="registrationInstructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
-                <input type='password' name="userPassword" id="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
+                <input type='password' name="updatedUserPassword" id="updatedUserPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
                 <br>
 
                 <input type='submit' name='submit' value='Change Password' class='inputButton'>
