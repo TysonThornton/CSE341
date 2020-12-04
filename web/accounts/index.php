@@ -68,6 +68,10 @@ switch ($action) {
         array_pop($userData);
         // Store the array into the session
         $_SESSION['userData'] = $userData;
+
+        echo $_SESSION['userData']['userid'];
+        echo $_SESSION['userData']['username'];
+
         // echo $_SESSION['userData']['username'];
 
         $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ' is logged in.</p>';
