@@ -11,15 +11,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>Vinyl Record Playlist</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Vinyl Collection</a>
-        <a href="#">Wishlist</a>
-        <a href="#">Favorites</a>
-    </nav>
+    <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/header.php'; ?> </header>
+    <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/nav.php'; ?></nav>
+
 
     <main>
         <div>
@@ -28,27 +22,27 @@
 
         <?php
         if (isset($message)) {
-            echo $message; 
+            echo $message;
         }
         ?>
 
-<?php
-    if (!isset($_SESSION['loggedin'])) {
+        <?php
+        if (!isset($_SESSION['loggedin'])) {
 
-        if (isset($_SESSION['userData']['userEmail'])) {
+            if (isset($_SESSION['userData']['userEmail'])) {
 
-            $sessionEmail = $_SESSION['userData']['userEmail'];
-        }
+                $sessionEmail = $_SESSION['userData']['userEmail'];
+            }
 
-        echo
-        "<div>
+            echo
+                "<div>
             
             <h2>Login</h2>
             <form action='/accounts/index.php' method='post' class='loginform'>
                 <label>Email Address</label><br>
                 <input type='email' name='userEmail' placeholder='example@gmail.com' class='input' required"
-                .$sessionEmail.
-                "><br><br>
+                    . $sessionEmail .
+                    "><br><br>
                 <label>Password</label><br>
                 <span id='loginInstructions'>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
                 <input type='password' name='userPassword' class='input' required pattern='(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$'>
@@ -62,24 +56,20 @@
         <div>
             <a href='/accounts/index.php?action=registration'>Create an Account</a>
         </div>";
-    } elseif (isset($_SESSION['loggedin'])) {
+        } elseif (isset($_SESSION['loggedin'])) {
 
-        if (!isset($_SESSION['username'])) {
+            if (!isset($_SESSION['username'])) {
 
-            $un = $_SESSION['userData']['username'];
-        }
- 
-        echo "<a id='profile' href='../accounts/index.php?action=Profile'>Account Profile</a><br>";
-        echo "<a id='logout' href='../accounts/index.php?action=Logout'>Logout</a>";
-     };
-?>
+                $un = $_SESSION['userData']['username'];
+            }
+
+            echo "<a id='profile' href='../accounts/index.php?action=Profile'>Account Profile</a><br>";
+            echo "<a id='logout' href='../accounts/index.php?action=Logout'>Logout</a>";
+        };
+        ?>
 
     </main>
-    <footer>
-        <p>
-            &copy;2020 Vinyl Record Playlist
-        </p>
-    </footer>
+    <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '../pageSections/footer.php'; ?></footer>
 </body>
 
 </html>
