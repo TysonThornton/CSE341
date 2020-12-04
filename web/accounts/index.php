@@ -23,6 +23,10 @@ if ($action == NULL) {
 // Switch statement for the received action
 switch ($action) {
 
+    case 'login':
+        include '../view/login.php';
+        break;
+
     case 'Login':
         // Filter and store the data
         $userEmail = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_EMAIL);
@@ -37,14 +41,14 @@ switch ($action) {
         $checkPassword = checkPassword($userPassword);
         if ($checkPassword === 0) {
             $message = '<p><b><i>Please provide a valid password that meets all requirements.</i></b></p>';
-           include '../view/home.php';
+           include '../view/login.php';
            exit;
         }
   
         // Check for missing data 
         if (empty($userEmail) || empty($userPassword)) {
            $message = '<p><b><i>Please provide information for all empty form fields.</i></b></p>';
-           include '../view/home.php';
+           include '../view/login.php';
            exit;
         }
         // A valid password exists, proceed with the login process
@@ -73,7 +77,7 @@ switch ($action) {
 
         $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ' is logged in.</p>';
   
-        // Send them to the admin view
+        // Send them to the home view
         include '../view/home.php';
         
         exit;
