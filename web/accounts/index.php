@@ -35,9 +35,14 @@ switch ($action) {
         // Store the value returned from checkPassword() in functions.php library to a new variable $checkPassword
         // The checkPassword() function returns a 1 if password matches format or a 0 if it doesnt.
         $checkPassword = checkPassword($userPassword);
+        if ($checkPassword === 0) {
+            $message = '<p><b><i>Please provide a valid password that meets all requirements.</i></b></p>';
+           include '../view/home.php';
+           exit;
+        }
   
-        // Check for missing data   ----  added later > $clientPassword was changed to $checkPassword for data validation
-        if (empty($userEmail) || empty($checkPassword)) {
+        // Check for missing data 
+        if (empty($userEmail) || empty($userPassword)) {
            $message = '<p><b><i>Please provide information for all empty form fields.</i></b></p>';
            include '../view/home.php';
            exit;
@@ -47,7 +52,7 @@ switch ($action) {
         // Query the client data based on the email address
         $userData = getUser($userEmail);
         // Compare the password just submitted against db
-      $pwCheck = password_verify($checkPassword, $userData['userpassword']);
+      $pwCheck = password_verify($userPassword, $userData['userpassword']);
       if (!$pwCheck) {
         $message = '<p class="notice">Please check your password and try again.</p>';
         include '../view/login.php';
@@ -98,14 +103,14 @@ switch ($action) {
         }
     
         // Check for missing data 
-        if (empty($userName) || empty($userEmail) || empty($checkPassword)) {
+        if (empty($userName) || empty($userEmail) || empty($userPassword)) {
             $message = '<p><b><i>Please provide information for all empty form fields.</i></b></p>';
             include '../view/registration.php';
             exit;
         }
     
         // Send the data to the accounts-model
-        $regOutcome = regClient($userName, $userEmail, $checkPassword);
+        $regOutcome = regClient($userName, $userEmail, $userPassword);
     
         // Check and report the result.
         if ($regOutcome === 1) {
