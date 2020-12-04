@@ -52,7 +52,8 @@ switch ($action) {
         // Query the client data based on the email address
         $userData = getUser($userEmail);
         // Compare the password just submitted against db
-      $pwCheck = password_verify($userPassword, $userData['userpassword']);
+        $enteredPassword = $userData['userpassword'];
+      $pwCheck = passwordMatch($userPassword, $enteredPassword);
       if (!$pwCheck) {
         $message = '<p class="notice">Please check your password and try again.</p>';
         include '../view/login.php';
