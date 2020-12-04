@@ -212,7 +212,7 @@ switch ($action) {
                 $checkPassword = checkPassword($userPassword);
           
                 // Check for missing data
-                if (empty($checkPassword)) {
+                if (empty($userPassword)) {
                    $message = '<p><b><i>Please provide a valid password.</i></b></p>';
                    $_SESSION['message'] = $message; 
                    include '../view/profile.php';
@@ -220,7 +220,7 @@ switch ($action) {
                 }
           
                 // Send the data to the accounts-model in the model folder through regClient() function
-                $pwUpdateOutcome = updatePassword($checkPassword, $userId);
+                $pwUpdateOutcome = updatePassword($userPassword, $userId);
           
                 // Check and report the result. There should be a result of 1 record added so build an if statement for that
                 if ($pwUpdateOutcome === 1) {
