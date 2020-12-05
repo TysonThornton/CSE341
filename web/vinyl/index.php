@@ -74,6 +74,14 @@ switch ($action) {
         $sessionUserId = $_SESSION['userData']['userid'];
         $vinylData = getVinylData($sessionUserId);
 
+        $vinylData = dataToPhp($vinylData);
+        function dataToPhp($vinylData) {
+
+            $postgresStr = trim($vinylData,"{}");
+            $elmts = explode(",",$postgresStr);
+            return $elmts;
+        }
+
         foreach($vinylData as $vinyl) {
             echo $vinyl;
         }
