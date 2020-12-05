@@ -74,7 +74,8 @@ switch ($action) {
         $sessionUserId = $_SESSION['userData']['userid'];
         $vinylData = getVinylData($sessionUserId);
 
-        print_r($vinylData);
+        $p = print_r($vinylData);
+        echo $p;
 
         // foreach($vinylData as $vinyl) {
         //     echo $vinyl[1]["vinylalbum"];
