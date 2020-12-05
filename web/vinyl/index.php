@@ -74,10 +74,12 @@ switch ($action) {
         $sessionUserId = $_SESSION['userData']['userid'];
         $vinylData = getVinylData($sessionUserId);
 
-        foreach($vinylData as $vinyl) {
-            echo $vinyl[1]["vinylalbum"];
+        print_r($vinylData);
+
+        // foreach($vinylData as $vinyl) {
+        //     echo $vinyl[1]["vinylalbum"];
             
-        }
+        // }
 
 
         // Use if else statement to see if info was actually returned or not.
