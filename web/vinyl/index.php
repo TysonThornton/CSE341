@@ -76,10 +76,6 @@ switch ($action) {
 
         $p = print_r($vinylData);
         echo $p;
-        while ($row = pg_fetch_row($vinylData)) {
-            echo "$row[0]  $row[1] $row[3]";
-          }
-        
 
 
         // foreach($vinylData as $vinyl) {
