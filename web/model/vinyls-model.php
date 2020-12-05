@@ -31,3 +31,18 @@ function insertProd($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinyl
     // Return the indication of success (rows changed)
     return $rowsChanged;
 }
+
+// Get vinyl collection info to display
+function getVinylData($userId) {
+
+    $db = dbConnect();
+    $sql = 'SELECT vinlyid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre FROM public.vinyl WHERE userid = :userId';
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':email', $userId, PDO::PARAM_STR);
+    $stmt->execute();
+    $vinylData = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Close the database interaction
+    $stmt->closeCursor();
+    return $vinylData;
+}
