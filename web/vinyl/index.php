@@ -55,7 +55,7 @@ switch ($action) {
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($vinylOutcome === 1) {
             $message = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
-            include '../view/vinyl-collection.php';
+            include '../vinyl/index.php';
             exit;
         } else {
             $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
