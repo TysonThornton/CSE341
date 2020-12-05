@@ -17,7 +17,10 @@ $vinylData = getVinylData($sessionUserId);
     <title>Vinyl Record Playlist | Vinyl Collection</title>
 </head>
 
-<body>
+<script> 
+let data = "<?php echo $vinylData ?>";
+</script>
+<body onload="buildVinylCollection(data)">
     <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
@@ -45,10 +48,7 @@ $vinylData = getVinylData($sessionUserId);
     </main>
     <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
     <script src="../js/vinyl.js">
-        let data = "<?php echo $vinylData ?>";
-        window.onload = function() {
-        buildVinylCollection(data);
-        };
+        
     </script>
 </body>
 
