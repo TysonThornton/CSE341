@@ -74,13 +74,17 @@ switch ($action) {
         $sessionUserId = $_SESSION['userData']['userid'];
         $vinylData = getVinylData($sessionUserId);
 
+        foreach($vinylData as $vinyl) {
+            echo $vinyl;
+        }
+
         // Use if else statement to see if info was actually returned or not.
         if (!count($vinylData)) {
             $message = "<p class='notice'>Sorry, no vinyl record information could be found for your account.</p>";
             include '../view/vinyl-collection.php';
             exit;
         } else {
-            $vinylDisplay = buildVinylDisplay($vinylData);
+            //$vinylDisplay = buildVinylDisplay($vinylData);
         }
 
         include '../view/vinyl-collection.php';
