@@ -4,7 +4,6 @@ if (!isset($_SESSION['loggedin'])) {
 }
 $sessionUserId = $_SESSION['userData']['userid'];
 $vinylData = getVinylData($sessionUserId);
-echo $vinylData;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +23,7 @@ echo $vinylData;
 
     <main>
         <h1>Vinyl Record Collection</h1>
-        
+
 
         <!-- This will display a message if there is a message, display a heading and directions and the category list if there is one -->
         <?php
@@ -46,9 +45,11 @@ echo $vinylData;
     </main>
     <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
     <script src="../js/vinyl.js">
-    var data = "<?php echo $vinylData ?>";
-    buildVinylCollection(data);
-</script>
+        var data = "<?php echo $vinylData ?>";
+        window.onload = function() {
+        buildVinylCollection(data);
+        };
+    </script>
 </body>
 
 </html>
