@@ -40,8 +40,11 @@ function getVinylData($userId) {
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':userId', $userId, PDO::PARAM_STR);
-    $stmt->execute();
-    $vinylData = $stmt->fetch(PDO::FETCH_ASSOC);
+    // $stmt->execute();
+    // $vinylData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $vinylData = pg_query($db, $stmt);
+
+
     // Close the database interaction
     $stmt->closeCursor();
     return $vinylData;
