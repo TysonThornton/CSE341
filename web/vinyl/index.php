@@ -77,10 +77,6 @@ switch ($action) {
         $p = print_r($vinylData);
         echo $p;
 
-        foreach ($vinylData as $vinyl) {
-            echo 'Albumn Name: ' . $vinyl['vinylalbum'];
-        }
-
 
         // foreach($vinylData as $vinyl) {
         //     echo $vinyl[1]["vinylalbum"];
