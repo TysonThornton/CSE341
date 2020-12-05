@@ -74,13 +74,11 @@ switch ($action) {
         $sessionUserId = $_SESSION['userData']['userid'];
         $vinylData = getVinylData($sessionUserId);
 
-        // foreach($vinylData as $vinyl) {
-        //     echo $vinyl;
+        foreach($vinylData as $vinyl) {
+            echo $vinyl[1]["vinylalbum"];
             
-        // }
-        while ($row = pg_fetch_assoc($vinylData)) {
-            echo $row['vinylalbum'] . " " . ['vinylgenre'];
         }
+
 
         // Use if else statement to see if info was actually returned or not.
         if (!count($vinylData)) {
