@@ -12,13 +12,13 @@ function buildVinylCollection(data) {
     // Set up the table body 
     dataTable += '<tbody>'; 
     // Iterate over the array and put each in a row 
-    data.forEach(function (element) { 
+    Array.from(data).forEach(function (element) { 
      // Create table cell with vinyl info 
      dataTable += `<tr><td>${element.vinylband}</td>`;
      dataTable += `<tr><td>${element.vinylalbum}</td>`;
      dataTable += `<tr><td>${element.vinylyear}</td>`;
      dataTable += `<tr><td>${element.vinylcondition}</td>`;
-     dataTable += `<tr><td>${element.vinygenre}</td>`;
+     dataTable += `<tr><td>${element.vinylgenre}</td>`;
     }) 
     dataTable += '</tbody>'; 
     // Display the contents in the Product Management view 
