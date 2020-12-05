@@ -26,6 +26,36 @@ switch ($action) {
         include '../view/new-vinyl.php';
         break;
 
+    case 'vinylCollection':
+
+        if (!isset($_SESSION['loggedin'])) {
+            header("Location: ../accounts/index.php?action=login");
+        }
+
+        $sessionUserId = $_SESSION['userData']['userid'];
+        $vinylData = getVinylData($sessionUserId);
+
+
+        // $p = print_r($vinylData);
+        // echo $p;
+        // foreach($vinylData as $vinyl) {
+        //     echo $vinyl[1]["vinylalbum"];
+
+        // }
+
+
+        // Use if else statement to see if info was actually returned or not.
+        if (!count($vinylData)) {
+            $message = "<p class='notice'>Sorry, no vinyl record information could be found for your account.</p>";
+            include '../view/vinyl-collection.php';
+            exit;
+        } else {
+            $vinylDisplay = buildVinylDisplay($vinylData);
+        }
+
+        include '../view/vinyl-collection.php';
+        break;
+
     case 'vinylInsert':
         // Filter and store the data
         $vinylBand = filter_input(INPUT_POST, 'vinylBand', FILTER_SANITIZE_STRING);
@@ -55,7 +85,7 @@ switch ($action) {
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($vinylOutcome === 1) {
             $message = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
-            include '../vinyl/index.php';
+            include '../vinyl/index.php?action=vinylCollection';
             exit;
         } else {
             $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
@@ -67,34 +97,5 @@ switch ($action) {
 
     default:
 
-        if (!isset($_SESSION['loggedin'])) {
-            header("Location: ../accounts/index.php?action=login");
-        }
-
-        $sessionUserId = $_SESSION['userData']['userid'];
-        $vinylData = getVinylData($sessionUserId);
-
-
-        // $p = print_r($vinylData);
-        // echo $p;
-        // foreach($vinylData as $vinyl) {
-        //     echo $vinyl[1]["vinylalbum"];
-
-        // }
-
-
-        // Use if else statement to see if info was actually returned or not.
-        if (!count($vinylData)) {
-            $message = "<p class='notice'>Sorry, no vinyl record information could be found for your account.</p>";
-            include '../view/vinyl-collection.php';
-            exit;
-        } else {
-            $vinylDisplay = buildVinylDisplay($vinylData);
-        }
-
-        include '../view/vinyl-collection.php';
-
-
-
-        break;
+        include '../index.php';
 }
