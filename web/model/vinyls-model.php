@@ -41,20 +41,9 @@ function getVinylData($userId) {
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':userId', $userId, PDO::PARAM_STR);
     $stmt->execute();
-    // $vinylData = $stmt->fetch(PDO::FETCH_ASSOC);
-    // // Close the database interaction
-    // $stmt->closeCursor();
-    // return $vinylData;
-
-
-    $result = mysqli_query($db, $stmt);
-    $vinylData = array();
-    if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-            $vinylData[] = $row;
-        }
-    }
-
-
+    $vinylData = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Close the database interaction
+    $stmt->closeCursor();
     return $vinylData;
+
 }
