@@ -84,7 +84,7 @@ switch ($action) {
             include '../view/vinyl-collection.php';
             exit;
         } else {
-            //$vinylDisplay = buildVinylDisplay($vinylData);
+            $vinylDisplay = buildVinylDisplay($vinylData);
         }
 
         include '../view/vinyl-collection.php';
