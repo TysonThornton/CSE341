@@ -157,10 +157,6 @@ switch ($action) {
             $userName = filter_input(INPUT_POST, 'updatedUserName', FILTER_SANITIZE_STRING);
             $userEmail = filter_input(INPUT_POST, 'updatedUserEmail', FILTER_SANITIZE_EMAIL);
             $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
-        
-            echo $userName;
-            echo $userEmail;
-            echo $userId;
 
             $sessionEmail = $_SESSION['userData']['useremail'];
             if ($userEmail != $sessionEmail) {

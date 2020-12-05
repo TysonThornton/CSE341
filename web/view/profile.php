@@ -45,7 +45,7 @@ if (!isset($_SESSION['loggedin'])) {
                                                                                                         ?>><br>
                 <label for="updatedUserEmail">Email Address</label><br>
                 <input type='email' name="updatedUserEmail" id="updatedUserEmail" placeholder="example@gmail.com" class='input' required <?php
-                                                                                                                                $sessionEmail = $_SESSION['userData']['userEmail'];
+                                                                                                                                $sessionEmail = $_SESSION['userData']['useremail'];
                                                                                                                                 echo "value='$sessionEmail'";
                                                                                                                                 ?>><br>
                 <input type='submit' name='submit' value='Update Account' class='inputButton'>
