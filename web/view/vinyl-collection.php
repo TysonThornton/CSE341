@@ -2,8 +2,7 @@
 if (!isset($_SESSION['loggedin'])) {
     header("Location: ../accounts/index.php?action=login");
 }
-$sessionUserId = $_SESSION['userData']['userid'];
-$vinylData = getVinylData($sessionUserId);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +16,12 @@ $vinylData = getVinylData($sessionUserId);
     <title>Vinyl Record Playlist | Vinyl Collection</title>
 </head>
 
-<script> 
-let data = "<?php echo $vinylData ?>";
+<!-- <script> 
+let data = "<?php //echo $vinylData ?>";
 </script>
-<body onload="buildVinylCollection(data)">
+<body onload="buildVinylCollection(data)"> 
+    -->
+    <body>
     <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
@@ -36,13 +37,10 @@ let data = "<?php echo $vinylData ?>";
         ?>
         <a href='../vinyl/index.php?action=addVinyl'>Add Vinyl Record to Collection</a><br>
 
-        <!-- This will display a message that JavaScript is required if user has JavaScript disabled on browser -->
-        <noscript>
-            <p><strong>JavaScript Must Be Enabled to Use this Page.</strong></p>
-        </noscript>
+        <?php if (isset($vinylDisplay)) {
+            echo $vinylDisplay;
+        } ?>
 
-        <!-- Create shell for data to be injected from JavaScript (DOM manipulation)-->
-        <table id="vinylDisplay"></table>
 
 
     </main>

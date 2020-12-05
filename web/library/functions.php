@@ -26,3 +26,20 @@ function passwordMatch($userPassword, $enteredPassword) {
     }
 
 }
+
+// Build dispaly of vinyl record collection
+function buildVinylDisplay($vinylData) 
+{
+        $vr = '<div id="vinyl-display">';
+        foreach ($vinylData as $vinyl) {
+            //$vr .= "<div id='vinyl-image'><img src='$vinyl[imagepath]' alt='Image of $vinyl[vinylalbum]'></div>";
+            $vr .= "<div id='vinyl-detail'><p>Band / Artist: $vinyl[vinylband]</p><br>";
+            $vr .= "<p>Album: $vinyl[vinylalbum]</p>";
+            $vr .= "<p>Release Year: $vinyl[vinylyear]</p>";
+            $vr .= "<p>Record Condition: $vinyl[vinylcondition]</p>";
+            $vr .= "<p>Genre: $vinyl[vinylgenre]</p><br>";
+        }
+        $vr .= '</div>';
+        return $vr;
+
+}

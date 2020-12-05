@@ -67,6 +67,25 @@ switch ($action) {
 
     default:
 
+        if (!isset($_SESSION['loggedin'])) {
+            header("Location: ../accounts/index.php?action=login");
+        }
+
+        $sessionUserId = $_SESSION['userData']['userid'];
+        $vinylData = getVinylData($sessionUserId);
+
+        // Use if else statement to see if info was actually returned or not.
+        if (!count($vinylData)) {
+            $message = "<p class='notice'>Sorry, no vinyl record information could be found for your account.</p>";
+            include '../view/vinyl-collection.php';
+            exit;
+        } else {
+            $vinylDisplay = buildVinylDisplay($vinylData);
+        }
+
         include '../view/vinyl-collection.php';
+
+
+
         break;
 }
