@@ -2,7 +2,7 @@
 
 function buildVinylCollection(data) {
  // Build vinyl collection into HTML table components and inject into DOM.
- console.log("Working on javascript function");
+ 
     // Grabs the element in HTML
     let vinylDisplay = document.getElementById("vinylDisplay"); 
     // Set up the table labels 
