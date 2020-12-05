@@ -82,16 +82,6 @@ switch ($action) {
 
         // }
 
-        for ($row = 0; $row < 4; $row++) {
-            echo "<p><b>Row number $row</b></p>";
-            echo "<ul>";
-            for ($col = 0; $col < 3; $col++) {
-                echo "<li>" . $vinylData[$row][$col] . "</li>";
-            }
-            echo "</ul>";
-        }
-
-
 
         // Use if else statement to see if info was actually returned or not.
         if (!count($vinylData)) {
