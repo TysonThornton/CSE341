@@ -84,7 +84,7 @@ switch ($action) {
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($vinylOutcome === 1) {
-            $message = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
+            $_SESSION['message'] = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
             header("Location: ../vinyl/index.php?action=vinylCollection");
             // include '../vinyl/index.php?action=vinylCollection';
             exit;

@@ -31,8 +31,8 @@ let data = "<?php //echo $vinylData ?>";
 
         <!-- This will display a message if there is a message, display a heading and directions and the category list if there is one -->
         <?php
-        if (isset($message)) {
-            echo $message;
+        if (isset($_SESSION['message'])) {
+            echo $_SESSION['message'];
         }
         ?>
         <a href='../vinyl/index.php?action=addVinyl'>Add Vinyl Record to Collection</a><br>
