@@ -4,6 +4,7 @@ if (!isset($_SESSION['loggedin'])) {
 }
 $sessionUserId = $_SESSION['userData']['userid'];
 $vinylData = getVinylData($sessionUserId);
+echo $vinylData;
 ?>
 <!DOCTYPE html>
 <html lang="en">
