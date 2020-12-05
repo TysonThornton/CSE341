@@ -45,7 +45,7 @@ $vinylData = getVinylData($sessionUserId);
     </main>
     <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
     <script src="../js/vinyl.js">
-        var data = "<?php echo $vinylData ?>";
+        let data = "<?php echo $vinylData ?>";
         window.onload = function() {
         buildVinylCollection(data);
         };
