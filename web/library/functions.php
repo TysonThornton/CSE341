@@ -37,7 +37,7 @@ function buildVinylDisplay($vinylData)
             $vr .= "<p>Album: $vinyl[vinylalbum]</p>";
             $vr .= "<p>Release Year: $vinyl[vinylyear]</p>";
             $vr .= "<p>Record Condition: $vinyl[vinylcondition]</p>";
-            $vr .= "<p>Genre: $vinyl[vinylgenre]</p><br>";
+            $vr .= "<p>Genre: $vinyl[vinylgenre]</p><br></div>";
         }
         $vr .= '</div>';
         return $vr;
