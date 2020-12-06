@@ -39,7 +39,7 @@ function buildVinylDisplay($vinylData)
             $vr .= "<p>Record Condition: $vinyl[vinylcondition]</p>";
             $vr .= "<p>Genre: $vinyl[vinylgenre]</p><br></div>";
             $vr .= "<div id='vinyl-options'>";
-            $vr .= "<a href='../vinyl/index.php?action=edit&vinylId=$vinyl[vinylid]' title='Click to edit'>Edit</a>";
+            $vr .= "<a href='../vinyl/index.php?action=edit&vinylId=$vinyl[vinylid]' title='Click to edit'>Edit</a><br>";
             $vr .= "<a href='../vinyl/index.php?action=delete&vinylId=$vinyl[vinylid]' title='Click to delete'>Delete</a>";
             $vr .= "</div>";
         }
