@@ -36,7 +36,7 @@ function insertProd($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinyl
 function getVinylData($userId) {
 
     $db = dbConnect();
-    $sql = 'SELECT vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre FROM public.vinyl WHERE userid = :userId';
+    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre FROM public.vinyl WHERE userid = :userId';
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
