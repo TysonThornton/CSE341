@@ -106,25 +106,15 @@ switch ($action) {
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
             $message = 'Sorry, no vinyl record information could be found.';
-        }
-        $vinylName = $vinylInfo['vinylname'];
-        echo 'the contents of $vinylName are '.$vinylName;
-
-        
-        ?>
-            <script>
-                let vinylName = <?php echo(json_encode($vinylName));?>;
-                $confirmDeleteResp = confirmDelete(vinylName);
-            </script>
-        <?php
-
-        if ($confirmDeleteResp) {
-            echo 'This message means you confirmed the deletion';
-        } else {
-            echo 'This message means you canceled the deleteion';
+            include '../view/vinyl-collection.php';
+            exit;
         }
 
+        include '../view/vinyl-delete.php';
+        break;
 
+
+    case 'deleteVinylConfirmed':
         include '../view/vinyl-collection.php';
         break;
 
