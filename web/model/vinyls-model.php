@@ -59,7 +59,7 @@ function getVinylInfo($vinylId) {
     $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre FROM public.vinyl WHERE vinylid = :vinylId';
 
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':userId', $vinylId, PDO::PARAM_INT);
+    $stmt->bindValue(':vinylId', $vinylId, PDO::PARAM_INT);
     $stmt->execute();
     $vinylInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

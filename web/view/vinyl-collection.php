@@ -34,7 +34,7 @@ let data = "<?php //echo $vinylData ?>";
         if (isset($_SESSION['message'])) {
             echo $_SESSION['message'];
         }
-        ?>
+        ?><br>
         <a href='../vinyl/index.php?action=addVinyl'>Add Vinyl Record to Collection</a><br>
 
         <?php if (isset($vinylDisplay)) {
