@@ -24,3 +24,15 @@ function buildVinylCollection(data) {
     // Display the contents in the Product Management view 
     vinylDisplay.innerHTML = dataTable; 
    }
+
+
+   function confirmDelete(vinylName) {
+
+      let message = 'Are you sure you want to delete ' + vinylName + '?';
+      if (confirm(message)) {
+         return true;
+      } else {
+         return false;
+      }
+
+   }

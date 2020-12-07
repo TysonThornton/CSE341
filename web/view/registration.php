@@ -41,7 +41,7 @@
                 <span id="registrationInstructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
                 <input type='password' name="userPassword" id="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
                 <br>
-                <input type='submit' name='submit' value='Register' class='inputButton'>
+                <input type='submit' name='submit' value='Create Account' class='inputButton'>
                 <!--Add the action key - value pair -->
                 <input type="hidden" name="action" value="register">
             </fieldset>

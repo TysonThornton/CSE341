@@ -11,6 +11,8 @@ require_once '../library/connections.php';
 require_once '../library/functions.php';
 // Get the vinyls model
 require_once '../model/vinyls-model.php';
+// Get javascript file
+require_once '../js/vinyl.js';
 
 
 // Receive and filter the Action
@@ -93,6 +95,39 @@ switch ($action) {
             include '../view/new-vinyl.php';
             exit;
         }
+        break;
+
+    case 'deleteVinyl':
+        // Filter and store data
+        $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
+
+        // Get vinyl info
+        $vinylInfo = getVinylInfo($vinylId);
+        // Check to see if $vinylInfo has any data in it, display error message if not
+        if (count($vinylInfo) < 1) {
+            $message = 'Sorry, no vinyl record information could be found.';
+        }
+        $vinylName = $vinylInfo['vinylname'];
+
+        
+        ?>
+            <script>
+                <?php ?>$confirmDeleteResp = confirmDelete(<?php echo  $vinylName;?>)
+            </script>
+        <?php
+
+        if ($confirmDeleteResp) {
+            echo 'This message means you confirmed the deletion';
+        } else {
+            echo 'This message means you canceled the deleteion';
+        }
+
+
+        include '../view/new-vinyl.php';
+        break;
+
+    case 'editVinyl':
+        include '../view/new-vinyl.php';
         break;
 
 

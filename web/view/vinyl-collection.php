@@ -45,9 +45,6 @@ let data = "<?php //echo $vinylData ?>";
 
     </main>
     <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
-    <script src="../js/vinyl.js">
-        
-    </script>
 </body>
 
 </html>

@@ -32,7 +32,7 @@ function insertProd($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinyl
     return $rowsChanged;
 }
 
-// Get vinyl collection info to display
+// Get all vinyls to display in collection
 function getVinylData($userId) {
 
     $db = dbConnect();
@@ -49,5 +49,22 @@ function getVinylData($userId) {
     // Close the database interaction
     $stmt->closeCursor();
     return $vinylData;
+
+}
+
+// Get specific vinyl info
+function getVinylInfo($vinylId) {
+
+    $db = dbConnect();
+    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre FROM public.vinyl WHERE vinylid = :vinylId';
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':userId', $vinylId, PDO::PARAM_INT);
+    $stmt->execute();
+    $vinylInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Close the database interaction
+    $stmt->closeCursor();
+    return $vinylInfo;
 
 }
