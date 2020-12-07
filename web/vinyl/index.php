@@ -112,7 +112,7 @@ switch ($action) {
         
         ?>
             <script>
-                <?php ?>$confirmDeleteResp = confirmDelete(<?php echo  $vinylName;?>)
+                <?php ?>$confirmDeleteResp = confirmDelete('<?php echo  $vinylName;?>')
             </script>
         <?php
 
