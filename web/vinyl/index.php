@@ -124,11 +124,11 @@ switch ($action) {
         }
 
 
-        include '../view/new-vinyl.php';
+        include '../view/vinyl-collection.php';
         break;
 
     case 'editVinyl':
-        include '../view/new-vinyl.php';
+        include '../view/vinyl-collection.php';
         break;
 
 
