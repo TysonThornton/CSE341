@@ -23,9 +23,14 @@
             <p>Please confirm deletion of vinyl record from your collection.</p>
             </div>
             <?php
+            if (isset($message)) {
+                echo $message;
+            }
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
             }
+            $p = print_r($vinylInfo);
+            echo $p;
             ?>
 
             <form action="../vinyl/index.php" method="post">
@@ -40,7 +45,7 @@
                                                                                                     echo "value='$vinylInfo[vinylband]'";
                                                                                                 }  ?>><br>
 
-                    <input type='submit' name='submit' value='Delete Record'>
+                    <input type='submit' name='submit' value='Delete Vinyl'>
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="deleteVinylConfirmed">
                     <!-- Adding a second hidden name value to store primary key value for the product being updated on this page -->
