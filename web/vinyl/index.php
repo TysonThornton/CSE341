@@ -11,9 +11,9 @@ require_once '../library/connections.php';
 require_once '../library/functions.php';
 // Get the vinyls model
 require_once '../model/vinyls-model.php';
-// Get javascript file
-require_once '../js/vinyl.js';
-
+?>
+<script src="../js/vinyl.js"></script>
+<?php
 
 // Receive and filter the Action
 $action = filter_input(INPUT_POST, 'action');
