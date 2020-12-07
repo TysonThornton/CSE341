@@ -108,6 +108,7 @@ switch ($action) {
             $message = 'Sorry, no vinyl record information could be found.';
         }
         $vinylName = $vinylInfo['vinylname'];
+        echo 'the contents of $vinylName are '.$vinylName;
 
         
         ?>
