@@ -105,7 +105,7 @@ switch ($action) {
         $vinylInfo = getVinylInfo($vinylId);
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
-            $message = 'Sorry, no vinyl record information could be found.';
+            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
             include '../view/vinyl-collection.php';
             exit;
         }
