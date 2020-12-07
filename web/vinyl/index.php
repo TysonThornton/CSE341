@@ -112,7 +112,7 @@ switch ($action) {
         
         ?>
             <script>
-                let vinylName = '<?php echo  $vinylName;?>';
+                let vinylName = <?php echo(json_encode($vinylName));?>;
                 $confirmDeleteResp = confirmDelete(vinylName);
             </script>
         <?php
