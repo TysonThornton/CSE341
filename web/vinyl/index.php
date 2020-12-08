@@ -105,9 +105,7 @@ switch ($action) {
         $vinylAl = $vinylInfo['vinylalbum'];
         $vinylBa = $vinylInfo['vinylband'];
         
-        echo $vinylInfo;
-        echo $vinylAl;
-        echo $vinylBa;
+        echo $vinylId;
         include '../view/vinyl-collection.php';
     break;
 
