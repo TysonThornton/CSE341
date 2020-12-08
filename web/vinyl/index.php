@@ -100,7 +100,7 @@ switch ($action) {
     case 'deleteVinyl':
         // Filter and store data
         $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
-
+        echo $vinylId;
         // Get vinyl info
         $vinylInfo = getVinylInfo($vinylId);
         $_SESSION['vinylInfo'] = $vinylInfo;
