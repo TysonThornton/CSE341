@@ -82,7 +82,7 @@ switch ($action) {
         }
 
         // Send the data to the model
-        $vinylOutcome = insertProd($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $userId);
+        $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $userId);
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($vinylOutcome === 1) {
@@ -144,8 +144,75 @@ switch ($action) {
         break;
 
     case 'editVinyl':
-        include '../view/vinyl-collection.php';
+
+                // Filter and store data
+                $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
+                // Get vinyl info
+                $vinylInfo = getVinylInfo($vinylId);
+
+                $vinylAlbum = $vinylInfo['vinylalbum'];
+                $vinylBand = $vinylInfo['vinylband'];
+                $vinylYear = $vinylInfo['vinylyear'];
+                $vinylCondition = $vinylInfo['vinylcondition'];
+                $vinylGenre = $vinylInfo['vinylgenre'];
+                
+        
+                // Check to see if $vinylInfo has any data in it, display error message if not
+                if (count($vinylInfo) < 1) {
+                    $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+                    include '../view/vinyl-collection.php';
+                    exit;
+                }
+        
+                include '../view/vinyl-delete.php';
+                exit;
+        
         break;
+
+
+        case 'updateVinyl' :
+
+        // This case will insert updated vinyl info into db
+        // Filter and store the data
+        $vinylBand = filter_input(INPUT_POST, 'vinylBand', FILTER_SANITIZE_STRING);
+        $vinylAlbum = filter_input(INPUT_POST, 'vinylAlbum', FILTER_SANITIZE_STRING);
+        $vinylYear = filter_input(INPUT_POST, 'vinylYear', FILTER_SANITIZE_NUMBER_INT);
+        $vinylCondition = filter_input(INPUT_POST, 'vinylCondition', FILTER_SANITIZE_STRING);
+        $vinylGenre = filter_input(INPUT_POST, 'vinylGenre', FILTER_SANITIZE_STRING);
+        $vinylImage = filter_input(INPUT_POST, 'vinylImage', FILTER_SANITIZE_STRING);
+        $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
+
+
+        // Proper case input
+        $vinylBand = ucwords($vinylBand);
+        $vinylAlbum = ucwords($vinylAlbum);
+        $vinylCondition = ucwords($vinylCondition);
+        $vinylGenre = ucwords($vinylGenre);
+
+        // Check for missing data
+        if (empty($vinylBand) || empty($vinylAlbum) || empty($vinylYear) || empty($vinylCondition) || empty($vinylGenre)) {
+            $message = '<p>Please provide information for all empty fields.</p>';
+            include '../view/vinyl-edit.php';
+            exit;
+        }
+
+        // Send the data to the model
+        $updateResult = updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $vinylId);
+
+        // Check and report the result. 
+        if ($updateResult === 1) {
+            $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
+            $_SESSION['message'] = $message;
+            header('location: ../vinyl/index.php?action=vinylCollection'); 
+            exit;
+        } else {
+            $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
+            include '../view/vinyl-edit.php';
+            exit;
+        }
+        break;
+
+
 
 
     default:
