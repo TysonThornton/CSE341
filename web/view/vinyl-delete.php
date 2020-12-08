@@ -29,8 +29,7 @@
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
             }
-            $p = print_r($vinylInfo);
-            echo $p;
+            echo $vinylInfo;
             ?>
 
             <form action="../vinyl/index.php" method="post">
