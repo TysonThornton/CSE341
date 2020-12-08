@@ -99,7 +99,7 @@ switch ($action) {
 
     case 'deleteVinyl':
         // Filter and store data
-        $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
+        $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
         // Get vinyl info
         $vinylInfo = getVinylInfo($vinylId);
         $vinylAl = $vinylInfo['vinylalbum'];
@@ -108,11 +108,11 @@ switch ($action) {
         
 
         // Check to see if $vinylInfo has any data in it, display error message if not
-        // if (count($vinylInfo) < 1) {
-        //     $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
-        //     include '../view/vinyl-collection.php';
-        //     exit;
-        // }
+        if (count($vinylInfo) < 1) {
+            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+            include '../view/vinyl-collection.php';
+            exit;
+        }
 
         include '../view/vinyl-delete.php';
         exit;
