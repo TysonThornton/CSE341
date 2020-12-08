@@ -32,6 +32,7 @@
             var_dump($vinylInfo);
             var_dump($vinylAl);
             var_dump($vinylBa);
+            var_dump($vinylId);
             ?>
 
             <form action="../vinyl/index.php" method="post">

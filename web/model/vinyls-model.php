@@ -61,7 +61,7 @@ function getVinylInfo($vinylId) {
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':vinylId', $vinylId, PDO::PARAM_INT);
     $stmt->execute();
-    $vinylInfo = $stmt->fetchALL(PDO::FETCH_ASSOC);
+    $vinylInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Close the database interaction
     $stmt->closeCursor();
