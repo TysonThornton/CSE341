@@ -133,7 +133,7 @@ switch ($action) {
             $message = "<p>You have successfully deleted $vinylAl from your collection.</p>";
             
             $_SESSION['message'] = $message;
-            include '../view/vinyl-collection.php';
+            header('location: ../vinyl/index.php?action=vinylCollection');
             exit;
         } else {
             $message = "<p>Error: $vinylAl was not deleted.</p>";
