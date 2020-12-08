@@ -16,8 +16,8 @@
 
     <main>
         <main>
-            <h1><?php if (isset($vinylInfo['vinylalbum']) and isset($vinylInfo['vinylband'])) {
-                    echo "Delete $vinylInfo[vinylalbum] by $vinylInfo[vinylband]";
+            <h1><?php if (isset($_SESSION['vinylInfo']['vinylalbum']) and isset($_SESSION['vinylInfo']['vinylband'])) {
+                    echo "Delete $_SESSION[vinylInfo][vinylalbum] by $_SESSION[vinylInfo][vinylband]";
                 }
                 ?></h1>
             <p>Please confirm deletion of vinyl record from your collection.</p>
