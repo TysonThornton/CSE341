@@ -30,6 +30,8 @@
                 echo $_SESSION['message'];
             }
             var_dump($vinylInfo);
+            var_dump($vinylAl);
+            var_dump($vinylBa);
             ?>
 
             <form action="../vinyl/index.php" method="post">
