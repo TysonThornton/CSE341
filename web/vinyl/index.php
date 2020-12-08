@@ -100,10 +100,12 @@ switch ($action) {
     case 'deleteVinyl':
         // Filter and store data
         $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
-        echo $vinylId;
         // Get vinyl info
         $vinylInfo = getVinylInfo($vinylId);
-        $_SESSION['vinylInfo'] = $vinylInfo;
+        $vinylAl = $vinylInfo['vinylalbum'];
+        $vinylBa = $vinylInfo['vinylband'];
+        
+
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
             $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';

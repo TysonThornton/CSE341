@@ -16,8 +16,8 @@
 
     <main>
         <main>
-            <h1><?php if (isset($_SESSION['vinylInfo']['vinylalbum']) and isset($_SESSION['vinylInfo']['vinylband'])) {
-                    echo "Delete $_SESSION[vinylInfo][vinylalbum] by $_SESSION[vinylInfo][vinylband]";
+            <h1><?php if (isset($vinylAl) and isset($vinylBa)) {
+                    echo "Delete $vinylAl by $vinylBa";
                 }
                 ?></h1>
             <p>Please confirm deletion of vinyl record from your collection.</p>
@@ -29,27 +29,27 @@
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
             }
-            echo $vinylInfo;
+            
             ?>
 
             <form action="../vinyl/index.php" method="post">
                 <fieldset>
                     <label for="vinylAlbum">Album: </label>
-                    <input type='text' name="vinylAlbum" id="vinylAlbum" class='input' readonly <?php if (isset($vinylInfo['vinylalbum'])) {
-                                                                                                echo "value='$vinylInfo[vinylalbum]'";
+                    <input type='text' name="vinylAlbum" id="vinylAlbum" class='input' readonly <?php if (isset($vinylAl)) {
+                                                                                                echo "value='$vinylAl'";
                                                                                             }
                                                                                             ?>><br>
                     <label for="vinylBand">Band / Artist: </label>
-                    <input type='text' name="vinylBand" id="vinylBand" class='input' readonly <?php if (isset($vinylInfo['vinylband'])) {
-                                                                                                    echo "value='$vinylInfo[vinylband]'";
+                    <input type='text' name="vinylBand" id="vinylBand" class='input' readonly <?php if (isset($vinyBa)) {
+                                                                                                    echo "value='$vinylBa'";
                                                                                                 }  ?>><br>
 
                     <input type='submit' name='submit' value='Delete Vinyl'>
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="deleteVinylConfirmed">
                     <!-- Adding a second hidden name value to store primary key value for the product being updated on this page -->
-                    <input type="hidden" name="vinylId" value="<?php if (isset($vinylInfo['vinylid'])) {
-                                                                    echo $prodInfo['vinylid'];
+                    <input type="hidden" name="vinylId" value="<?php if (isset($vinylId)) {
+                                                                    echo $vinylId;
                                                                 } ?>">
                 </fieldset>
             </form>
