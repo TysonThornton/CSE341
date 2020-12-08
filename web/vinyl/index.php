@@ -105,21 +105,18 @@ switch ($action) {
         $vinylAl = $vinylInfo['vinylalbum'];
         $vinylBa = $vinylInfo['vinylband'];
         
-        echo $vinylId;
-        include '../view/vinyl-collection.php';
-    break;
+        
 
         // Check to see if $vinylInfo has any data in it, display error message if not
-        // if (count($vinylInfo) < 1) {
-        //     $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
-        //     include '../view/vinyl-collection.php';
-        //     exit;
-        // } else {
+        if (count($vinylInfo) < 1) {
+            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+            include '../view/vinyl-collection.php';
+            exit;
+        }
 
-        //     include '../view/vinyl-delete.php';
-        //     exit;
-        // }
-        // break;
+        include '../view/vinyl-delete.php';
+        exit;
+        break;
 
 
     case 'deleteVinylConfirmed':

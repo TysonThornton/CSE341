@@ -16,7 +16,7 @@
 
     <main>
         <main>
-            <h1><?php if (isset($vinylAl) and isset($vinylBa)) {
+            <h1><?php if (isset($vinylAl) && isset($vinylBa)) {
                     echo "Delete $vinylAl by $vinylBa";
                 }
                 ?></h1>
@@ -29,7 +29,7 @@
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
             }
-            
+            var_dump($vinylInfo);
             ?>
 
             <form action="../vinyl/index.php" method="post">
