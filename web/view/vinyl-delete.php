@@ -29,10 +29,7 @@
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
             }
-            var_dump($vinylInfo);
-            var_dump($vinylAl);
-            var_dump($vinylBa);
-            var_dump($vinylId);
+
             ?>
 
             <form action="../vinyl/index.php" method="post">
@@ -43,9 +40,10 @@
                                                                                             }
                                                                                             ?>><br>
                     <label for="vinylBand">Band / Artist: </label>
-                    <input type='text' name="vinylBand" id="vinylBand" class='input' readonly <?php if (isset($vinyBa)) {
+                    <input type='text' name="vinylBand" id="vinylBand" class='input' readonly <?php if (isset($vinylBa)) {
                                                                                                     echo "value='$vinylBa'";
-                                                                                                }  ?>><br>
+                                                                                                }  
+                                                                                                ?>><br>
 
                     <input type='submit' name='submit' value='Delete Vinyl'>
                     <!--Add the action key - value pair -->
