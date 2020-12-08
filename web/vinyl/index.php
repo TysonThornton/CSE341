@@ -164,7 +164,7 @@ switch ($action) {
                     exit;
                 }
         
-                include '../view/vinyl-delete.php';
+                include '../view/vinyl-edit.php';
                 exit;
         
         break;
