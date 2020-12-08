@@ -108,11 +108,11 @@ switch ($action) {
         
 
         // Check to see if $vinylInfo has any data in it, display error message if not
-        if (count($vinylInfo) < 1) {
-            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
-            include '../view/vinyl-collection.php';
-            exit;
-        }
+        // if (count($vinylInfo) < 1) {
+        //     $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+        //     include '../view/vinyl-collection.php';
+        //     exit;
+        // }
 
         include '../view/vinyl-delete.php';
         exit;
