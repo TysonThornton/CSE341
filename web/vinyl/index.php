@@ -120,7 +120,27 @@ switch ($action) {
 
 
     case 'deleteVinylConfirmed':
-        include '../view/vinyl-collection.php';
+
+        // Filter and store data
+        $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
+
+        // Call function to delete vinyl record
+        $deleteResult = deleteVInyl($vinylId);
+
+        // Check and the result
+        if ($deleteResult === 1) {
+            $message = "<p>You have successfully deleted $vinylAl from your collection.</p>";
+            
+            $_SESSION['message'] = $message;
+            header('location: ../view/vinyl-collection');
+            exit;
+        } else {
+            $message = "<p>Error: $vinylAl was not deleted.</p>";
+            $_SESSION['message'] = $message;
+            include '../view/vinyl-delete.php';
+            exit;
+        }
+
         break;
 
     case 'editVinyl':

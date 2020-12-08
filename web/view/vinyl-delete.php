@@ -45,7 +45,7 @@
                                                                                                 }  
                                                                                                 ?>><br>
 
-                    <input type='submit' name='submit' value='Delete Vinyl'>
+                    <input type='submit' name='submit' value='Delete Vinyl Forever'>
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="deleteVinylConfirmed">
                     <!-- Adding a second hidden name value to store primary key value for the product being updated on this page -->
