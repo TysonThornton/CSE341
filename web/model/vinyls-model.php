@@ -68,3 +68,25 @@ function getVinylInfo($vinylId) {
     return $vinylInfo;
 
 }
+
+// Delete vinyl record
+function deleteVInyl($vinylId) {
+
+        // Create a db connection 
+        $db = dbConnect();
+        // The SQL statement
+        $sql = 'DELETE FROM public.vinyl WHERE vinylid = :vinylId';
+        // Create the prepared statement 
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':vinylId', $vinylId, PDO::PARAM_INT); 
+        // Insert the data
+        $stmt->execute();
+        // Ask how many rows changed as a result of our insert
+        $rowsChanged = $stmt->rowCount();
+        // Close the database interaction
+        $stmt->closeCursor();
+        // Return the indication of success (rows changed)
+        return $rowsChanged;
+
+}
