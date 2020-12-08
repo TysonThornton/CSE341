@@ -36,21 +36,24 @@
                 <fieldset>
                     <label for="vinylAlbum">Album: </label>
                     <input type='text' name="vinylAlbum" id="vinylAlbum" class='input' readonly <?php if (isset($vinylAl)) {
-                                                                                                echo "value='$vinylAl'";
-                                                                                            }
-                                                                                            ?>><br>
+                                                                                                    echo "value='$vinylAl'";
+                                                                                                }
+                                                                                                ?>><br>
                     <label for="vinylBand">Band / Artist: </label>
                     <input type='text' name="vinylBand" id="vinylBand" class='input' readonly <?php if (isset($vinylBa)) {
                                                                                                     echo "value='$vinylBa'";
-                                                                                                }  
+                                                                                                }
                                                                                                 ?>><br>
 
                     <input type='submit' name='submit' value='Delete Vinyl Forever'>
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="deleteVinylConfirmed">
-                    <!-- Adding a second hidden name value to store primary key value for the product being updated on this page -->
+                    <!-- Adding a second hidden name value to store primary key -->
                     <input type="hidden" name="vinylId" value="<?php if (isset($vinylId)) {
                                                                     echo $vinylId;
+                                                                } ?>">
+                    <input type="hidden" name="vinylAl" value="<?php if (isset($vinylAl)) {
+                                                                    echo $vinylAl;
                                                                 } ?>">
                 </fieldset>
             </form>

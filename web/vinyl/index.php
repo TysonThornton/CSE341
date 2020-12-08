@@ -122,7 +122,8 @@ switch ($action) {
     case 'deleteVinylConfirmed':
 
         // Filter and store data
-        $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
+        $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
+        $vinylAl = filter_input(INPUT_POST, 'vinylAl', FILTER_SANITIZE_STRING);
 
         // Call function to delete vinyl record
         $deleteResult = deleteVInyl($vinylId);
@@ -136,7 +137,6 @@ switch ($action) {
             exit;
         } else {
             $message = "<p>Error: $vinylAl was not deleted.</p>";
-            $_SESSION['message'] = $message;
             include '../view/vinyl-delete.php';
             exit;
         }
