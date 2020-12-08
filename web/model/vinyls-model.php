@@ -97,7 +97,7 @@ function updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $viny
         // Create a db connection
         $db = dbConnect();
         // The SQL statement
-        $sql = 'UPDATE public.inventory SET vinylalbum = :vinylAlbum, vinylband = :vinylBand, vinylyear = :vinylYear, vinylcondition = :vinylCondition, vinylgenre = :vinylGenre 
+        $sql = 'UPDATE public.vinyl SET vinylalbum = :vinylAlbum, vinylband = :vinylBand, vinylyear = :vinylYear, vinylcondition = :vinylCondition, vinylgenre = :vinylGenre 
         WHERE vinylid = :vinylId';
         // Create the prepared statement using the acme connection
         $stmt = $db->prepare($sql);
