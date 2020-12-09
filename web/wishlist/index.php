@@ -43,6 +43,8 @@ switch ($action) {
 
         $priceArray = getPrices($wishlistData);
         echo var_dump($priceArray);
+        $priceTotal = calculatePriceTotal($priceArray);
+        echo var_dump($priceTotal);
 
         include '../view/wishlist.php';
         break;

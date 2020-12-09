@@ -77,3 +77,12 @@ function getPrices($wishlistData) {
 return $wishlistPrices;
 
 }
+
+// Calculate total wishlist item prices
+function calculatePriceTotal($priceArray) {
+
+    $total = array_sum($priceArray);
+    return $total;
+
+
+}
