@@ -11,7 +11,7 @@ function getWishlistData($userId)
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
     $stmt->execute();
-    $wishlistData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $wishlistData = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
     // Close the database interaction
     $stmt->closeCursor();

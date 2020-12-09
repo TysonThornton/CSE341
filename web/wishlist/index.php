@@ -28,7 +28,7 @@ switch ($action) {
         }
 
         $sessionUserId = $_SESSION['userData']['userid'];
-        $wishlistlData = getWishlistData($sessionUserId);
+        $wishlistData = getWishlistData($sessionUserId);
 
         // Use if else statement to see if info was actually returned or not.
         if (!count($wishlistData)) {
