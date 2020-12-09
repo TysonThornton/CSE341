@@ -41,7 +41,8 @@ switch ($action) {
             $wishlistDisplay = buildWishlistDisplay($wishlistData);
         }
 
-        $priceArray = 'getPrices($wishlistData)';
+        $priceArray = getPrices($wishlistData);
+        echo var_dump($priceArray);
 
         include '../view/wishlist.php';
         break;
