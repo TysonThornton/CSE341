@@ -29,13 +29,6 @@
                 <?php
                 if (isset($message)) {
                     echo $message;
-
-                    var_dump($wlVinylBand);
-                    var_dump($wlVinylAlbum);
-                    var_dump($wlVinylPrice);
-                    var_dump($wlVinylNotes);
-                    var_dump($wlVinylImage);
-                    var_dump($wishlistId);
                 }
                 ?>
             </div>
