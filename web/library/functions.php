@@ -70,9 +70,9 @@ function buildWishlistDisplay($wishlistData)
 
 // Get each price of wishlist item
 function getPrices($wishlistData) {
-    ;
+    $wishlistPrices = array();
     foreach ($wishlistData as $wishlistItem) {
-        $wishlistPrices = array($wishlistItem['wlvinylprice']);
+        $wishlistPrices[] = $wishlistItem['wlvinylprice'];
     }
 return $wishlistPrices;
 
