@@ -31,6 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
         }
         if (isset($message)) {
             echo $message;
+            var_dump($priceArray);
         }
         ?><br>
         <a href='../wishlist/index.php?action=addWishlistItem'>Add a Vinyl Record to Your Wishlist</a><br>
