@@ -60,7 +60,7 @@
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="updateWlItem">
                     <!-- Adding a second hidden name value to store primary key -->
-                    <input type="hidden" name="wlVinylId" value="<?php if (isset($wishlistId)) {
+                    <input type="hidden" name="wishlistId" value="<?php if (isset($wishlistId)) {
                                                                     echo $wishlistId;
                                                                 } ?>">
                 </fieldset>
