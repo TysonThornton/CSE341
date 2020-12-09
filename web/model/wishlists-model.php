@@ -91,7 +91,7 @@ function updateWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes,
     // Create a db connection
     $db = dbConnect();
     // The SQL statement
-    $sql = 'UPDATE public.wishlist SET wlvinylalbum = :wlVinylAlbum, wlvinylband = :wlVinylBand, wlvinylprice = :wlVinylPrice, wlvinylnotes = :wlVinylNotes, imageid = :wlVinylImage 
+    $sql = 'UPDATE public.wishlist SET wlvinylalbum = :wlVinylAlbum, wlvinylband = :wlVinylBand, wlvinylprice = :wlVinylPrice, wlvinylnotes = :wlVinylNotes 
     WHERE wishlistid = :wishlistId';
     // Create the prepared statement using the acme connection
     $stmt = $db->prepare($sql);
@@ -100,7 +100,7 @@ function updateWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes,
     $stmt->bindValue(':wlVinylBand',  $wlVinylBand, PDO::PARAM_STR);
     $stmt->bindValue(':wlVinylPrice', $wlVinylPrice, PDO::PARAM_INT);
     $stmt->bindValue(':wlVinylNotes', $wlVinylNotes, PDO::PARAM_STR);
-    $stmt->bindValue(':wlVinylImage', $wlVinylImage, PDO::PARAM_INT);
+    // $stmt->bindValue(':wlVinylImage', $wlVinylImage, PDO::PARAM_INT);
     $stmt->bindValue(':wishlistId', $wishlistId, PDO::PARAM_INT); 
     // Insert the data
     $stmt->execute();
