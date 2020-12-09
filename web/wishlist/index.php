@@ -96,8 +96,8 @@ switch ($action) {
 
         // Pop Up Alert
         $msg = "This will permanently delete $wlVinylAlbum from your wishlist.";
-        $alert = phpAlert($msg);
-        echo $alert;
+        phpAlert($msg);
+        
 
         // Call function to delete vinyl record
         $deleteResult = deleteWishlistItem($wishlistId);
