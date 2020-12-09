@@ -12,11 +12,11 @@ CREATE TABLE public.user
 CREATE TABLE public.vinyl
 (
 	vinylID SERIAL NOT NULL PRIMARY KEY,
-	band VARCHAR(100) NOT NULL,
-	albumn VARCHAR(100) NOT NULL,
-	year INT NOT NULL,
-	condition VARCHAR(100),
-	genre VARCHAR(100),
+	vinylband VARCHAR(100) NOT NULL,
+	vinylalbumn VARCHAR(100) NOT NULL,
+	vinylyear INT NOT NULL,
+	vinylcondition VARCHAR(100),
+	vinylgenre VARCHAR(100),
 	userID INT NOT NULL REFERENCES public.user(userID)
 );
 
@@ -27,7 +27,8 @@ CREATE TABLE public.image
 	imageID SERIAL NOT NULL PRIMARY KEY,
 	imageName VARCHAR(100) NOT NULL,
 	imagePath VARCHAR(100) NOT NULL,
-	vinylID INT NOT NULL REFERENCES public.vinyl(vinylID)
+	vinylID INT NOT NULL REFERENCES public.vinyl(vinylID),
+	wishlistID INT NOT NULL REFERENCES public.wishlist(wishlistID)
 );
 
 
@@ -36,11 +37,18 @@ ALTER TABLE public.vinyl ADD COLUMN
 imageID INT NOT NULL REFERENCES public.image(imageID);
 
 
+
+
 # Creating WISHLIST table
 CREATE TABLE public.wishlist
 (
 	wishlistID SERIAL NOT NULL PRIMARY KEY,
-	price FLOAT NOT NULL,
-	notes TEXT,
-	vinylID INT NOT NULL REFERENCES public.vinyl(vinylid)
+	wlVinylBand VARCHAR(100) NOT NULL,
+	wlVinylAlbum VARCHAR(100) NOT NULL,
+	wlVinylprice FLOAT NOT NULL,
+	wlVinylnotes TEXT,
+	userID INT NOT NULL REFERENCES public.user(userid)
 );
+
+ALTER TABLE public.wishlist ADD COLUMN
+imageID INT NOT NULL REFERENCES public.image(imageID);

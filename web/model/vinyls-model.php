@@ -5,16 +5,14 @@
 // Insert a new product to the database
 function insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $userId)
 {
-    // Create a connection object using the acme connection function
+    // Create a db connection
     $db = dbConnect();
     // The SQL statement
     $sql = 'INSERT INTO public.vinyl (vinylBand, vinylAlbum, vinylYear, vinylCondition, vinylGenre, userid)
      VALUES (:vinylBand, :vinylAlbum, :vinylYear, :vinylCondition, :vinylGenre, :userId)';
-    // Create the prepared statement using the acme connection
+    // Create the prepared statement 
     $stmt = $db->prepare($sql);
-    // The next lines replace the placeholders in the SQL
-    // statement with the actual values in the variables
-    // and tells the database the type of data it is
+
     $stmt->bindValue(':vinylBand', $vinylBand, PDO::PARAM_STR);
     $stmt->bindValue(':vinylAlbum', $vinylAlbum, PDO::PARAM_STR);
     $stmt->bindValue(':vinylYear', $vinylYear, PDO::PARAM_INT);

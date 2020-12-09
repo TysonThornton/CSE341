@@ -27,7 +27,7 @@ function passwordMatch($userPassword, $enteredPassword) {
 
 }
 
-// Build dispaly of vinyl record collection
+// Build display of vinyl record collection
 function buildVinylDisplay($vinylData) 
 {
         $vr = '<div id="vinyl-display">';
@@ -45,5 +45,26 @@ function buildVinylDisplay($vinylData)
         }
         $vr .= '</div>';
         return $vr;
+
+}
+
+// Build display of wishlist
+function buildWishlistDisplay($wishlistData) 
+{
+        $wl = '<div id="wishlist-display">';
+        foreach ($wishlistData as $wishlistItem) {
+            //$wl .= "<div id='wishlistItem-image'><img src='$wishlistItem[imagepath]' alt='Image of $wishlistItem[wlvinylalbum]'></div>";
+            $wl .= "<div id='wishlist-item-detail'><p>Band / Artist: $wishlistItem[wlvinylband]</p>";
+            $wl .= "<p>Album: $wishlistItem[wlvinylalbum]</p>";
+            $wl .= "<p>Notes: $wishlistItem[wlvinylnotes]</p>";
+            $wl .= "<p>Price: $wishlistItem[wlvinylprice]</p>";
+            $wl .= "<div id='wishlist-vinyl-options'>";
+            $wl .= "<a href='../wishlist/index.php?action=editWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to edit'>Edit</a><br>";
+            $wl .= "<a href='../wishlist/index.php?action=deleteWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to delete'>Delete</a>";
+            $wl .= "<a href='../wishlist/index.php?action=addToCollection&wishlistId=$wishlistItem[wishlistid]&wlVinylAlbum=$wishlistItem[wlvinylalbum]&wlVinylBand=$wishlistItem[wlvinylband]' title='Click to add to your collection'>Add to Collection</a>";
+            $wl .= "</div>";
+        }
+        $wl .= '</div>';
+        return $wl;
 
 }
