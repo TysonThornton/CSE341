@@ -69,8 +69,3 @@ function buildWishlistDisplay($wishlistData)
 
 }
 
-// Pop up alert
-function phpAlert($msg) {
-
-    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
-}

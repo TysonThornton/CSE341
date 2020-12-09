@@ -82,7 +82,64 @@ switch ($action) {
         break;
 
     case 'editWlItem':
-        include '../view/wishlist.php';
+
+        // Filter and store data
+        $wishlistId = filter_input(INPUT_GET, 'wishlistId', FILTER_VALIDATE_INT);
+        // Get vinyl info
+        $wishlistInfo = getWishlistInfo($wishlistId);
+        $wlVinylAlbum = $wishlistInfo['wlvinylalbum'];
+        $wlVinylBand = $wishlistInfo['wlvinylband'];
+        $wlVinylPrice = $wishlistInfo['wlvinylprice'];
+        $wlVinylNotes = $wishlistInfo['wlvinylnotes'];
+
+        // Check to see if $wishlistInfo has any data in it, display error message if not
+        if (count($wishlistInfo) < 1) {
+            $_SESSION['message'] = 'Sorry, that wishlist item could not be found.';
+            include '../view/wishlist.php';
+            exit;
+        }
+
+        include '../view/wishlist-edit.php';
+        exit;
+
+        break;
+
+    case 'updateWlItem':
+
+        // This case will insert updated vinyl info into db
+        // Filter and store the data
+        $wlVinylBand = filter_input(INPUT_POST, 'wlVinylBand', FILTER_SANITIZE_STRING);
+        $wlVinylAlbum = filter_input(INPUT_POST, 'wlVinylAlbum', FILTER_SANITIZE_STRING);
+        $wlVinylPrice = filter_input(INPUT_POST, 'wlVinylPrice', FILTER_SANITIZE_NUMBER_INT);
+        $wlVinylNotes = filter_input(INPUT_POST, 'wlVinylNotes', FILTER_SANITIZE_STRING);
+        $wlVinylImage = filter_input(INPUT_POST, 'wlVinylImage', FILTER_SANITIZE_STRING);
+        $wishlistId = filter_input(INPUT_POST, 'wishlistId', FILTER_SANITIZE_NUMBER_INT);
+
+
+        // Proper case input
+        $wlVinylBand = ucwords($wlVinylBand);
+        $wlVinylAlbum = ucwords($wlVinylAlbum);
+
+        // Check for missing data
+        if (empty($wlVinylBand) || empty($wlVinylAlbum) || empty($wlVinylPrice)) {
+            $message = '<p>Please provide information for all empty fields.</p>';
+            include '../view/wishlist-edit.php';
+            exit;
+        }
+
+        // Send the data to the model
+        $updateResult = updateWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes, $wlVinylImage, $wishlistId);
+
+        // Check and report the result. There should be a result of 1 record added so build an if statement for that
+        if ($wlItemOutcome === 1) {
+            $_SESSION['message'] = "<p>Thanks for updating $wlVinylAlbum by $wlVinylBand. Changes have been saved successfully.</p>";
+            header("Location: ../wishlist/index.php?action=wishlist");
+            exit;
+        } else {
+            $message = "<p>Sorry, but updating $wlVinylAlbum to the database failed. Please try again.</p>";
+            include '../view/wishlist-edit.php';
+            exit;
+        }
         break;
 
     case 'deleteWlItem':
@@ -93,11 +150,6 @@ switch ($action) {
         $wishlistInfo = getWishlistInfo($wishlistId);
         $wlVinylAlbum = $wishlistInfo['wlvinylalbum'];
         $wlVinylBand = $wishlistInfo['wlvinylband'];
-
-        // Pop Up Alert
-        $msg = "This will permanently delete $wlVinylAlbum from your wishlist.";
-        phpAlert($msg);
-        
 
         // Call function to delete vinyl record
         $deleteResult = deleteWishlistItem($wishlistId);
@@ -114,7 +166,7 @@ switch ($action) {
             include '../view/wishlist.php';
             exit;
         }
-        
+
         break;
 
     case 'addToCollection':
