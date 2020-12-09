@@ -72,7 +72,7 @@ function buildWishlistDisplay($wishlistData)
 function getPrices($wishlistData) {
     ;
     foreach ($wishlistData as $wishlistItem) {
-        $wishlistPrices = $wishlistItem['wlvinylprice'];
+        $wishlistPrices = array($wishlistItem['wlvinylprice']);
     }
 return $wishlistPrices;
 
