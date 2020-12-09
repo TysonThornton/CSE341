@@ -26,7 +26,7 @@ function insertWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes,
     $db = dbConnect();
     // The SQL statement
     $sql = 'INSERT INTO public.wishlist (wlvinylband, wlvinylalbum, wlvinylprice, wlvinylnotes, userid)
-         VALUES (:wlvinylBand, :wlVinylAlbum, :wlVinylPrice, :wlVinylNotes, :userId)';
+         VALUES (:wlVinylBand, :wlVinylAlbum, :wlVinylPrice, :wlVinylNotes, :userId)';
     // Create the prepared statement 
     $stmt = $db->prepare($sql);
 
