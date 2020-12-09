@@ -32,6 +32,9 @@ if (!isset($_SESSION['loggedin'])) {
         if (isset($message)) {
             echo $message;
         }
+        if (isset($priceTotal)) {
+            echo "<h3>Total Cost of Wishlist Vinyl Records: $$priceTotal</h3>";
+        }
         ?><br>
         <a href='../wishlist/index.php?action=addWishlistItem'>Add a Vinyl Record to Your Wishlist</a><br>
 
