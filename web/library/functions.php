@@ -50,7 +50,7 @@ function buildVinylDisplay($vinylData)
 // Build display of wishlist
 function buildWishlistDisplay($wishlistData)
 {
-    
+
     $wl = '<div id="wishlist-display">';
     foreach ($wishlistData as $wishlistItem) {
         //$wl .= "<div id='wishlistItem-image'><img src='$wishlistItem[imagepath]' alt='Image of $wishlistItem[wlvinylalbum]'></div>";
@@ -69,20 +69,19 @@ function buildWishlistDisplay($wishlistData)
 }
 
 // Get each price of wishlist item
-function getPrices($wishlistData) {
+function getPrices($wishlistData)
+{
     $wishlistPrices = array();
     foreach ($wishlistData as $wishlistItem) {
         $wishlistPrices[] = $wishlistItem['wlvinylprice'];
     }
-return $wishlistPrices;
-
+    return $wishlistPrices;
 }
 
 // Calculate total wishlist item prices
-function calculatePriceTotal($priceArray) {
+function calculatePriceTotal($priceArray)
+{
 
     $total = array_sum($priceArray);
     return $total;
-
-
 }

@@ -34,28 +34,32 @@
                 <fieldset>
                     <label for="vinylBand">Artist / Band </label><br>
                     <input type='text' name="vinylBand" id="vinylBand" placeholder="required" class='input' required <?php if (isset($vinylBand)) {
-                                                                                        echo "value='$vinylBand'";
-                                                                                    }  ?>><br>
+                                                                                                                            echo "value='$vinylBand'";
+                                                                                                                        }  ?>><br>
                     <label for="vinylAlbum">Album Name</label><br>
                     <input type='text' name="vinylAlbum" id="vinylAlbum" placeholder="required" class='input' required <?php if (isset($vinylAlbum)) {
-                                                                                            echo "value='$vinylAlbum'";
-                                                                                        }  ?>><br>
+                                                                                                                            echo "value='$vinylAlbum'";
+                                                                                                                        }  ?>><br>
                     <label for="vinylYear">Released Year</label><br>
                     <input type='number' name="vinylYear" id="vinylYear" placeholder="required" class='input' required <?php if (isset($vinylYear)) {
-                                                                                            echo "value='$vinylYear'";
-                                                                                        }  ?>><br>
+                                                                                                                            echo "value='$vinylYear'";
+                                                                                                                        }  ?>><br>
                     <label for="vinylCondition">Vinyl Condition</label><br>
                     <input type='text' name="vinylCondition" id="vinylCondition" placeholder="required" class='input' required <?php if (isset($vinylCondition)) {
-                                                                                            echo "value='$vinylCondition'";
-                                                                                        }  ?>><br>
+                                                                                                                                    echo "value='$vinylCondition'";
+                                                                                                                                }  ?>><br>
                     <label for="vinylGenre">Genre</label><br>
                     <input type='text' name="vinylGenre" id="vinylGenre" placeholder="required" class='input' required <?php if (isset($vinylGenre)) {
-                                                                                    echo "value='$vinylGenre'";
-                                                                                }  ?>><br>
-                    <label for="vinylImage">Image</label><br>
+                                                                                                                            echo "value='$vinylGenre'";
+                                                                                                                        }  ?>><br>
+                    <!-- <label for="vinylImage">Image</label><br>
                     <input type="text" name="vinylImage" id="vinylImage" class='input' <?php if (isset($vinylImage)) {
                                                                                             echo "value='$vinylImage'";
-                                                                                        }  ?>><br>
+                                                                                        }  ?>><br> -->
+                    <h2>Upload a file</h2>
+                    <form enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+                        <input name="userfile" type="file"><input type="submit" value="Upload">
+                    </form>
 
                     <input type='submit' name='submit' value='Add Vinyl Record' class='submitVinyl'>
                     <!--Add the action key - value pair -->

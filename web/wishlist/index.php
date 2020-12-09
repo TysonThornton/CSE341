@@ -41,10 +41,9 @@ switch ($action) {
             $wishlistDisplay = buildWishlistDisplay($wishlistData);
         }
 
+        // Get wishlist item prices and calculate them
         $priceArray = getPrices($wishlistData);
-        echo var_dump($priceArray);
         $priceTotal = calculatePriceTotal($priceArray);
-        echo var_dump($priceTotal);
 
         include '../view/wishlist.php';
         break;
