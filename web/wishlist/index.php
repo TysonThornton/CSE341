@@ -131,7 +131,7 @@ switch ($action) {
         $updateResult = updateWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes, $wlVinylImage, $wishlistId);
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
-        if ($wlItemOutcome === 1) {
+        if ($updateResult === 1) {
             $_SESSION['message'] = "<p>Thanks for updating $wlVinylAlbum by $wlVinylBand. Changes have been saved successfully.</p>";
             header("Location: ../wishlist/index.php?action=wishlist");
             exit;
