@@ -72,7 +72,7 @@ switch ($action) {
         $vinylBand = ucwords($vinylBand);
         $vinylAlbum = ucwords($vinylAlbum);
         $vinylCondition = ucwords($vinylCondition);
-        $vinylGenre = ucwords($vinylGenre);
+        $vinylGenre = ucwords($vinylGenre); 
 
         // Check for missing data
         if (empty($vinylBand) || empty($vinylAlbum) || empty($vinylYear)) {

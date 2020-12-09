@@ -45,3 +45,42 @@ function insertWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes,
     // Return the indication of success (rows changed)
     return $rowsChanged;
 }
+
+// Get specific wishlist item info
+function getWishlistInfo($wishlistId) {
+
+    $db = dbConnect();
+    $sql = 'SELECT * FROM public.wishlist WHERE wishlistid = :wishlistId';
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':wishlistId', $wishlistId, PDO::PARAM_INT);
+    $stmt->execute();
+    $wishlistInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Close the database interaction
+    $stmt->closeCursor();
+    return $wishlistInfo;
+
+}
+
+// Delete wishlist item
+function deleteWishlistItem($wishlistId) {
+
+    // Create a db connection 
+    $db = dbConnect();
+    // The SQL statement
+    $sql = 'DELETE FROM public.wishlist WHERE wishlistid = :wishlistId';
+    // Create the prepared statement 
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindValue(':wishlistId', $wishlistId, PDO::PARAM_INT); 
+    // Insert the data
+    $stmt->execute();
+    // Ask how many rows changed as a result of our insert
+    $rowsChanged = $stmt->rowCount();
+    // Close the database interaction
+    $stmt->closeCursor();
+    // Return the indication of success (rows changed)
+    return $rowsChanged;
+
+}

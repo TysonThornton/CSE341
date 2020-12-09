@@ -57,14 +57,20 @@ function buildWishlistDisplay($wishlistData)
             $wl .= "<div id='wishlist-item-detail'><p>Band / Artist: $wishlistItem[wlvinylband]</p>";
             $wl .= "<p>Album: $wishlistItem[wlvinylalbum]</p>";
             $wl .= "<p>Notes: $wishlistItem[wlvinylnotes]</p>";
-            $wl .= "<p>Price: $wishlistItem[wlvinylprice]</p>";
+            $wl .= "<p>Price: $$wishlistItem[wlvinylprice]</p>";
             $wl .= "<div id='wishlist-vinyl-options'>";
             $wl .= "<a href='../wishlist/index.php?action=editWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to edit'>Edit</a><br>";
-            $wl .= "<a href='../wishlist/index.php?action=deleteWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to delete'>Delete</a>";
+            $wl .= "<a href='../wishlist/index.php?action=deleteWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to delete'>Delete</a><br>";
             $wl .= "<a href='../wishlist/index.php?action=addToCollection&wishlistId=$wishlistItem[wishlistid]&wlVinylAlbum=$wishlistItem[wlvinylalbum]&wlVinylBand=$wishlistItem[wlvinylband]' title='Click to add to your collection'>Add to Collection</a>";
             $wl .= "</div>";
         }
         $wl .= '</div>';
         return $wl;
 
+}
+
+// Pop up alert
+function phpAlert($msg) {
+
+    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
 }

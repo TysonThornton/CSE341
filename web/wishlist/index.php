@@ -81,7 +81,45 @@ switch ($action) {
         }
         break;
 
+    case 'editWlItem':
+        include '../view/wishlist.php';
+        break;
 
+    case 'deleteWlItem':
+
+        // Filter and store data
+        $wishlistId = filter_input(INPUT_GET, 'wishlistId', FILTER_VALIDATE_INT);
+        // Get vinyl info
+        $wishlistInfo = getWishlistInfo($wishlistId);
+        $wlVinylAlbum = $wishlistInfo['wlvinylalbum'];
+        $wlVinylBand = $wishlistInfo['wlvinylband'];
+
+        // Pop Up Alert
+        $msg = "This will permanently delete $wlVinylAlbum from your wishlist.";
+        $alert = phpAlert($msg);
+        echo $alert;
+
+        // Call function to delete vinyl record
+        $deleteResult = deleteWishlistItem($wishlistId);
+
+        // Check and the result
+        if ($deleteResult === 1) {
+            $message = "<p>You have successfully deleted $wlVinylAlbum from your wishlist.</p>";
+
+            $_SESSION['message'] = $message;
+            header('location: ../wishlist/index.php?action=wishlist');
+            exit;
+        } else {
+            $message = "<p>Error: $wlVinylAlbum was not deleted. Please try again.</p>";
+            include '../view/wishlist.php';
+            exit;
+        }
+        
+        break;
+
+    case 'addToCollection':
+        include '../view/wishlist.php';
+        break;
 
 
     default:
