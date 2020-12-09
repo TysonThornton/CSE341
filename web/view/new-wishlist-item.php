@@ -19,7 +19,7 @@
 
             <div class="formHeader">
                 <h1>Add a Vinyl Record to Your Wishlist</h1>
-                <p>Please fill out all the information below and submit</p>
+                <p>Please fill out the required information below and submit</p>
             </div>
 
             <div class="dbMessage">

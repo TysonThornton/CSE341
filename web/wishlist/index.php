@@ -46,7 +46,7 @@ switch ($action) {
         include '../view/new-wishlist-item.php';
         break;
 
-    case 'wishlistItemlInsert':
+    case 'wishlistItemInsert':
         // Filter and store the data
         $wlVinylBand = filter_input(INPUT_POST, 'wlVinylBand', FILTER_SANITIZE_STRING);
         $wlVinylAlbum = filter_input(INPUT_POST, 'wlVinylAlbum', FILTER_SANITIZE_STRING);
