@@ -56,8 +56,8 @@ switch ($action) {
         $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
 
         // Proper case input
-        $wlVinylBand = ucwords($vinylBand);
-        $wlVinylAlbum = ucwords($vinylAlbum);
+        $wlVinylBand = ucwords($wlVinylBand);
+        $wlVinylAlbum = ucwords($wlVinylAlbum);
 
         // Check for missing data
         if (empty($wlVinylBand) || empty($wlVinylAlbum) || empty($wlVinylPrice)) {
