@@ -91,7 +91,7 @@ function updateWlItem($wlVinylBand, $wlVinylAlbum, $wlVinylPrice, $wlVinylNotes,
     // Create a db connection
     $db = dbConnect();
     // The SQL statement
-    $sql = 'UPDATE public.wishlist SET wlvinylalbum = :wlVinylAlbum, wlvinylband = :wlVinylBand, wlvinylprice = :wlVinylPrice, wlvinylnotes = :vwlVinylNotes, imageid = :wlVinylImage 
+    $sql = 'UPDATE public.wishlist SET wlvinylalbum = :wlVinylAlbum, wlvinylband = :wlVinylBand, wlvinylprice = :wlVinylPrice, wlvinylnotes = :wlVinylNotes, imageid = :wlVinylImage 
     WHERE wishlistid = :wishlistId';
     // Create the prepared statement using the acme connection
     $stmt = $db->prepare($sql);
