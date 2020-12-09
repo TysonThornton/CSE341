@@ -9,8 +9,10 @@ session_start();
 require_once '../library/connections.php';
 // Get the functions library
 require_once '../library/functions.php';
-// Get the vinyls model
+// Get the wishlist model
 require_once '../model/wishlists-model.php';
+// Get the vinyls model
+require_once '../model/vinyls-model.php';
 
 // Receive and filter the Action
 $action = filter_input(INPUT_POST, 'action');

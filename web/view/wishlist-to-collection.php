@@ -22,7 +22,7 @@
                         echo "Add Wishlist Item $wlVinylAlbum by $wlVinylBand to Your Vinyl Collection";
                     }
                     ?></h1>
-                <p>Please fill out the remaining vinyl record fields and submit.</p>
+                <p>Please fill out the remaining vinyl record fields below and submit.</p>
             </div>
 
             <div class="dbMessage">
