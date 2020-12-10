@@ -3,13 +3,13 @@
 
 
 // Insert a new product to the database
-function insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $userId)
+function insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $userId)
 {
     // Create a db connection
     $db = dbConnect();
     // The SQL statement
-    $sql = 'INSERT INTO public.vinyl (vinylBand, vinylAlbum, vinylYear, vinylCondition, vinylGenre, userid)
-     VALUES (:vinylBand, :vinylAlbum, :vinylYear, :vinylCondition, :vinylGenre, :userId)';
+    $sql = 'INSERT INTO public.vinyl (vinylBand, vinylAlbum, vinylYear, vinylCondition, vinylGenre, imageid, userid)
+     VALUES (:vinylBand, :vinylAlbum, :vinylYear, :vinylCondition, :vinylGenre, :imageId, :userId)';
     // Create the prepared statement 
     $stmt = $db->prepare($sql);
 
@@ -18,6 +18,7 @@ function insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $viny
     $stmt->bindValue(':vinylYear', $vinylYear, PDO::PARAM_INT);
     $stmt->bindValue(':vinylCondition', $vinylCondition, PDO::PARAM_STR);
     $stmt->bindValue(':vinylGenre', $vinylGenre, PDO::PARAM_STR);
+    $stmt->bindValue(':imageId', $imageId, PDO::PARAM_INT);
     $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
   
     // Insert the data
@@ -114,4 +115,43 @@ function updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $viny
         $stmt->closeCursor();
         // Return the indication of success (rows changed)
         return $rowsChanged;
+}
+
+// Insert image
+function insertImage($imageURL) {
+
+        // Create a db connection
+        $db = dbConnect();
+        // The SQL statement
+        $sql = 'INSERT INTO public.image (imageurl) VALUES (:imageURL)';
+        // Create the prepared statement 
+        $stmt = $db->prepare($sql);
+    
+        $stmt->bindValue(':imageURL', $imageURL, PDO::PARAM_STR);
+      
+        // Insert the data
+        $stmt->execute();
+        // Ask how many rows changed as a result of our insert
+        $rowsChanged = $stmt->rowCount();
+        // Close the database interaction
+        $stmt->closeCursor();
+        // Return the indication of success (rows changed)
+        return $rowsChanged;
+
+}
+
+// Get last image id
+function getLastImageId() {
+
+    $db = dbConnect();
+    $sql = 'SELECT imageid FROM public.image WHERE created = (SELECT MAX (created) FROM public.image LIMIT 1)';
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $imageId = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Close the database interaction
+    $stmt->closeCursor();
+    return $imageId;
+
 }

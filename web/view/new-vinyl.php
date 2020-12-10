@@ -34,14 +34,13 @@
                 <fieldset>
                     <?php
                     if (isset($imageURL)) {
-                        echo '<img src="'
-                        . $imageURL .
-                        '" alt="vinyl record image"><br>';
-                        echo $imageURL;
+                        echo '<div><img src="'
+                            . $imageURL .
+                            '" alt="vinyl record image"></div><br>';
                     } else {
-                       echo '<a href="../view/upload-image.php">Add an Image</a><br>';
+                        echo '<a href="../view/upload-image.php">Add an Image</a><br>';
                     }
-                    
+
                     ?>
                     <label for="vinylBand">Artist / Band </label><br>
                     <input type='text' name="vinylBand" id="vinylBand" placeholder="required" class='input' required <?php if (isset($vinylBand)) {
@@ -74,6 +73,9 @@
                     <!-- Adding a second hidden name value to store primary key value for user -->
                     <input type="hidden" name="userId" value="<?php $sessionUserId = $_SESSION['userData']['userid'];
                                                                 echo $sessionUserId;
+                                                                ?>">
+                    <!-- Adding a third hidden name value to store iamge url -->
+                    <input type="hidden" name="imageURL" value="<?php echo $imageURL;
                                                                 ?>">
                 </fieldset>
             </form>

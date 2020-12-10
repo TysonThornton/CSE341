@@ -68,8 +68,9 @@ switch ($action) {
         $vinylYear = filter_input(INPUT_POST, 'vinylYear', FILTER_SANITIZE_NUMBER_INT);
         $vinylCondition = filter_input(INPUT_POST, 'vinylCondition', FILTER_SANITIZE_STRING);
         $vinylGenre = filter_input(INPUT_POST, 'vinylGenre', FILTER_SANITIZE_STRING);
-        $vinylImage = filter_input(INPUT_POST, 'vinylImage', FILTER_SANITIZE_STRING);
+        $imageURL = filter_input(INPUT_POST, 'imageURL', FILTER_SANITIZE_STRING);
         $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
+
 
         // Proper case input
         $vinylBand = ucwords($vinylBand);
@@ -84,11 +85,26 @@ switch ($action) {
             exit;
         }
 
+        // Add image to database
+        $imageOutcome = insertImage($imageURL, $vinylBand, $vinylAlbum);
+        if ($imageOutcome === 1) {
+
+            $imageId = getLastImageId();
+
+        } else {
+            $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
+            include '../view/new-vinyl.php';
+            exit;
+        }
+
+
         // Send the data to the model
-        $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $userId);
+        $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $userId);
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($vinylOutcome === 1) {
+
+
             $_SESSION['message'] = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
             header("Location: ../vinyl/index.php?action=vinylCollection");
             // include '../vinyl/index.php?action=vinylCollection';
