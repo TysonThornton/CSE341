@@ -34,7 +34,10 @@ function buildVinylDisplay($vinylData)
     foreach ($vinylData as $vinyl) {
         //$vr .= "<div id='vinyl-image'><img src='$vinyl[imagepath]' alt='Image of $vinyl[vinylalbum]'></div>";
         $vr .= "<div id='vinyl-detail'>";
-        $vr .= "<img src='$vinyl[imageurl]>";
+        if (isset($vinyl['imageurl'])) {
+            $image = $vinyl['imageurl'];
+            $vr .= "<img src='$image>";
+        }
         $vr .= "<p>Band / Artist: $vinyl[vinylband]</p>";
         $vr .= "<p>Album: $vinyl[vinylalbum]</p>";
         $vr .= "<p>Release Year: $vinyl[vinylyear]</p>";
