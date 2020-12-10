@@ -36,7 +36,7 @@ function buildVinylDisplay($vinylData)
         $vr .= "<div id='vinyl-detail'>";
         if (isset($vinyl['imageurl'])) {
             $image = $vinyl['imageurl'];
-            $vr .= "<img src='$image>";
+            $vr .= "<img src='$image'>";
         }
         $vr .= "<p>Band / Artist: $vinyl[vinylband]</p>";
         $vr .= "<p>Album: $vinyl[vinylalbum]</p>";
