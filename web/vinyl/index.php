@@ -25,6 +25,9 @@ if ($action == NULL) {
 switch ($action) {
 
     case 'addVinyl':
+
+        // Grab the image url
+        $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
         include '../view/new-vinyl.php';
         break;
 

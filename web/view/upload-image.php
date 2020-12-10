@@ -7,7 +7,7 @@
     <link href="/css/large.css" type="text/css" rel="stylesheet" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="My Vinyl Shelf is a website to digitally store your vinyl record collection">
-    <title>Vinyl Record Playlist</title>
+    <title>Vinyl Record Playlist | Upload An Image</title>
 </head>
 
 <body>
@@ -26,22 +26,27 @@
             $bucket = getenv('S3_BUCKET_NAME') ?: die('No "S3_BUCKET" config var in found in env!');
             ?>
 
-            <h1>S3 upload example</h1>
+            <h1>Upload An Image Of Your Vinyl Record</h1>
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
-                // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
+                
+                $filename = round(microtime(true));
                 try {
                     // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
-                    $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+                    $upload = $s3->upload($bucket, $_FILES['userfile'][$filename], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
             ?>
-                    <p>Upload <a href="<?= htmlspecialchars($upload->get('ObjectURL')) ?>">successful</a> :)</p>
+                    <p>Upload Successful.</p>
+                    <?php $imageURL = htmlspecialchars($upload->get('ObjectURL'));?>
+                    <a href='../vinyl/index.php?action=addVinyl&imageURL='$imageURL>Click here to return to continue adding a new vinyl record</a><br>    
+                    
                 <?php } catch (Exception $e) { ?>
-                    <p>Upload error :(</p>
+                    <p>Upload error. Please try again.</p>
+                    <a href='../vinyl/index.php?action=addVinyl'>Click here to return to the Add New Vinyl Page</a><br>
             <?php }
             } ?>
             <p>Image</p>
             <form enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-                <input name="userfile" type="file">
+                <input name="userfile" type="file"><br>
                 <input type="submit" name='submit' value="Save"><br>
             </form>
         </div>

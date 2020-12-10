@@ -32,6 +32,16 @@
 
             <form class='newVinylForm' action="../vinyl/index.php" method="post">
                 <fieldset>
+                    <?php
+                    if (isset($imageURL)) {
+                        echo '<img src="'
+                        . $imageURL .
+                        '" alt="vinyl record image">';
+                    } else {
+                       echo '<a href="../view/upload-image">Add an Image</a><br>;';
+                    }
+                    
+                    ?>
                     <label for="vinylBand">Artist / Band </label><br>
                     <input type='text' name="vinylBand" id="vinylBand" placeholder="required" class='input' required <?php if (isset($vinylBand)) {
                                                                                                                             echo "value='$vinylBand'";
