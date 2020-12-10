@@ -89,7 +89,8 @@ switch ($action) {
         $imageOutcome = insertImage($imageURL);
         if ($imageOutcome === 1) {
 
-            $imageId = getLastImageId();
+            $imageResult = getLastImageId();
+            $imageId = $imageResult['imageid'];
 
             // Send the data to the model
             $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $userId);
