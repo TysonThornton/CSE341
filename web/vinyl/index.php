@@ -103,6 +103,14 @@ switch ($action) {
                 // include '../vinyl/index.php?action=vinylCollection';
                 exit;
             } else {
+                echo $vinylBand;
+                echo $vinylAlbum;
+                echo $vinylYear;
+                echo $vinylCondition;
+                echo $vinylGenre;
+                echo $imageURL;
+                echo $userId;
+
                 $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
                 include '../view/new-vinyl.php';
                 exit;
