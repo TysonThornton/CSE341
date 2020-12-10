@@ -66,7 +66,7 @@
                         'version'  => '2006-03-01',
                         'region'   => 'us-west-2',
                     ]);
-                    $bucket = getenv('S3_BUCKET') ?: die('No "S3_BUCKET" config var in found in env!');
+                    $bucket = getenv('S3_BUCKET_NAME') ?: die('No "S3_BUCKET" config var in found in env!');
                     ?>
 
                     <h1>S3 upload example</h1>
