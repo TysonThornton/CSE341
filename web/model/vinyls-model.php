@@ -35,7 +35,7 @@ function insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $viny
 function getVinylData($userId) {
 
     $db = dbConnect();
-    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre FROM public.vinyl WHERE userid = :userId';
+    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre, imageurl FROM public.vinyl FULL OUTER JOIN public.image on public.vinyl.imageid = public.image.imageid WHERE userid = :userId';
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
@@ -153,5 +153,22 @@ function getLastImageId() {
     // Close the database interaction
     $stmt->closeCursor();
     return $imageId;
+
+}
+
+function getImage($imageId) {
+
+    $db = dbConnect();
+    $sql = 'SELECT * FROM public.image WHERE imageid = :imageId';
+
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':imageId', $imageId, PDO::PARAM_INT);
+    $stmt->execute();
+    $imageInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Close the database interaction
+    $stmt->closeCursor();
+    return $imageInfo;
+
 
 }
