@@ -68,7 +68,6 @@
                     ]);
                     $bucket = getenv('S3_BUCKET') ?: die('No "S3_BUCKET" config var in found in env!');
                     ?>
-                    <html>
 
                     <h1>S3 upload example</h1>
                     <?php
