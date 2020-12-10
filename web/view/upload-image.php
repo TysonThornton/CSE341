@@ -30,10 +30,10 @@
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
                 
-                $filename = round(microtime(true));
+                
                 try {
                     // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
-                    $upload = $s3->upload($bucket, $_FILES['userfile'][$filename], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+                    $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
             ?>
                     <p>Upload Successful.</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL'));?>
@@ -44,7 +44,6 @@
                     <a href='../vinyl/index.php?action=addVinyl'>Click here to return to the Add New Vinyl Page</a><br>
             <?php }
             } ?>
-            <p>Image</p>
             <form enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
                 <input name="userfile" type="file"><br>
                 <input type="submit" name='submit' value="Save"><br>
