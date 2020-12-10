@@ -15,8 +15,9 @@
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
     <main>
+        <div>
 
-    <?php
+            <?php
             require('../vendor/autoload.php');
             // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
             $s3 = new Aws\S3\S3Client([
@@ -29,25 +30,30 @@
             <h1>Upload An Image Of Your Vinyl Record</h1>
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
-                
-                
+
+
                 try {
                     // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
                     $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
             ?>
                     <p>Upload Successful.</p>
-                    <?php $imageURL = htmlspecialchars($upload->get('ObjectURL'));?>
-                    <a href='../vinyl/index.php?action=addVinyl&imageURL='$imageURL>Click here to return to continue adding a new vinyl record</a><br>    
-                    
+                    <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
+                    <a href='../vinyl/index.php?action=addVinyl&imageURL='$imageURL>Click here to return to continue adding a new vinyl record</a><br>
+                    <?phpecho $imageURL; ?>
+
                 <?php } catch (Exception $e) { ?>
                     <p>Upload error. Please try again.</p>
                     <a href='../vinyl/index.php?action=addVinyl'>Click here to return to the Add New Vinyl Page</a><br>
             <?php }
-            } ?>
-            <form enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-                <input name="userfile" type="file"><br>
-                <input type="submit" name='submit' value="Save"><br>
-            </form>
+            } 
+            if(!isset($imageURL)) {
+                echo
+            "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+                <input name='userfile' type='file'><br>
+                <input type='submit' name='submit' value='Save'><br>
+            </form>";
+        } 
+            ?>
         </div>
 
 
