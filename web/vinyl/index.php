@@ -108,7 +108,7 @@ switch ($action) {
                 echo $vinylYear;
                 echo $vinylCondition;
                 echo $vinylGenre;
-                echo $imageURL;
+                echo $imageId;
                 echo $userId;
 
                 $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
