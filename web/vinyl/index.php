@@ -76,7 +76,7 @@ switch ($action) {
         $vinylBand = ucwords($vinylBand);
         $vinylAlbum = ucwords($vinylAlbum);
         $vinylCondition = ucwords($vinylCondition);
-        $vinylGenre = ucwords($vinylGenre); 
+        $vinylGenre = ucwords($vinylGenre);
 
         // Check for missing data
         if (empty($vinylBand) || empty($vinylAlbum) || empty($vinylYear)) {
@@ -86,11 +86,27 @@ switch ($action) {
         }
 
         // Add image to database
-        $imageOutcome = insertImage($imageURL, $vinylBand, $vinylAlbum);
+        $imageOutcome = insertImage($imageURL);
         if ($imageOutcome === 1) {
 
             $imageId = getLastImageId();
 
+            // Send the data to the model
+            $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $userId);
+
+            // Check and report the result. There should be a result of 1 record added so build an if statement for that
+            if ($vinylOutcome === 1) {
+
+
+                $_SESSION['message'] = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
+                header("Location: ../vinyl/index.php?action=vinylCollection");
+                // include '../vinyl/index.php?action=vinylCollection';
+                exit;
+            } else {
+                $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
+                include '../view/new-vinyl.php';
+                exit;
+            }
         } else {
             $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
             include '../view/new-vinyl.php';
@@ -98,22 +114,7 @@ switch ($action) {
         }
 
 
-        // Send the data to the model
-        $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $userId);
 
-        // Check and report the result. There should be a result of 1 record added so build an if statement for that
-        if ($vinylOutcome === 1) {
-
-
-            $_SESSION['message'] = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
-            header("Location: ../vinyl/index.php?action=vinylCollection");
-            // include '../vinyl/index.php?action=vinylCollection';
-            exit;
-        } else {
-            $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
-            include '../view/new-vinyl.php';
-            exit;
-        }
         break;
 
     case 'deleteVinyl':
@@ -123,8 +124,8 @@ switch ($action) {
         $vinylInfo = getVinylInfo($vinylId);
         $vinylAl = $vinylInfo['vinylalbum'];
         $vinylBa = $vinylInfo['vinylband'];
-        
-        
+
+
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
@@ -150,7 +151,7 @@ switch ($action) {
         // Check and the result
         if ($deleteResult === 1) {
             $message = "<p>You have successfully deleted $vinylAl from your collection.</p>";
-            
+
             $_SESSION['message'] = $message;
             header('location: ../vinyl/index.php?action=vinylCollection');
             exit;
@@ -164,32 +165,32 @@ switch ($action) {
 
     case 'editVinyl':
 
-                // Filter and store data
-                $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
-                // Get vinyl info
-                $vinylInfo = getVinylInfo($vinylId);
+        // Filter and store data
+        $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
+        // Get vinyl info
+        $vinylInfo = getVinylInfo($vinylId);
 
-                $vinylAlbum = $vinylInfo['vinylalbum'];
-                $vinylBand = $vinylInfo['vinylband'];
-                $vinylYear = $vinylInfo['vinylyear'];
-                $vinylCondition = $vinylInfo['vinylcondition'];
-                $vinylGenre = $vinylInfo['vinylgenre'];
-                
-        
-                // Check to see if $vinylInfo has any data in it, display error message if not
-                if (count($vinylInfo) < 1) {
-                    $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
-                    include '../view/vinyl-collection.php';
-                    exit;
-                }
-        
-                include '../view/vinyl-edit.php';
-                exit;
-        
+        $vinylAlbum = $vinylInfo['vinylalbum'];
+        $vinylBand = $vinylInfo['vinylband'];
+        $vinylYear = $vinylInfo['vinylyear'];
+        $vinylCondition = $vinylInfo['vinylcondition'];
+        $vinylGenre = $vinylInfo['vinylgenre'];
+
+
+        // Check to see if $vinylInfo has any data in it, display error message if not
+        if (count($vinylInfo) < 1) {
+            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+            include '../view/vinyl-collection.php';
+            exit;
+        }
+
+        include '../view/vinyl-edit.php';
+        exit;
+
         break;
 
 
-        case 'updateVinyl' :
+    case 'updateVinyl':
 
         // This case will insert updated vinyl info into db
         // Filter and store the data
@@ -222,7 +223,7 @@ switch ($action) {
         if ($updateResult === 1) {
             $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
             $_SESSION['message'] = $message;
-            header('location: ../vinyl/index.php?action=vinylCollection'); 
+            header('location: ../vinyl/index.php?action=vinylCollection');
             exit;
         } else {
             $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
