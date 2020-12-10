@@ -36,7 +36,8 @@
                     if (isset($imageURL)) {
                         echo '<img src="'
                         . $imageURL .
-                        '" alt="vinyl record image">';
+                        '" alt="vinyl record image"><br>';
+                        echo $imageURL;
                     } else {
                        echo '<a href="../view/upload-image.php">Add an Image</a><br>';
                     }

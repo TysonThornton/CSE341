@@ -39,7 +39,6 @@
                     <p>Upload Successful.</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
                     <a href='../vinyl/index.php?action=addVinyl&imageURL='$imageURL>Click here to return to continue adding a new vinyl record</a><br>
-                    <?php echo $imageURL; ?>
 
                 <?php } catch (Exception $e) { ?>
                     <p>Upload error. Please try again.</p>
