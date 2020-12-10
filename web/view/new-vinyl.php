@@ -38,7 +38,7 @@
                         . $imageURL .
                         '" alt="vinyl record image">';
                     } else {
-                       echo '<a href="../view/upload-image">Add an Image</a><br>;';
+                       echo '<a href="../view/upload-image.php">Add an Image</a><br>';
                     }
                     
                     ?>
