@@ -87,18 +87,25 @@ switch ($action) {
         }
 
         // Add image to database
-        $imageOutcome = insertImage($imageURL);
-        if ($imageOutcome === 1) {
+        if (isset($imageURL)) {
+            $imageOutcome = insertImage($imageURL);
+            if ($imageOutcome !== 1) {
 
-            $imageResult = getLastImageId();
-            $imageId = $imageResult['imageid'];
+                $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
+                include '../view/new-vinyl.php';
+                exit;
+            } else {
+
+                $imageResult = getLastImageId();
+                $imageId = $imageResult['imageid'];
+            }
+        }
 
             // Send the data to the model
             $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $userId);
 
             // Check and report the result. There should be a result of 1 record added so build an if statement for that
             if ($vinylOutcome === 1) {
-
 
                 $_SESSION['message'] = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
                 header("Location: ../vinyl/index.php?action=vinylCollection");
@@ -110,14 +117,6 @@ switch ($action) {
                 include '../view/new-vinyl.php';
                 exit;
             }
-        } else {
-            $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
-            include '../view/new-vinyl.php';
-            exit;
-        }
-
-
-
         break;
 
     case 'deleteVinyl':

@@ -75,8 +75,9 @@
                                                                 echo $sessionUserId;
                                                                 ?>">
                     <!-- Adding a third hidden name value to store image url -->
-                    <input type="hidden" name="imageURL" value="<?php echo $imageURL;
-                                                                ?>">
+                    <input type="hidden" name="imageURL" value="<?php if (isset($imageURL)) {
+                                                                    echo $imageURL;
+                                                                } ?>">
                 </fieldset>
             </form>
 
