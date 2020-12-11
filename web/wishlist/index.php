@@ -179,6 +179,8 @@ switch ($action) {
 
         // Filter and store data
         $wishlistId = filter_input(INPUT_GET, 'wishlistId', FILTER_VALIDATE_INT);
+        // Grab the image url
+        $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
         // Get vinyl info
         $wishlistInfo = getWishlistInfo($wishlistId);
 
@@ -202,7 +204,7 @@ switch ($action) {
         $vinylYear = filter_input(INPUT_POST, 'vinylYear', FILTER_SANITIZE_NUMBER_INT);
         $vinylCondition = filter_input(INPUT_POST, 'vinylCondition', FILTER_SANITIZE_STRING);
         $vinylGenre = filter_input(INPUT_POST, 'vinylGenre', FILTER_SANITIZE_STRING);
-        $vinylImage = filter_input(INPUT_POST, 'vinylImage', FILTER_SANITIZE_STRING);
+        $imageURL = filter_input(INPUT_POST, 'imageURL', FILTER_SANITIZE_STRING);
         $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_NUMBER_INT);
         $wishlistId = filter_input(INPUT_POST, 'wishlistId', FILTER_VALIDATE_INT);
 
@@ -219,8 +221,24 @@ switch ($action) {
             exit;
         }
 
+
+                // Add image to database
+                if (isset($imageURL)) {
+                    $imageOutcome = insertImage($imageURL);
+                    if ($imageOutcome !== 1) {
+        
+                        $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
+                        include '../view/new-vinyl.php';
+                        exit;
+                    } else {
+        
+                        $imageResult = getLastImageId();
+                        $imageId = $imageResult['imageid'];
+                    }
+                }
+
         // Send the data to the model
-        $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $userId);
+        $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $imageId, $userId);
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($vinylOutcome === 1) {
@@ -229,7 +247,7 @@ switch ($action) {
 
             // Check and the result
             if ($deleteResult === 1) {
-  
+
                 $_SESSION['message'] = "<p>Your wishlist item $vinylAlbum by $vinylBand has been added to your vinyl record collection and deleted from your wishlist.</p>";
                 header("Location: ../vinyl/index.php?action=vinylCollection");
                 exit;

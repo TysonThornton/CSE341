@@ -66,6 +66,16 @@
             <h2>Information to be Added to Vinyl Collection</h2>
             <form class='newVinylForm' action="../wishlist/index.php" method="post">
                 <fieldset>
+                    <?php
+                    if (isset($imageURL)) {
+                        echo '<div><img src="'
+                            . $imageURL .
+                            '" alt="vinyl record image"></div><br>';
+                    } else {
+                        echo '<a href="../view/upload-image.php">Add an Image</a><br>';
+                    }
+
+                    ?>
                     <label for="vinylBand">Artist / Band </label><br>
                     <input type='text' name="vinylBand" id="vinylBand" placeholder="required" class='input' required <?php if (isset($vinylBand)) {
                                                                                                                             echo "value='$vinylBand'";
@@ -86,10 +96,6 @@
                     <input type='text' name="vinylGenre" id="vinylGenre" placeholder="required" class='input' required <?php if (isset($vinylGenre)) {
                                                                                                                             echo "value='$vinylGenre'";
                                                                                                                         }  ?>><br>
-                    <label for="vinylImage">Image</label><br>
-                    <input type="text" name="vinylImage" id="vinylImage" class='input' <?php if (isset($vinylImage)) {
-                                                                                            echo "value='$vinylImage'";
-                                                                                        }  ?>><br>
 
                     <input type='submit' name='submit' value='Add Vinyl Record' class='submitVinyl'>
                     <!--Add the action key - value pair -->
@@ -102,6 +108,10 @@
                                                                         echo $wishlistId;
                                                                     }
                                                                     ?>">
+                    <!-- Adding a third hidden name value to store image url -->
+                    <input type="hidden" name="imageURL" value="<?php if (isset($imageURL)) {
+                                                                    echo $imageURL;
+                                                                } ?>">
 
 
                 </fieldset>
