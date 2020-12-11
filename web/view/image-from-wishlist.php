@@ -1,3 +1,6 @@
+<?php 
+$imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,13 +48,14 @@
                     <a href='../vinyl/index.php?action=addToCollection'>Click here to return to the Add New Vinyl page</a><br>
             <?php }
             } 
-            if(!isset($imageURL)) {
+            if(isset($imageURL)) {
+                echo "<img src='$imageURL'>";}
                 echo
-            "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
-                <input name='userfile' type='file'><br>
-                <input type='submit' name='submit' value='Save'><br>
-            </form>";
-        } 
+                    "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+                        <input name='userfile' type='file'><br>
+                        <input type='submit' name='submit' value='Save'><br>
+                    </form>";
+         
             ?>
         </div>
 
