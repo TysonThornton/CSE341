@@ -40,8 +40,9 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
                     $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
             ?>
                     <p>Download Successful.</p>
-                    <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
-                    <a href='../vinyl/index.php?action=editVinylNewPhoto&imageURL=<?php echo $imageURL; ?>&vinylId=<?php echo $_SESSION['vinylEditInfo']['vinylid']; ?>'>Click here to return and continue editing the vinyl record</a><br>
+                    <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); 
+                            $vinylId = $_SESSION['vinylEditInfo']['vinylid']; ?>
+                    <a href='../vinyl/index.php?action=editVinylNewPhoto&imageURL=<?php echo $imageURL; ?>&vinylId=<?php echo $vinylId; ?>'>Click here to return and continue editing the vinyl record</a><br>
 
                 <?php } catch (Exception $e) { ?>
                     <p>Download error. Please try again.</p>
