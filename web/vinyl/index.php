@@ -199,7 +199,7 @@ switch ($action) {
     case 'editVinylNewPhoto':
 
         // Filter and store data
-        $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
+        $vinylId = $_SESSION['vinylEditInfo']['vinylid'];
         $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
         // Get vinyl info
         $vinylInfo = getVinylInfo($vinylId);
