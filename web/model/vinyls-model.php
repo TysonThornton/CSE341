@@ -55,7 +55,7 @@ function getVinylData($userId) {
 function getVinylInfo($vinylId) {
 
     $db = dbConnect();
-    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre, userid, imageurl FROM public.vinyl FULL OUTER JOIN public.image on public.vinyl.imageid = public.image.imageid WHERE vinylid = :vinylId';
+    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre, userid, imageid, imageurl FROM public.vinyl FULL OUTER JOIN public.image on public.vinyl.imageid = public.image.imageid WHERE vinylid = :vinylId';
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':vinylId', $vinylId, PDO::PARAM_INT);
@@ -91,12 +91,12 @@ function deleteVInyl($vinylId) {
 }
 
 // Update vinyl record
-function updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $vinylId) {
+function updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $vinylId) {
 
         // Create a db connection
         $db = dbConnect();
         // The SQL statement
-        $sql = 'UPDATE public.vinyl SET vinylalbum = :vinylAlbum, vinylband = :vinylBand, vinylyear = :vinylYear, vinylcondition = :vinylCondition, vinylgenre = :vinylGenre 
+        $sql = 'UPDATE public.vinyl SET vinylalbum = :vinylAlbum, vinylband = :vinylBand, vinylyear = :vinylYear, vinylcondition = :vinylCondition, vinylgenre = :vinylGenre, imageid = :imageId 
         WHERE vinylid = :vinylId';
         // Create the prepared statement using the acme connection
         $stmt = $db->prepare($sql);
@@ -106,6 +106,7 @@ function updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $viny
         $stmt->bindValue(':vinylYear', $vinylYear, PDO::PARAM_INT);
         $stmt->bindValue(':vinylCondition', $vinylCondition, PDO::PARAM_STR);
         $stmt->bindValue(':vinylGenre', $vinylGenre, PDO::PARAM_STR);
+        $stmt->bindValue(':imageId', $imageId, PDO::PARAM_INT);
         $stmt->bindValue(':vinylId', $vinylId, PDO::PARAM_INT); 
         // Insert the data
         $stmt->execute();
@@ -170,5 +171,29 @@ function getImage($imageId) {
     $stmt->closeCursor();
     return $imageInfo;
 
+
+}
+
+// Update image
+function updateImage($imageId, $imageURL) {
+
+    // Create a db connection
+    $db = dbConnect();
+    // The SQL statement
+    $sql = 'UPDATE public.image SET imageurl = :imageURL WHERE imageid = :imageId';
+    // Create the prepared statement 
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindValue(':imageId', $imageId, PDO::PARAM_INT);
+    $stmt->bindValue(':imageURL', $imageURL, PDO::PARAM_STR);
+  
+    // Insert the data
+    $stmt->execute();
+    // Ask how many rows changed as a result of our insert
+    $rowsChanged = $stmt->rowCount();
+    // Close the database interaction
+    $stmt->closeCursor();
+    // Return the indication of success (rows changed)
+    return $rowsChanged;
 
 }

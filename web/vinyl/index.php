@@ -39,7 +39,7 @@ switch ($action) {
 
         $sessionUserId = $_SESSION['userData']['userid'];
         $vinylData = getVinylData($sessionUserId);
-  
+
 
 
         // $p = print_r($vinylData);
@@ -209,7 +209,7 @@ switch ($action) {
         $vinylYear = $vinylInfo['vinylyear'];
         $vinylCondition = $vinylInfo['vinylcondition'];
         $vinylGenre = $vinylInfo['vinylgenre'];
-    
+
 
         $_SESSION['vinylEditInfo'] = [];
         $_SESSION['vinylEditInfo'] = $vinylInfo;
@@ -237,7 +237,10 @@ switch ($action) {
         $vinylCondition = filter_input(INPUT_POST, 'vinylCondition', FILTER_SANITIZE_STRING);
         $vinylGenre = filter_input(INPUT_POST, 'vinylGenre', FILTER_SANITIZE_STRING);
         $vinylImage = filter_input(INPUT_POST, 'vinylImage', FILTER_SANITIZE_STRING);
+        $imageURL = filter_input(INPUT_POST, 'imageURL', FILTER_SANITIZE_STRING);
         $vinylId = filter_input(INPUT_POST, 'vinylId', FILTER_SANITIZE_NUMBER_INT);
+
+        $imageId = $_SESSION['vinylEditInfo']['imageid'];
 
 
         // Proper case input
@@ -253,17 +256,26 @@ switch ($action) {
             exit;
         }
 
-        // Send the data to the model
-        $updateResult = updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $vinylId);
+        // Update image URL
+        $imageOutcome = updateImage($imageId, $imageURL);
+        if ($imageOutcome === 1) {
 
-        // Check and report the result. 
-        if ($updateResult === 1) {
-            $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
-            $_SESSION['message'] = $message;
-            header('location: ../vinyl/index.php?action=vinylCollection');
-            exit;
+            // Send the data to the model
+            $updateResult = updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $vinylId);
+
+            // Check and report the result. There should be a result of 1 record added so build an if statement for that
+            if ($updateResult === 1) {
+                $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
+                $_SESSION['message'] = $message;
+                header('location: ../vinyl/index.php?action=vinylCollection');
+                exit;
+            } else {
+                $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
+                include '../view/vinyl-edit.php';
+                exit;
+            }
         } else {
-            $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
+            $message = "<p>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
             include '../view/vinyl-edit.php';
             exit;
         }

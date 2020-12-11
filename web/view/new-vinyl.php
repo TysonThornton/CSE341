@@ -74,7 +74,7 @@
                     <input type="hidden" name="userId" value="<?php $sessionUserId = $_SESSION['userData']['userid'];
                                                                 echo $sessionUserId;
                                                                 ?>">
-                    <!-- Adding a third hidden name value to store iamge url -->
+                    <!-- Adding a third hidden name value to store image url -->
                     <input type="hidden" name="imageURL" value="<?php echo $imageURL;
                                                                 ?>">
                 </fieldset>
