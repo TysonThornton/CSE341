@@ -39,7 +39,7 @@
                         if (isset($imageURL)) {
                             $image = $imageURL;
                             echo "<img src='$image'><br>";
-                            echo '<a href="../view/change-image.php?imageURL='.$imageURL.'">Change Image</a><br>';
+                            echo '<a href="../view/change-image.php?imageURL='.$imageURL.'&vinylId='.$vinylId.'">Change Image</a><br>';
                         }
                     ?>
                     <label for="vinylBand">Artist / Band </label><br>
