@@ -178,6 +178,7 @@ switch ($action) {
         $vinylYear = $vinylInfo['vinylyear'];
         $vinylCondition = $vinylInfo['vinylcondition'];
         $vinylGenre = $vinylInfo['vinylgenre'];
+        $imageURL = $vinylInfo['imageurl'];
 
 
         // Check to see if $vinylInfo has any data in it, display error message if not
