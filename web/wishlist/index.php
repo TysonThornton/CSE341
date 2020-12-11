@@ -192,6 +192,33 @@ switch ($action) {
         $vinylBand = $wlVinylBand;
         $vinylAlbum = $wlVinylAlbum;
 
+        $_SESSION['wlVinylInfo'] = [];
+        $_SESSION['wlVinylInfo'] = $wishlistInfo;
+
+        include '../view/wishlist-to-collection.php';
+
+        break;
+
+    case 'addToCollectionWithPhoto':
+
+        // Filter and store data
+        $wishlistId = $_SESSION['wlVinylInfo']['wishlistid'];
+        // Grab the image url
+        $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
+        // Get vinyl info
+        $wishlistInfo = getWishlistInfo($wishlistId);
+
+        $wlVinylAlbum = $wishlistInfo['wlvinylalbum'];
+        $wlVinylBand = $wishlistInfo['wlvinylband'];
+        $wlVinylPrice = $wishlistInfo['wlvinylprice'];
+        $wlVinylNotes = $wishlistInfo['wlvinylnotes'];
+
+        $vinylBand = $wlVinylBand;
+        $vinylAlbum = $wlVinylAlbum;
+
+        $_SESSION['wlVinylInfo'] = [];
+        $_SESSION['wlVinylInfo'] = $wishlistInfo;
+
         include '../view/wishlist-to-collection.php';
 
         break;
@@ -222,20 +249,20 @@ switch ($action) {
         }
 
 
-                // Add image to database
-                if (isset($imageURL)) {
-                    $imageOutcome = insertImage($imageURL);
-                    if ($imageOutcome !== 1) {
-        
-                        $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
-                        include '../view/new-vinyl.php';
-                        exit;
-                    } else {
-        
-                        $imageResult = getLastImageId();
-                        $imageId = $imageResult['imageid'];
-                    }
-                }
+        // Add image to database
+        if (isset($imageURL)) {
+            $imageOutcome = insertImage($imageURL);
+            if ($imageOutcome !== 1) {
+
+                $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
+                include '../view/new-vinyl.php';
+                exit;
+            } else {
+
+                $imageResult = getLastImageId();
+                $imageId = $imageResult['imageid'];
+            }
+        }
 
         // Send the data to the model
         $vinylOutcome = insertVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $vinylImage, $imageId, $userId);

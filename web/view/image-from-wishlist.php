@@ -41,7 +41,7 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
             ?>
                     <p>Download Successful.</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
-                    <a href='../wishlist/index.php?action=addToCollection&imageURL=<?php echo $imageURL; ?>'>Click here to return to continue adding a new vinyl record</a><br>
+                    <a href='../wishlist/index.php?action=addToCollectionWithPhoto&imageURL=<?php echo $imageURL; ?>'>Click here to return to continue adding a new vinyl record</a><br>
 
                 <?php } catch (Exception $e) { ?>
                     <p>Download error. Please try again.</p>
