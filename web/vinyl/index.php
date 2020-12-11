@@ -258,7 +258,12 @@ switch ($action) {
 
         // Update image URL
         $imageOutcome = updateImage($imageId, $imageURL);
-        if ($imageOutcome === 1) {
+        if ($imageOutcome !== 1) {
+
+            $message = "<p>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
+            include '../view/vinyl-edit.php';
+            exit;
+        } else {
 
             // Send the data to the model
             $updateResult = updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $vinylId);
@@ -274,10 +279,6 @@ switch ($action) {
                 include '../view/vinyl-edit.php';
                 exit;
             }
-        } else {
-            $message = "<p>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
-            include '../view/vinyl-edit.php';
-            exit;
         }
         break;
 
