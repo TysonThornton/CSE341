@@ -41,7 +41,7 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
             ?>
                     <p>Download Successful.</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
-                    <a href='../vinyl/index.php?action=editVinyl&imageURL=<?php echo $imageURL; ?>&vinylId=<?php echo $_SESSION['vinylEditInfo']['vinylid']; ?>'>Click here to return and continue editing the vinyl record</a><br>
+                    <a href='../vinyl/index.php?action=editVinylNewPhoto&imageURL=<?php echo $imageURL; ?>&vinylId=<?php echo $_SESSION['vinylEditInfo']['vinylid']; ?>'>Click here to return and continue editing the vinyl record</a><br>
 
                 <?php } catch (Exception $e) { ?>
                     <p>Download error. Please try again.</p>

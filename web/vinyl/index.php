@@ -200,6 +200,7 @@ switch ($action) {
 
         // Filter and store data
         $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
+        $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
         // Get vinyl info
         $vinylInfo = getVinylInfo($vinylId);
 
@@ -208,13 +209,10 @@ switch ($action) {
         $vinylYear = $vinylInfo['vinylyear'];
         $vinylCondition = $vinylInfo['vinylcondition'];
         $vinylGenre = $vinylInfo['vinylgenre'];
-        $imageURL = $vinylInfo['imageurl'];
+    
 
         $_SESSION['vinylEditInfo'] = [];
         $_SESSION['vinylEditInfo'] = $vinylInfo;
-
-        $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
-
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
