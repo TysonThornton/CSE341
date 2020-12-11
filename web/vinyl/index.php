@@ -183,6 +183,8 @@ switch ($action) {
         $_SESSION['vinylEditInfo'] = [];
         $_SESSION['vinylEditInfo'] = $vinylInfo;
 
+        $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
+
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
