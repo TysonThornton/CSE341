@@ -30,9 +30,6 @@
                 if (isset($message)) {
                     echo $message;
                 }
-                
-                $test1 = $_SESSION['vinylEditInfo']['imageurl'];
-                echo $test1;
                 ?>
             </div>
 

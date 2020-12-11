@@ -1,3 +1,6 @@
+<?php 
+$imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
