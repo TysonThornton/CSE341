@@ -80,7 +80,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
         <div>
-            <a href="../vinyl/index.php"><h3>Access your vinyl collection</h3></a>
+            <a href="../vinyl/index.php?action=vinylCollection"><h3>Access your vinyl collection</h3></a> 
         </div>
 
     </main>

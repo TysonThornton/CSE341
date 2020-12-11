@@ -180,6 +180,8 @@ switch ($action) {
         $vinylGenre = $vinylInfo['vinylgenre'];
         $imageURL = $vinylInfo['imageurl'];
 
+        $_SESSION['vinylEditInfo'] = $vinylInfo;
+
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {

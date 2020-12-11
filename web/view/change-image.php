@@ -6,8 +6,8 @@
     <link href="/css/small.css" type="text/css" rel="stylesheet" media="screen">
     <link href="/css/large.css" type="text/css" rel="stylesheet" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My Vinyl Shelf is a website to digitally store your vinyl record collection">
-    <title>Vinyl Record Playlist | Upload An Image</title>
+    <meta name="description" content="Vinyl Record Playlist is a website to digitally store your vinyl record collection">
+    <title>Vinyl Record Playlist | Change An Image</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             $bucket = getenv('S3_BUCKET_NAME') ?: die('No "S3_BUCKET" config var in found in env!');
             ?>
 
-            <h1>Upload An Image Of Your Vinyl Record</h1>
+            <h1>Change The Image For The Vinyl Record</h1>
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 
@@ -38,20 +38,22 @@
             ?>
                     <p>Download Successful.</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
-                    <a href='../vinyl/index.php?action=addVinyl&imageURL=<?php echo $imageURL; ?>'>Click here to return to continue adding a new vinyl record</a><br>
+                    <a href='../vinyl/vinyl-edit.php?imageURL=<?php echo $imageURL; ?>'>Click here to return and continue editing the vinyl record</a><br>
 
                 <?php } catch (Exception $e) { ?>
                     <p>Download error. Please try again.</p>
-                    <a href='../vinyl/index.php?action=addVinyl'>Click here to return to the Add New Vinyl page</a><br>
+                    <a href='../vinyl/index.php?action=vinylCollection'>Click here to return to the Vinyl Collection page</a><br>
+            
             <?php }
             } 
-            if(!isset($imageURL)) {
+            if(isset($_SESSION['vinylEditInfo']['imageurl'])) {
+                echo "<img src='$image'>";}
                 echo
-            "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
-                <input name='userfile' type='file'><br>
-                <input type='submit' name='submit' value='Save'><br>
-            </form>";
-        } 
+                    "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+                        <input name='userfile' type='file'><br>
+                        <input type='submit' name='submit' value='Save'><br>
+                    </form>";
+         
             ?>
         </div>
 
