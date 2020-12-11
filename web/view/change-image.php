@@ -42,6 +42,7 @@ $vinylId = filter_input(INPUT_GET, 'vinylId', FILTER_VALIDATE_INT);
             ?>
                     <p>Download Successful.</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); 
+                        $vinylId = $_SESSION['vinylEditInfo']['vinylid'];
                      ?>
                     <a href='../vinyl/index.php?action=editVinylNewPhoto&imageURL=<?php echo $imageURL; ?>&vinylId=<?php echo $vinylId; ?>'>Click here to return and continue editing the vinyl record</a><br>
 
