@@ -30,8 +30,8 @@
                 if (isset($message)) {
                     echo $message;
                 }
-                $test = $_SESSION['vinylEditInfo'];
-                $test1 = var_dump($test);
+                
+                $test1 = $_SESSION['vinylEditInfo']['imageurl'];
                 echo $test1;
                 ?>
             </div>
