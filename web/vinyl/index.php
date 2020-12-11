@@ -180,6 +180,7 @@ switch ($action) {
         $vinylGenre = $vinylInfo['vinylgenre'];
         $imageURL = $vinylInfo['imageurl'];
 
+        $_SESSION['vinylEditInfo'] = [];
         $_SESSION['vinylEditInfo'] = $vinylInfo;
 
 
