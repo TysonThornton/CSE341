@@ -38,8 +38,8 @@
                     <?php
                         if (isset($imageURL)) {
                             $image = $imageURL;
-                            echo "<img src='$image'>";
-                            echo '<a href="../view/upload-image.php">Change Image</a><br>';
+                            echo "<img src='$image'><br>";
+                            echo '<a href="../view/change-image.php">Change Image</a><br>';
                         }
                     ?>
                     <label for="vinylBand">Artist / Band </label><br>
