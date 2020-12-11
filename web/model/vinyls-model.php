@@ -55,7 +55,7 @@ function getVinylData($userId) {
 function getVinylInfo($vinylId) {
 
     $db = dbConnect();
-    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre, userid, imageid, imageurl FROM public.vinyl FULL OUTER JOIN public.image on public.vinyl.imageid = public.image.imageid WHERE vinylid = :vinylId';
+    $sql = 'SELECT vinylid, vinylband, vinylalbum, vinylyear, vinylcondition, vinylgenre, userid, public.vinyl.imageid, imageurl FROM public.vinyl FULL OUTER JOIN public.image on public.vinyl.imageid = public.image.imageid WHERE vinylid = :vinylId';
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':vinylId', $vinylId, PDO::PARAM_INT);
