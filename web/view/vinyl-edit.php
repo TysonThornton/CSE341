@@ -29,11 +29,10 @@
                 <?php
                 if (isset($message)) {
                     echo $message;
-
-                    $test = $_SESSION['vinylEditInfo'];
-                    $test1 = var_dump($test);
-                    echo $test1;
                 }
+                $test = $_SESSION['vinylEditInfo'];
+                $test1 = var_dump($test);
+                echo $test1;
                 ?>
             </div>
 
