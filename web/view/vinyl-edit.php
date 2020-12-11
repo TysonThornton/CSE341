@@ -29,6 +29,7 @@
                 <?php
                 if (isset($message)) {
                     echo $message;
+                    echo $_SESSION['vinylEditInfo']['imageurl'];
                 }
                 ?>
             </div>
