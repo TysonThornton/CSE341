@@ -48,10 +48,6 @@
                     <textarea name="wlVinylNotes" id="wlVinylNotes" class='input'><?php if (isset($wlVinylNotes)) {
                                                                                                     echo "$wlVinylNotes";
                                                                                                 }  ?></textarea><br>
-                    <label for="wlVinylImage">Image</label><br>
-                    <input type="text" name="wlVinylImage" id="wlVinylImage" class='input' <?php if (isset($wlVinylImage)) {
-                                                                                            echo "value='$wlVinylImage'";
-                                                                                        }  ?>><br>
 
                     <input type='submit' name='submit' value='Add Vinyl Record' class='submitVinyl'>
                     <!--Add the action key - value pair -->
