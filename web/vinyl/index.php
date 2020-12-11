@@ -213,6 +213,7 @@ switch ($action) {
 
         $_SESSION['vinylEditInfo'] = [];
         $_SESSION['vinylEditInfo'] = $vinylInfo;
+        $_SESSION['vinylEditInfo']['vinylid'] = $vinylId;
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
