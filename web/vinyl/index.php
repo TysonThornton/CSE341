@@ -257,29 +257,31 @@ switch ($action) {
         }
 
         // Update image URL
-        $imageOutcome = updateImage($imageId, $imageURL);
-        if ($imageOutcome !== 1) {
+        if (isset($imageId)) {
+            $imageOutcome = updateImage($imageId, $imageURL);
+            if ($imageOutcome !== 1) {
 
-            $message = "<p>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
-            include '../view/vinyl-edit.php';
-            exit;
-        } else {
-
-            // Send the data to the model
-            $updateResult = updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $vinylId);
-
-            // Check and report the result. There should be a result of 1 record added so build an if statement for that
-            if ($updateResult === 1) {
-                $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
-                $_SESSION['message'] = $message;
-                header('location: ../vinyl/index.php?action=vinylCollection');
-                exit;
-            } else {
-                $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
+                $message = "<p>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
                 include '../view/vinyl-edit.php';
                 exit;
             }
         }
+
+        // Send the data to the model
+        $updateResult = updateVinyl($vinylBand, $vinylAlbum, $vinylYear, $vinylCondition, $vinylGenre, $imageId, $vinylId);
+
+        // Check and report the result. There should be a result of 1 record added so build an if statement for that
+        if ($updateResult === 1) {
+            $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
+            $_SESSION['message'] = $message;
+            header('location: ../vinyl/index.php?action=vinylCollection');
+            exit;
+        } else {
+            $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
+            include '../view/vinyl-edit.php';
+            exit;
+        }
+
         break;
 
 
