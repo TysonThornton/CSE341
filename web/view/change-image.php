@@ -27,7 +27,7 @@
             $bucket = getenv('S3_BUCKET_NAME') ?: die('No "S3_BUCKET" config var in found in env!');
             ?>
 
-            <h1>Change The Image For The Vinyl Record</h1>
+            <h1>Change the Image for the Vinyl Record</h1>
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 
@@ -47,7 +47,7 @@
             <?php }
             } 
             if(isset($_SESSION['vinylEditInfo']['imageurl'])) {
-                echo "<img src='$image'>";}
+                echo "<img src='$_SESSION['vinylEditInfo']['imageurl']'>";}
                 echo
                     "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
                         <input name='userfile' type='file'><br>

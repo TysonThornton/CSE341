@@ -62,10 +62,6 @@
                     <input type='text' name="vinylGenre" id="vinylGenre" placeholder="required" class='input' required <?php if (isset($vinylGenre)) {
                                                                                     echo "value='$vinylGenre'";
                                                                                 }  ?>><br>
-                    <label for="vinylImage">Image</label><br>
-                    <input type="text" name="vinylImage" id="vinylImage" class='input' <?php if (isset($vinylImage)) {
-                                                                                            echo "value='$vinylImage'";
-                                                                                        }  ?>><br>
 
                     <input type='submit' name='submit' value='Save Vinyl Record Changes' class='submitVinyl'>
                     <!--Add the action key - value pair -->
