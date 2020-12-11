@@ -47,7 +47,7 @@
             <?php }
             } 
             if(isset($_SESSION['vinylEditInfo']['imageurl'])) {
-                echo "<img src='$_SESSION['vinylEditInfo']['imageurl']'>";}
+                echo "<img src='$_SESSION[vinylEditInfo][imageurl]'>";}
                 echo
                     "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
                         <input name='userfile' type='file'><br>
