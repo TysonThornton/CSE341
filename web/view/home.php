@@ -16,6 +16,10 @@
 
 
     <main>
+
+        <div id="hero">
+            <img src="../images/records.jpg" alt="Picture of a lot of vinyl records">
+        </div>
         <div>
             <p>Welcome to Vinyl Record Playlist</p>
         </div>
@@ -56,7 +60,7 @@
         <div>
             <a href='/accounts/index.php?action=registration'>Create an Account</a>
         </div>";
-        } 
+        }
         ?>
 
     </main>
