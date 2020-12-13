@@ -9,6 +9,8 @@
 
 /******** HEADER **********/
 
-.logo {
-    width: 40%;
+.logo img {
+    max-width:40%;
+    height: auto;
+
 }
