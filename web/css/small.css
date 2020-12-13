@@ -2,9 +2,15 @@
 
     padding: 0;
 
- 
+
 
 }
+
+/******** HTML **********/
+html {
+    min-width: 350px;
+}
+
 
 /******** BODY **********/
 body {
@@ -12,7 +18,12 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -25,7 +36,7 @@ header {
 
 .logo img {
     width: 100%;
-    max-width:900px;
+    max-width: 900px;
     height: auto;
 
 }
@@ -33,19 +44,19 @@ header {
 .accountOptions {
     text-align: center;
     padding-top: 20px;
-    
+
 }
 
 
 #profile {
     text-decoration: none;
     background-color: #000100;
-    color:#FFFFFF;
+    color: #FFFFFF;
     padding: 15px 10px 15px 10px;
     border-radius: 5px;
     width: 120px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
     display: inline-block;
 
@@ -54,18 +65,19 @@ header {
 #logout {
     text-decoration: none;
     background-color: #000100;
-    color:#FFFFFF;
+    color: #FFFFFF;
     padding: 15px 10px 15px 10px;
     border-radius: 5px;
     width: 120px;
     text-align: center;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: inline-block;
 
 }
 
-#profile:hover, #logout:hover {
+#profile:hover,
+#logout:hover {
     background-color: #FF6700;
     color: #000100;
     font-weight: bolder;
@@ -74,11 +86,97 @@ header {
 
 
 /******** NAV **********/
+nav {
+    background-color: #FF6700;
+    width: 100%;
+    color: #000100;
+    font-weight: bolder;
+    border-top-color: #000100;
+    border-width: 5px 0 0 0;
+    border-style: solid;
+    margin-bottom: 50px;
+    /* border-bottom: 2px solid #FF6700; */
+
+}
+
+
+nav ul {
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+}
+
+nav li {
+    display: flex;
+    border-left: 2px solid #000100;
+    margin: 0 2px 0 2px;
+}
+
+nav li:nth-child(3) {
+    border-right: 2px solid #000100;
+}
+
+nav a {
+
+    background-color: #000100;
+    color: #FF6700;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    
+    text-align: center;
+}
+
+
+nav li a:hover {
+    background-color: #000100;
+    color: #FFFFFF;
+    
+}
+
+nav a:active {
+    background-color: #000100;
+    color: #FF6700;
+   
+}
+
+
+.selected {
+    background-color: #1446A0;
+    color: #FFFFFF;
+}
+
+
+
 
 /******** MAIN **********/
 main {
-    background-color: #FFFFFF;
+    
+    
 }
+
+#hero {
+    background-color: #000100;
+}
+
+#hero img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #000100;
+}
+
+main p, main div {
+    background-color: #FFFFFF;
+    margin: 15px;
+}
+
+
 
 
 
