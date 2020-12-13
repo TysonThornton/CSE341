@@ -56,16 +56,7 @@
         <div>
             <a href='/accounts/index.php?action=registration'>Create an Account</a>
         </div>";
-        } elseif (isset($_SESSION['loggedin'])) {
-
-            if (!isset($_SESSION['username'])) {
-
-                $un = $_SESSION['userData']['username'];
-            }
-
-            echo "<a id='profile' href='../accounts/index.php?action=Profile'>Account Profile</a><br>";
-            echo "<a id='logout' href='../accounts/index.php?action=Logout'>Logout</a>";
-        };
+        } 
         ?>
 
     </main>
