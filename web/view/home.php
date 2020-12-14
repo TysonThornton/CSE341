@@ -18,7 +18,7 @@
     <main>
 
         <div id="hero">
-            <img src="../images/records.jpg" alt="Picture of a lot of vinyl records">
+            <img src="https://vinyl-record-playlist.s3-us-west-1.amazonaws.com/records.jpg" alt="Picture of a lot of vinyl records">
         </div>
         <div>
             <h1>Welcome to Vinyl Record Playlist</h1>
