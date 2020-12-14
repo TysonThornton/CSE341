@@ -598,6 +598,16 @@ main h1 {
     margin: 0;
 }
 
+.newVinylMain img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 400px;
+    padding-bottom: 5px;
+    
+}
+
 .newVinylMain a {
     text-decoration: none;
     background-color: #7A7D7D;
