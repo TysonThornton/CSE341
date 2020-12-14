@@ -267,11 +267,14 @@ main div h2 {
     margin: 0 auto;
     width: 150px;
     padding: 5px;
+    background-color: #000100;
+    color: #FFFFFF;
+
 }
 
 .inputButton:hover {
     background-color: #000100;
-    color: #FFFFFF;
+    color: #FF6700;
 }
 
 #accountLink {
@@ -386,7 +389,7 @@ main div h2 {
     color: #FFFFFF;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
-    width: 40%;
+    width: 30%;
     margin: 5px 10px 5px 10px;
     text-align: center;
     display: inline-block;

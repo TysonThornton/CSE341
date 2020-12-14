@@ -271,7 +271,7 @@ switch ($action) {
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($updateResult === 1) {
-            $message = "<p'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
+            $message = "<p class='notice'>Thank you for updating $vinylAlbum by $vinylBand. All changes have been saved successfully.</p>";
             $_SESSION['message'] = $message;
             header('location: ../vinyl/index.php?action=vinylCollection');
             exit;

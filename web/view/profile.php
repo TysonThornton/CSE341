@@ -21,13 +21,14 @@ if (!isset($_SESSION['loggedin'])) {
 
 
     <main>
-        <h1><?php echo $_SESSION['userData']['username']; ?></h1>
+        <h1><?php echo $_SESSION['userData']['username']; 
+        echo ' Profile Page';
+        ?></h1>
         <?php
         if (isset($_SESSION['message'])) {
             echo $_SESSION['message'];
         }
         ?>
-        <p>You are currently logged in.</p>
         <ul>
             <li>Username: <?php echo $_SESSION['userData']['username'];  ?></li>
             <li>Email: <?php echo $_SESSION['userData']['useremail'];  ?></li>

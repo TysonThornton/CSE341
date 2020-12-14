@@ -39,10 +39,10 @@ function buildVinylDisplay($vinylData)
             $vr .= "<img src='$image'>";
         }
         $vr .= "<p><span>Band / Artist</span>: $vinyl[vinylband]</p>";
-        $vr .= "<p>Album: $vinyl[vinylalbum]</p>";
-        $vr .= "<p>Release Year: $vinyl[vinylyear]</p>";
-        $vr .= "<p>Record Condition: $vinyl[vinylcondition]</p>";
-        $vr .= "<p>Genre: $vinyl[vinylgenre]</p></div>";
+        $vr .= "<p><span>Album</span>: $vinyl[vinylalbum]</p>";
+        $vr .= "<p><span>Release Year</span>: $vinyl[vinylyear]</p>";
+        $vr .= "<p><span>Record Condition</span>: $vinyl[vinylcondition]</p>";
+        $vr .= "<p><span>Genre</span>: $vinyl[vinylgenre]</p></div>";
         $vr .= "<div id='vinyl-options'>";
         $vr .= "<a href='../vinyl/index.php?action=editVinyl&vinylId=$vinyl[vinylid]' title='Click to edit'>Edit</a>";
         $vr .= "<a href='../vinyl/index.php?action=deleteVinyl&vinylId=$vinyl[vinylid]' title='Click to delete'>Delete</a>";
