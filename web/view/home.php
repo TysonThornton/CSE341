@@ -40,8 +40,9 @@
 
             echo
                 "<div>
-            <P>Please login or create an account below.</p>
+            
             <h2>Login</h2>
+            <P>Please login or create an account below.</p>
             <form action='/accounts/index.php' method='post' class='loginform'>
                 <label>Email Address</label><br>
                 <input type='email' name='userEmail' placeholder='example@gmail.com' class='input' required"

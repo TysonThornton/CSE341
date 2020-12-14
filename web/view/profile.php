@@ -20,9 +20,9 @@ if (!isset($_SESSION['loggedin'])) {
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
 
-    <main>
+    <main class="profile">
         <h1><?php echo $_SESSION['userData']['username']; 
-        echo ' Profile Page';
+        echo "'s Profile Page";
         ?></h1>
         <?php
         if (isset($_SESSION['message'])) {
@@ -30,8 +30,8 @@ if (!isset($_SESSION['loggedin'])) {
         }
         ?>
         <ul>
-            <li>Username: <?php echo $_SESSION['userData']['username'];  ?></li>
-            <li>Email: <?php echo $_SESSION['userData']['useremail'];  ?></li>
+            <li><span>Username</span>: <?php echo $_SESSION['userData']['username'];  ?></li>
+            <li><span>Email</span>: <?php echo $_SESSION['userData']['useremail'];  ?></li>
         </ul>
 
         <div class="formHeader">
