@@ -950,3 +950,44 @@ main h1 {
     color: #FFFFFF;
     font-weight: bolder;
 }
+
+
+
+
+
+/******** NEW WISHLIST ITEM **********/
+.newWishlistMain .formcontainer {
+    background-color: #FF6700;
+}
+
+.newWishlistMain .formHeader {
+    margin: 0;
+}
+.newWishlistMain .formcontainer h1 {
+    margin: 0;
+    
+}
+
+.newWishlistMain .formcontainer p {
+    border: none;
+}
+
+.newWishlistMain fieldset {
+    border-bottom: none;
+    margin: 0;
+}
+
+.newWishlistMain .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 400px;
+    padding-bottom: 5px;
+    
+}
+
+.newWishlistMain .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
