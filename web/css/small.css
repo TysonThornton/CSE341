@@ -247,8 +247,7 @@ main div p{
 }
 
 main div h2 {
-    padding-left: 15px;
-    padding-bottom: 10px;
+    padding: 20px 0 10px 15px;
     margin: 0;
 }
 
