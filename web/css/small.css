@@ -277,6 +277,15 @@ main div h2 {
     
 }
 
+.notice {
+    background-color: #1446A0;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding: 10px 5px 10px 5px;
+    margin: 2px; 
+    text-align: center;   
+    
+}
 
 
 /******** FOOTER **********/
