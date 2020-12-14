@@ -704,3 +704,64 @@ main h1 {
     font-weight: bolder;
 
 }
+
+
+/******** EDIT VINYL **********/
+.editVinylMain .formcontainer {
+    background-color: #000100;
+}
+
+.editVinylMain .formHeader {
+    margin: 0;
+}
+.editVinylMain .formcontainer h1 {
+    margin: 0;
+    
+}
+
+.editVinylMain .formcontainer p {
+    border: none;
+}
+
+.editVinylMain fieldset {
+    border-bottom: none;
+    margin: 0;
+}
+
+.editVinylMain img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 400px;
+    padding-bottom: 5px;
+    
+}
+
+.editVinylMain a {
+    text-decoration: none;
+    background-color: #7A7D7D;
+    color: #FFFFFF;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: block;
+
+}
+
+.editVinylMain a:hover {
+    
+    background-color: #000100;
+    color: #FFFFFF;
+    font-weight: bolder;
+
+}
+
+.editVinylMain .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
