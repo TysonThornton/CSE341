@@ -128,7 +128,7 @@ nav li:nth-child(3) {
 nav a {
 
     background-color: #000100;
-    color: #FF6700;
+    color: #FFFFFF;
     font-weight: bold;
     text-decoration: none;
     padding: 15px;
@@ -140,7 +140,7 @@ nav a {
 
 nav li a:hover {
     background-color: #000100;
-    color: #FFFFFF;
+    color: #FF6700;
     
 }
 
@@ -228,6 +228,18 @@ main div p, main div h2, .loginform, #accountLink {
 
 }
 
+main div h2 {
+    border-top: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+}
+
+main div form {
+    border-bottom: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    border-left: 2px solid #FFFFFF;
+}
+
 main div p{
     margin: 0;
     padding: 25px 5px 15px 5px;
@@ -267,14 +279,11 @@ main div h2 {
     margin: 0 auto;
     width: 150px;
     padding: 5px;
-    background-color: #000100;
-    color: #FFFFFF;
-
 }
 
 .inputButton:hover {
     background-color: #000100;
-    color: #FF6700;
+    color: #FFFFFF;
 }
 
 #accountLink {
@@ -389,7 +398,7 @@ main div h2 {
     color: #FFFFFF;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
-    width: 30%;
+    width: 40%;
     margin: 5px 10px 5px 10px;
     text-align: center;
     display: inline-block;
@@ -401,6 +410,7 @@ main div h2 {
     color: #FFFFFF;
     font-weight: bolder;
 }
+
 
 
 
