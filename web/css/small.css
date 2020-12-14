@@ -1013,3 +1013,56 @@ main h1 {
     margin-bottom: 30px;
     margin-top: 15px;
 }
+
+
+
+
+/******** WISHLIST TO COLLECTION **********/
+.wlToCollection .formHeader, .wlToCollection .formHeader h1  {
+    margin: 0;
+}
+
+.wlToCollection p {
+    border: none;
+}
+
+.wlToCollection h2 {
+    padding-top: 30px;
+    padding-bottom: 5px;
+}
+
+.wlToCollection fieldset {
+    margin: 0;
+}
+
+.wlToCollection fieldset {
+    border: 2px solid #FFFFFF;
+    padding-bottom: 20px;
+}
+
+.wlToCollection a {
+    text-decoration: none;
+    background-color: #7A7D7D;
+    color: #FFFFFF;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    margin-top: 15px;
+    display: inline-block;
+
+}
+
+.wlToCollection a:hover {
+    
+    background-color: #000100;
+    color: #FFFFFF;
+    font-weight: bolder;
+
+}
+
+.wlToCollection .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
