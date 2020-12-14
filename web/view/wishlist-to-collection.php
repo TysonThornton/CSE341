@@ -64,7 +64,7 @@
                 <fieldset>
                     <?php
                     if (isset($imageURL)) {
-                        echo '<div><img src="'
+                        echo '<div class="image"><img src="'
                             . $imageURL .
                             '" alt="vinyl record image"></div><br>';
                     } else {
