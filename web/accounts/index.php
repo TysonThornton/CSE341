@@ -11,6 +11,8 @@ require_once '../library/connections.php';
 require_once '../library/functions.php';
 // Get the accounts model
 require_once '../model/accounts-model.php';
+// Get the vinyl controller
+require_once '../vinyl/index.php';
 
 
 
@@ -78,7 +80,7 @@ switch ($action) {
         $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ' is logged in.</p>';
   
         // Send them to the home view
-        include '../view/vinyl-collection.php';
+        include '../vinyl/index.php?action=vinylCollection.php';
         
         exit;
 
