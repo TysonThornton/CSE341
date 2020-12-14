@@ -694,6 +694,7 @@ main h1 {
     text-align: center;
     display: inline-block;
     border: 2px solid #FFFFFF;
+    font-weight: bolder;
 
 }
 
@@ -829,6 +830,7 @@ main h1 {
     text-align: center;
     display: inline-block;
     border: 2px solid #FFFFFF;
+    font-weight: bolder;
 
 }
 
@@ -838,4 +840,34 @@ main h1 {
     color: #FFFFFF;
     font-weight: bolder;
 
+}
+
+
+
+
+/******** DELETE VINYL **********/
+.deleteVinylMain {
+    margin: 0 15px 0 15px;
+}
+
+.deleteVinylMain h1 {
+    margin: 0;
+}
+
+.deleteVinylMain p, .deleteVinylMain fieldset {
+    border: none;
+    margin: 0;
+}
+
+.deleteVinylMain p {
+    font-style: italic;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    padding: 10px 15px 10px 15px;
+
+}
+
+.deleteVinylMain .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
 }

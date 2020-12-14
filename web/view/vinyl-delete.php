@@ -15,7 +15,7 @@
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
     <main>
-        <main>
+        <main class="deleteVinylMain">
             <h1><?php if (isset($vinylAl) && isset($vinylBa)) {
                     echo "Delete $vinylAl by $vinylBa";
                 }
@@ -38,14 +38,14 @@
                     <input type='text' name="vinylAlbum" id="vinylAlbum" class='input' readonly <?php if (isset($vinylAl)) {
                                                                                                     echo "value='$vinylAl'";
                                                                                                 }
-                                                                                                ?>><br>
+                                                                                                ?>>
                     <label for="vinylBand">Band / Artist: </label>
                     <input type='text' name="vinylBand" id="vinylBand" class='input' readonly <?php if (isset($vinylBa)) {
                                                                                                     echo "value='$vinylBa'";
                                                                                                 }
-                                                                                                ?>><br>
+                                                                                                ?>>
 
-                    <input type='submit' name='submit' value='Delete Vinyl Forever'>
+                    <input type='submit' name='submit' value='Delete Vinyl Forever' class="inputButton">
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="deleteVinylConfirmed">
                     <!-- Adding a second hidden name value to store primary key -->
