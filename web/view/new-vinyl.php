@@ -22,13 +22,12 @@
                 <p>Please fill out all the information below and submit</p>
             </div>
 
-            <div class="dbMessage">
+            
                 <?php
                 if (isset($message)) {
                     echo $message;
                 }
                 ?>
-            </div>
 
             <form class='form' action="../vinyl/index.php" method="post">
                 <fieldset>
