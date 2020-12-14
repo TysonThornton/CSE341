@@ -15,7 +15,7 @@
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
 
-    <main>
+    <main class="loginMain">
         <div>
             <h2>Login</h2>
             <?php
@@ -24,22 +24,22 @@
             }
             ?>
             <form action="../accounts/index.php" method="post" class='loginform'>
-                <label>Email Address</label><br>
+                <label>Email Address</label>
                 <input type='email' name="userEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($_SESSION['userData']['userEmail'])) {
                                                                                                                 $sessionEmail = $_SESSION['userData']['userEmail'];
                                                                                                                 echo "value='$sessionEmail'";
                                                                                                             }  ?>><br><br>
-                <label>Password</label><br>
+                <label>Password</label>
                 <span id='loginInstructions'>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
                 <input type='password' name="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                 <br><br>
-                <input type='submit' value='Login' class='inputButton'><br><br>
+                <input type='submit' value='Login' class='inputButton'>
 
                 <!--Add the action key - value pair -->
                 <input type="hidden" name="action" value="Login">
             </form>
         </div>
-        <div>
+        <div id='accountLink'>
             <a href="../accounts/index.php?action=registration">Create an Account</a>
         </div>
 

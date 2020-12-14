@@ -523,6 +523,21 @@ main h1 {
 
 
 
+/******** LOGIN **********/
+.loginMain form {
+    border-top: 2px solid #FFFFFF;
+}
+
+.loginMain form label {
+    display: block;
+    padding-top: 10px;
+}
+
+.loginMain .inputButton {
+
+    margin-bottom: 15px;
+}
+
 
 
 
