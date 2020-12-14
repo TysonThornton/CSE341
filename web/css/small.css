@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 * {
 
     padding: 0;
@@ -15,7 +18,7 @@ html {
 /******** BODY **********/
 body {
     background-color: #000100;
-    font-family: Helvetica, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 h1,
@@ -24,14 +27,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Kalam', cursive;
 }
 
 
 /******** HEADER **********/
 header {
     background-color: #FFFFFF;
-    padding: 30px 0 30px 0;
+    padding: 30px 0 20px 0;
 }
 
 .logo img {
@@ -94,8 +97,8 @@ nav {
     border-top-color: #000100;
     border-width: 5px 0 0 0;
     border-style: solid;
-    margin-bottom: 50px;
-    /* border-bottom: 2px solid #FF6700; */
+    border-bottom: 5px solid #000100;
+    
 
 }
 
@@ -155,11 +158,6 @@ nav a:active {
 
 
 /******** MAIN **********/
-main {
-    
-    
-}
-
 #hero {
     background-color: #000100;
 }
@@ -173,14 +171,124 @@ main {
 
 main p, main div {
     background-color: #FFFFFF;
-    margin: 15px;
+    margin: 0 15px 0 15px;
+}
+
+main > div > h1 { 
+    text-align: center;
+    border-bottom: 5px solid #FF6700;
+    margin: 0;
+    padding-top: 15px
+        
+}
+
+main div p, main div h2, .loginform, #accountLink {
+    background-color: #FF6700;
+    color: #FFFFFF;
+
+}
+
+main div p{
+    margin: 0;
+    padding: 25px 5px 15px 5px;
+    font-weight: bold;
+}
+
+main div h2 {
+    padding-left: 15px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.loginform {
+    padding-left: 15px;
+
+}
+
+.loginform label{
+    font-weight: bold;
+}
+
+.input {
+    width: 90%;
+    padding: 7px 7px;
+    margin: 5px 0 0 0;
+}
+
+#loginInstructions {
+    font-size: small;
+    font-style: italic;
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.inputButton {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    padding: 5px;
+}
+
+.inputButton:hover {
+    background-color: #000100;
+    color: #FFFFFF;
+}
+
+#accountLink {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#accountLink a {
+    text-decoration: none;
+    background-color: #1446A0;
+    color: #FFFFFF;
+    padding: 15px 10px 15px 10px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#accountLink a:hover {
+    
+    background-color: #000100;
+    color: #FFFFFF;
+    font-weight: bolder;
+
 }
 
 
 
 
 
+
+
+/******** MESSAGE **********/
+.message {
+    background-color: #1446A0;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding: 10px 5px 10px 5px;
+    margin: 2px; 
+    text-align: center;   
+    
+}
+
+
+
 /******** FOOTER **********/
 footer {
-    background-color: #FFFFFF;
+    color: #FF6700;
+    background-color: #000100;
+    text-align: center;
+    
+    
+}
+
+footer p {
+    padding: 3px 0 3px 0;
+    font-weight: bold;
 }

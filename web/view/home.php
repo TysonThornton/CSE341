@@ -21,7 +21,7 @@
             <img src="../images/records.jpg" alt="Picture of a lot of vinyl records">
         </div>
         <div>
-            <p>Welcome to Vinyl Record Playlist</p>
+            <h1>Welcome to Vinyl Record Playlist</h1>
         </div>
 
         <?php
@@ -40,7 +40,7 @@
 
             echo
                 "<div>
-            
+            <P>Please login or create an account below.</p>
             <h2>Login</h2>
             <form action='/accounts/index.php' method='post' class='loginform'>
                 <label>Email Address</label><br>
@@ -51,13 +51,13 @@
                 <span id='loginInstructions'>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
                 <input type='password' name='userPassword' class='input' required pattern='(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$'>
                 <br><br>
-                <input type='submit' value='Login' class='inputButton'><br><br>
+                <input type='submit' value='Login' class='inputButton'><br>
 
                 <!--Add the action key - value pair -->
                 <input type='hidden' name='action' value='Login'>
             </form>
         </div>
-        <div>
+        <div id='accountLink'>
             <a href='/accounts/index.php?action=registration'>Create an Account</a>
         </div>";
         }

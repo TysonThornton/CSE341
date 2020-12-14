@@ -120,15 +120,15 @@ switch ($action) {
     
         // Check and report the result.
         if ($regOutcome === 1) {
-            $message = "<p>Thanks for registering $userName. Please use your email and password to login.</p>";
+            $message = "<p class='message'>Thanks for registering $userName. Please use your email and password to login.</p>";
             include '../view/login.php';
             exit;
         } else {
-            $message = "<p>Sorry $userName, but the registration failed. Please try again.</p>";
+            $message = "<p class='message'>Sorry $userName, but the registration failed. Please try again.</p>";
             include '../view/registration.php';
             exit;
         }
-    
+     
         break;
 
 
