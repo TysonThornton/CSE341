@@ -23,12 +23,19 @@
         <div>
             <h1>Welcome to Vinyl Record Playlist</h1>
         </div>
-
         <?php
         if (isset($message)) {
             echo $message;
         }
         ?>
+        <div id="intro">
+            <p>Make your vinyl record collection digital! Create an account, add your vinyl records to your collection 
+                and then you'll have them availble to easily scroll through and choose the best one to put on. You can also
+                make a wishlist of all the vinyl records you want to add to your collection.
+            </p>
+        </div>
+
+ 
 
         <?php
         if (!isset($_SESSION['loggedin'])) {
@@ -42,7 +49,7 @@
                 "<div>
             
             <h2>Login</h2>
-            <P>Please login or create an account below.</p>
+            <p>Please login or create an account below.</p>
             <form action='/accounts/index.php' method='post' class='loginform'>
                 <label>Email Address</label><br>
                 <input type='email' name='userEmail' placeholder='example@gmail.com' class='input' required"

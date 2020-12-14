@@ -1,43 +1,27 @@
 @media only screen and (min-width: 600px) {
 
+    main {
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+        margin-bottom: 70px;
+    }
 
+    #hero {
+        display: none;
+    }
 
+    body {
+        background-image: url('https://vinyl-record-playlist.s3-us-west-1.amazonaws.com/records.jpg');
+        background-size: contain;
+        margin: 0;
+    }
 
+    footer p {
+        margin: 0;
+        padding: 5px 0 5px 0;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
 }
