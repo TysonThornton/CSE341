@@ -39,7 +39,7 @@ let data = "<?php //echo $vinylData ?>";
         }
         ?><br>
         <div class="pageLink">
-        <a href='../vinyl/index.php?action=addVinyl'>Add Vinyl Record to Collection</a><br>
+        <a href='../vinyl/index.php?action=addVinyl'>Add a New Vinyl Record to Collection</a><br>
         </div>
 
         <?php if (isset($vinylDisplay)) {

@@ -178,6 +178,16 @@ nav a:active {
     
 }
 
+.dbMessage {
+    background-color: #1446A0;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding: 10px 5px 10px 5px;
+    margin: 2px; 
+    text-align: center;   
+    
+}
+
 
 /******** FOOTER **********/
 footer {
@@ -552,6 +562,7 @@ main h1 {
 
 .registrationMain p, .registrationMain fieldset {
     border: none;
+    margin: 0;
 }
 
 .registrationMain .formHeader p {
@@ -565,6 +576,53 @@ main h1 {
 }
 
 
+/******** NEW VINYL **********/
+.newVinylMain .formcontainer {
+    background-color: #000100;
+}
+
+.newVinylMain .formHeader {
+    margin: 0;
+}
+.newVinylMain .formcontainer h1 {
+    margin: 0;
+    
+}
+
+.newVinylMain .formcontainer p {
+    border: none;
+}
+
+.newVinylMain fieldset {
+    border-bottom: none;
+    margin: 0;
+}
+
+.newVinylMain a {
+    text-decoration: none;
+    background-color: #7A7D7D;
+    color: #FFFFFF;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+
+    display: inline-block;
+
+}
+
+.newVinylMain a:hover {
+    
+    background-color: #000100;
+    color: #FFFFFF;
+    font-weight: bolder;
+
+}
+
+.newVinylMain .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
 
 
 
