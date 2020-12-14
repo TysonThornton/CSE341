@@ -39,7 +39,7 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
                     // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
                     $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
             ?>
-                    <p>Download Successful.</p>
+                    <p class="uploadSuccess">Download Successful!</p>
                     <?php $imageURL = htmlspecialchars($upload->get('ObjectURL')); ?>
                     <a href='../vinyl/index.php?action=addVinyl&imageURL=<?php echo $imageURL; ?>'>Click here to return to continue adding a new vinyl record</a><br>
 
