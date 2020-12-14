@@ -991,3 +991,25 @@ main h1 {
     margin-bottom: 30px;
     margin-top: 15px;
 }
+
+
+
+
+/******** EDIT WISHLIST ITEM **********/
+.editWishlist .formHeader, .editWishlist .formHeader h1  {
+    margin: 0;
+}
+
+.editWishlist .formcontainer p {
+    border: none;
+}
+
+.editWishlist fieldset {
+    border: none;
+    margin: 0;
+}
+
+.editWishlist .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
