@@ -626,4 +626,29 @@ main h1 {
 
 
 
+/******** UPLOAD IMAGE **********/
+.uploadMain form {
+    background-color: #FF6700;
+    color: #FFFFFF;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.uploadMain form label {
+    
+    padding-left: 15px;
+    font-weight: bolder;
+    
+}
+
+.uploadMain .selectFile {
+    margin-left: 15px;
+}
+
+.uploadMain .inputButton {
+    display: inline;
+    margin-left: 15px;
+    margin-top: 15px;
+}
 

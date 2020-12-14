@@ -1,4 +1,4 @@
-<?php 
+<?php
 $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
     <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
-    <main>
+    <main class="uploadMain">
         <div>
 
             <?php
@@ -30,7 +30,7 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
             $bucket = getenv('S3_BUCKET_NAME') ?: die('No "S3_BUCKET" config var in found in env!');
             ?>
 
-            <h1>Upload An Image Of Your Vinyl Record</h1>
+            <h1>Upload An Image</h1>
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 
@@ -47,15 +47,17 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
                     <p>Download error. Please try again.</p>
                     <a href='../vinyl/index.php?action=addVinyl'>Click here to return to the Add New Vinyl page</a><br>
             <?php }
-            } 
-            if(isset($imageURL)) {
-                echo "<img src='$imageURL'>";}
-                echo
-                    "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
-                        <input name='userfile' type='file'><br>
-                        <input type='submit' name='submit' value='Save'><br>
+            }
+            if (isset($imageURL)) {
+                echo "<img src='$imageURL'>";
+            }
+            echo
+                "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
+                    <label for='userfile'>Select a file:</label>     
+                    <input name='userfile' type='file' class='selectFile'>
+                    <input type='submit' name='submit' class='inputButton' value='Save'>
                     </form>";
-        
+
             ?>
         </div>
 
