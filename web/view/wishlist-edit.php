@@ -52,7 +52,7 @@
                                                                                                     echo "$wlVinylNotes";
                                                                                                 }  ?></textarea>
 
-                    <input type='submit' name='submit' value='Save Changes' class='submitVinyl'>
+                    <input type='submit' name='submit' value='Save Changes' class='inputButton'>
                     <!--Add the action key - value pair -->
                     <input type="hidden" name="action" value="updateWlItem">
                     <!-- Adding a second hidden name value to store primary key -->
