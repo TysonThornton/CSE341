@@ -871,3 +871,82 @@ main h1 {
     margin-bottom: 30px;
     margin-top: 15px;
 }
+
+
+/******** WISHLIST **********/
+.wishlistMain h1 {
+    margin: 0;
+}
+
+#total {
+    color: #1446A0;
+    margin: 0;
+    background-color: #7A7D7D;
+    padding: 20px 15px 20px 15px;
+    font-size: larger;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.wishlistMain a {
+    text-decoration: none;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    padding: 15px 10px 15px 10px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 350px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.wishlistMain {
+    width: 100%;
+}
+
+#wishlist-display {
+    text-align: center;
+}
+
+
+#wishlist-item-detail p {
+    background-color: #FFFFFF;
+    border: 2px solid #FF6700;
+    color: #FF6700;
+    padding: 10px 5px 10px 5px;
+    text-align: left;
+    font-weight: normal;
+
+}
+
+#wishlist-item-detail p span {
+    font-weight: bolder;
+    font-size: large;
+}
+
+#wishlist-vinyl-options {
+    text-align: center;
+    margin-bottom: 70px;
+
+}
+
+#wishlist-vinyl-options a {
+    text-decoration: none;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    width: 30%;
+    margin: 5px 10px 5px 10px;
+    text-align: center;
+    display: inline-block;
+
+}
+
+#wishlist-vinyl-options a:hover {
+    background-color: #7A7D7D;
+    color: #FFFFFF;
+    font-weight: bolder;
+}

@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin'])) {
     <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
-    <main>
+    <main class="wishlistMain">
         <h1>Vinyl Record Wishlist</h1>
 
 
@@ -33,11 +33,12 @@ if (!isset($_SESSION['loggedin'])) {
             echo $message;
         }
         if (isset($priceTotal)) {
-            echo "<h3>Total Cost of Wishlist Vinyl Records: $$priceTotal</h3>";
+            echo "<p id='total'>Total Cost of Wishlist Vinyl Records: $$priceTotal</p>";
         }
         ?><br>
+        <div class="pageLink">
         <a href='../wishlist/index.php?action=addWishlistItem'>Add a Vinyl Record to Your Wishlist</a><br>
-
+        </div>
         <?php if (isset($wishlistDisplay)) {
             echo $wishlistDisplay;
         } ?>

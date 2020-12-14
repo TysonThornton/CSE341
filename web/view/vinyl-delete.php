@@ -32,7 +32,7 @@
 
         ?>
 
-        <form action="../vinyl/index.php" method="post">
+        <form action="../vinyl/index.php" method="post" class="form">
             <fieldset>
                 <label for="vinylAlbum">Album: </label>
                 <input type='text' name="vinylAlbum" id="vinylAlbum" class='input' readonly <?php if (isset($vinylAl)) {
