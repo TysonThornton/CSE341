@@ -40,14 +40,14 @@ switch ($action) {
         // The checkPassword() function returns a 1 if password matches format or a 0 if it doesnt.
         $checkPassword = checkPassword($userPassword);
         if ($checkPassword === 0) {
-            $message = '<p><b><i>Please provide a valid password that meets all requirements.</i></b></p>';
+            $message = '<p class="notice"><b><i>Please provide a valid password that meets all requirements.</i></b></p>';
            include '../view/login.php';
            exit;
         }
   
         // Check for missing data 
         if (empty($userEmail) || empty($userPassword)) {
-           $message = '<p><b><i>Please provide information for all empty form fields.</i></b></p>';
+           $message = '<p class="notice"><b><i>Please provide information for all empty form fields.</i></b></p>';
            include '../view/login.php';
            exit;
         }
@@ -110,7 +110,7 @@ switch ($action) {
     
         // Check for missing data 
         if (empty($userName) || empty($userEmail) || empty($userPassword)) {
-            $message = '<p><b><i>Please provide information for all empty form fields.</i></b></p>';
+            $message = '<p class="notice"><b><i>Please provide information for all empty form fields.</i></b></p>';
             include '../view/registration.php';
             exit;
         }
@@ -174,7 +174,7 @@ switch ($action) {
         
             // Check for missing data
             if (empty($userName) ||  empty($userEmail)) {
-                $message = '<p>Please provide information for all empty fields.</p>';
+                $message = '<p class="notice">Please provide information for all empty fields.</p>';
                 include '../view/profile.php';
                 exit;
             }
@@ -184,7 +184,7 @@ switch ($action) {
         
             // Check and report the result. There should be a result of 1 record added so build an if statement for that
             if ($updateResult === 1) {
-                $message = "<p>Thanks for updating the account for $userName. Changes were saved successfully.</p>";
+                $message = "<p class='notice'>Thanks for updating the account for $userName. Changes were saved successfully.</p>";
                 $_SESSION['message'] = $message;
                 // send the value in $clientId to a function that gets the info
                 $accountInfo = getAccountInfo($userId);
@@ -192,7 +192,7 @@ switch ($action) {
                 include '../view/profile.php';
                 exit;
             } else {
-                $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
+                $message = "<p class='notice'>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
                 $_SESSION['message'] = $message;
                 // send the value in $clientId to a function that gets the info
                 $accountInfo = getAccountInfo($userId);
@@ -213,7 +213,7 @@ switch ($action) {
           
                 // Check for missing data
                 if (empty($userPassword)) {
-                   $message = '<p><b><i>Please provide a valid password.</i></b></p>';
+                   $message = '<p class="notice"><b><i>Please provide a valid password.</i></b></p>';
                    $_SESSION['message'] = $message; 
                    include '../view/profile.php';
                    exit;
@@ -224,12 +224,12 @@ switch ($action) {
           
                 // Check and report the result. There should be a result of 1 record added so build an if statement for that
                 if ($pwUpdateOutcome === 1) {
-                   $message = "<p>You have successfully updated your password.</p>";
+                   $message = "<p class='notice'>You have successfully updated your password.</p>";
                    $_SESSION['message'] = $message;
                    include '../view/profile.php';
                    exit;
                 } else {
-                   $message = "<p>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
+                   $message = "<p class='notice'>Sorry, but saving account changes for $userName to the database failed. Please try again.</p>";
                    $_SESSION['message'] = $message;
                    include '../view/profile.php';
                    exit;

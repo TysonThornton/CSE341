@@ -82,7 +82,7 @@ switch ($action) {
 
         // Check for missing data
         if (empty($vinylBand) || empty($vinylAlbum) || empty($vinylYear)) {
-            $message = '<p>Please provide information for all empty fields.</p>';
+            $message = '<p class="notice">Please provide information for all empty fields.</p>';
             include '../view/new-vinyl.php';
             exit;
         }
@@ -92,7 +92,7 @@ switch ($action) {
             $imageOutcome = insertImage($imageURL);
             if ($imageOutcome !== 1) {
 
-                $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
+                $message = "<p class='notice'>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
                 include '../view/new-vinyl.php';
                 exit;
             } else {
@@ -108,13 +108,13 @@ switch ($action) {
             // Check and report the result. There should be a result of 1 record added so build an if statement for that
             if ($vinylOutcome === 1) {
 
-                $_SESSION['message'] = "<p>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
+                $_SESSION['message'] = "<p class='notice'>Thanks for adding $vinylAlbum by $vinylBand. It has been added to your collection.</p>";
                 header("Location: ../vinyl/index.php?action=vinylCollection");
                 // include '../vinyl/index.php?action=vinylCollection';
                 exit;
             } else {
 
-                $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
+                $message = "<p class='notice'>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
                 include '../view/new-vinyl.php';
                 exit;
             }
@@ -132,7 +132,7 @@ switch ($action) {
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
-            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+            $_SESSION['message'] = '<p class="notice">Sorry, no vinyl record information could be found.</p>';
             include '../view/vinyl-collection.php';
             exit;
         }
@@ -153,13 +153,13 @@ switch ($action) {
 
         // Check and the result
         if ($deleteResult === 1) {
-            $message = "<p>You have successfully deleted $vinylAl from your collection.</p>";
+            $message = "<p class='notice'>You have successfully deleted $vinylAl from your collection.</p>";
 
             $_SESSION['message'] = $message;
             header('location: ../vinyl/index.php?action=vinylCollection');
             exit;
         } else {
-            $message = "<p>Error: $vinylAl was not deleted.</p>";
+            $message = "<p class='notice'>Error: $vinylAl was not deleted.</p>";
             include '../view/vinyl-delete.php';
             exit;
         }
@@ -186,7 +186,7 @@ switch ($action) {
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
-            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+            $_SESSION['message'] = '<p class="notice">Sorry, no vinyl record information could be found.</p>';
             include '../view/vinyl-collection.php';
             exit;
         }
@@ -216,7 +216,7 @@ switch ($action) {
 
         // Check to see if $vinylInfo has any data in it, display error message if not
         if (count($vinylInfo) < 1) {
-            $_SESSION['message'] = 'Sorry, no vinyl record information could be found.';
+            $_SESSION['message'] = '<p class="notice">Sorry, no vinyl record information could be found.</p>';
             include '../view/vinyl-collection.php';
             exit;
         }
@@ -251,7 +251,7 @@ switch ($action) {
 
         // Check for missing data
         if (empty($vinylBand) || empty($vinylAlbum) || empty($vinylYear) || empty($vinylCondition) || empty($vinylGenre)) {
-            $message = '<p>Please provide information for all empty fields.</p>';
+            $message = '<p class="notice">Please provide information for all empty fields.</p>';
             include '../view/vinyl-edit.php';
             exit;
         }
@@ -261,7 +261,7 @@ switch ($action) {
             $imageOutcome = updateImage($imageId, $imageURL);
             if ($imageOutcome !== 1) {
 
-                $message = "<p>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
+                $message = "<p class='notice'>Sorry, but updating the Vinyl Record Image to the database failed. Please try again.</p>";
                 include '../view/vinyl-edit.php';
                 exit;
             }
@@ -277,7 +277,7 @@ switch ($action) {
             header('location: ../vinyl/index.php?action=vinylCollection');
             exit;
         } else {
-            $message = "<p>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
+            $message = "<p class='notice'>Sorry, but saving changes for $vinylAlbum by $vinylBand to the database failed. Please try again.</p>";
             include '../view/vinyl-edit.php';
             exit;
         }

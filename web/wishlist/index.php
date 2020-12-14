@@ -67,7 +67,7 @@ switch ($action) {
 
         // Check for missing data
         if (empty($wlVinylBand) || empty($wlVinylAlbum) || empty($wlVinylPrice)) {
-            $message = '<p>Please provide information for all empty fields.</p>';
+            $message = '<p class="notice">Please provide information for all empty fields.</p>';
             include '../view/new-wishlist-item.php';
             exit;
         }
@@ -77,11 +77,11 @@ switch ($action) {
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($wlItemOutcome === 1) {
-            $_SESSION['message'] = "<p>Thanks for adding $wlVinylAlbum by $wlVinylBand. It has been added to your wishlist.</p>";
+            $_SESSION['message'] = "<p class='notice'>Thanks for adding $wlVinylAlbum by $wlVinylBand. It has been added to your wishlist.</p>";
             header("Location: ../wishlist/index.php?action=wishlist");
             exit;
         } else {
-            $message = "<p>Sorry, but adding $wlVinylAlbum to the database failed. Please try again.</p>";
+            $message = "<p class='notice'>Sorry, but adding $wlVinylAlbum to the database failed. Please try again.</p>";
             include '../view/new-wishlist-item.php';
             exit;
         }
@@ -100,7 +100,7 @@ switch ($action) {
 
         // Check to see if $wishlistInfo has any data in it, display error message if not
         if (count($wishlistInfo) < 1) {
-            $_SESSION['message'] = 'Sorry, that wishlist item could not be found.';
+            $_SESSION['message'] = '<p class="notice">Sorry, that wishlist item could not be found.</p>';
             include '../view/wishlist.php';
             exit;
         }
@@ -138,11 +138,11 @@ switch ($action) {
 
         // Check and report the result. There should be a result of 1 record added so build an if statement for that
         if ($updateResult === 1) {
-            $_SESSION['message'] = "<p>Thanks for updating $wlVinylAlbum by $wlVinylBand. Changes have been saved successfully.</p>";
+            $_SESSION['message'] = "<p class='notice'>Thanks for updating $wlVinylAlbum by $wlVinylBand. Changes have been saved successfully.</p>";
             header("Location: ../wishlist/index.php?action=wishlist");
             exit;
         } else {
-            $message = "<p>Sorry, but updating $wlVinylAlbum to the database failed. Please try again.</p>";
+            $message = "<p class='notice'>Sorry, but updating $wlVinylAlbum to the database failed. Please try again.</p>";
             include '../view/wishlist-edit.php';
             exit;
         }
@@ -162,13 +162,13 @@ switch ($action) {
 
         // Check and the result
         if ($deleteResult === 1) {
-            $message = "<p>You have successfully deleted $wlVinylAlbum from your wishlist.</p>";
+            $message = "<p class='notice'>You have successfully deleted $wlVinylAlbum from your wishlist.</p>";
 
             $_SESSION['message'] = $message;
             header('location: ../wishlist/index.php?action=wishlist');
             exit;
         } else {
-            $message = "<p>Error: $wlVinylAlbum was not deleted. Please try again.</p>";
+            $message = "<p class='notice'>Error: $wlVinylAlbum was not deleted. Please try again.</p>";
             include '../view/wishlist.php';
             exit;
         }
@@ -244,7 +244,7 @@ switch ($action) {
 
         // Check for missing data
         if (empty($vinylBand) || empty($vinylAlbum) || empty($vinylYear)) {
-            $message = '<p>Please provide information for all empty fields.</p>';
+            $message = '<p class="notice">Please provide information for all empty fields.</p>';
             include '../view/wishlist-to-collection.php';
             exit;
         }
@@ -255,7 +255,7 @@ switch ($action) {
             $imageOutcome = insertImage($imageURL);
             if ($imageOutcome !== 1) {
 
-                $message = "<p>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
+                $message = "<p class='notice'>Sorry, but adding the Vinyl Record Image to the database failed. Please try again.</p>";
                 include '../view/wishlist-to-collection.php';
                 exit;
             } else {
@@ -276,16 +276,16 @@ switch ($action) {
             // Check and the result
             if ($deleteResult === 1) {
 
-                $_SESSION['message'] = "<p>Your wishlist item $vinylAlbum by $vinylBand has been added to your vinyl record collection and deleted from your wishlist.</p>";
+                $_SESSION['message'] = "<p class='notice'>Your wishlist item $vinylAlbum by $vinylBand has been added to your vinyl record collection and deleted from your wishlist.</p>";
                 header("Location: ../vinyl/index.php?action=vinylCollection");
                 exit;
             } else {
-                $_SESSION['message'] = "<p>$wlVinylAlbum was successfully added to your vinyl collection but was not deleted from your wishlist. Please manually delete item from your wishlist.</p>";
+                $_SESSION['message'] = "<p class='notice'>$wlVinylAlbum was successfully added to your vinyl collection but was not deleted from your wishlist. Please manually delete item from your wishlist.</p>";
                 header("Location: ../vinyl/index.php?action=vinylCollection");
                 exit;
             }
         } else {
-            $message = "<p>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
+            $message = "<p class='notice'>Sorry, but adding $vinylAlbum to the database failed. Please try again.</p>";
 
             $wishlistInfo = getWishlistInfo($wishlistId);
 
