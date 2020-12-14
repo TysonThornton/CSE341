@@ -468,7 +468,7 @@ main h1 {
 .form .input {
     display: block;
     width: 90%;
-    padding: 7px 0 7px 0;
+    padding: 7px 0 7px 5px;
     margin: 5px 0 0 0;
 }
 
@@ -537,6 +537,34 @@ main h1 {
 
     margin-bottom: 15px;
 }
+
+
+
+
+/******** REGISTRATION **********/
+.registrationMain {
+    margin: 0 15px 0 15px;
+}
+
+.registrationMain .formHeader {
+    margin: 0;
+}
+
+.registrationMain p, .registrationMain fieldset {
+    border: none;
+}
+
+.registrationMain .formHeader p {
+    font-style: italic;
+
+}
+
+.registrationMain .inputButton {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+
 
 
 
