@@ -54,7 +54,7 @@ $imageURL = filter_input(INPUT_GET, 'imageURL', FILTER_SANITIZE_STRING);
             echo
                 "<form enctype='multipart/form-data' action='" . $_SERVER['PHP_SELF'] . "' method='POST'>
                     <label for='userfile'>Select a file:</label>     
-                    <input name='userfile' type='file' class='selectFile'>
+                    <input name='userfile' type='file' class='selectFile'><br>
                     <input type='submit' name='submit' class='inputButton' value='Save'>
                     </form>";
 

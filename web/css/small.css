@@ -765,3 +765,77 @@ main h1 {
     margin-bottom: 30px;
     margin-top: 15px;
 }
+
+
+
+
+
+
+/******** CHANGE IMAGE **********/
+.changeImageMain div {
+    background-color: #FF6700;
+    text-align: center;
+}
+
+.changeImageMain form {
+    background-color: #FF6700;
+    color: #FFFFFF;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.changeImageMain form label {
+    
+    padding-left: 15px;
+    font-weight: bolder;
+    
+}
+
+.changeImageMain .selectFile {
+    margin-left: 15px;
+}
+
+.changeImageMain .inputButton {
+    display: inline;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.uploadSuccess {
+    border: none;
+    background-color: #1446A0;
+}
+
+.changeImageMain img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 400px;
+    padding-bottom: 5px;
+    
+}
+
+.changeImageMain a {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    background-color: #000100;
+    color: #FFFFFF;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid #FFFFFF;
+
+}
+
+.changeImageMain a:hover {
+    
+    background-color: #7A7D7D;
+    color: #FFFFFF;
+    font-weight: bolder;
+
+}
