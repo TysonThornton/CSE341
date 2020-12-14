@@ -25,7 +25,7 @@ let data = "<?php //echo $vinylData ?>";
     <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
-    <main>
+    <main class="vinylRecordCollection">
         <h1>Vinyl Record Collection</h1>
 
 
@@ -35,8 +35,10 @@ let data = "<?php //echo $vinylData ?>";
             echo $_SESSION['message'];
         }
         ?><br>
+        <div class="pageLink">
         <a href='../vinyl/index.php?action=addVinyl'>Add Vinyl Record to Collection</a><br>
-
+        </div>
+        
         <?php if (isset($vinylDisplay)) {
             echo $vinylDisplay;
         } ?>

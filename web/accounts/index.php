@@ -78,7 +78,7 @@ switch ($action) {
         $message = '<p class="notice">Well done! ' . $_SESSION['userData']['username'] . ' is logged in.</p>';
   
         // Send them to the home view
-        include '../view/home.php';
+        include '../view/vinyl-collection.php';
         
         exit;
 

@@ -31,10 +31,11 @@ h6 {
 }
 
 
+
 /******** HEADER **********/
 header {
     background-color: #FFFFFF;
-    padding: 30px 0 20px 0;
+    padding: 30px 0 10px 0;
 }
 
 .logo img {
@@ -55,7 +56,7 @@ header {
     text-decoration: none;
     background-color: #000100;
     color: #FFFFFF;
-    padding: 15px 10px 15px 10px;
+    padding: 10px;
     border-radius: 5px;
     width: 120px;
     margin-left: 10px;
@@ -69,7 +70,7 @@ header {
     text-decoration: none;
     background-color: #000100;
     color: #FFFFFF;
-    padding: 15px 10px 15px 10px;
+    padding: 10px;
     border-radius: 5px;
     width: 120px;
     text-align: center;
@@ -88,6 +89,8 @@ header {
 }
 
 
+
+
 /******** NAV **********/
 nav {
     background-color: #FF6700;
@@ -99,7 +102,6 @@ nav {
     border-style: solid;
     border-bottom: 5px solid #000100;
     
-
 }
 
 
@@ -155,9 +157,47 @@ nav a:active {
 }
 
 
+/******** MESSAGE **********/
+.message {
+    background-color: #1446A0;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding: 10px 5px 10px 5px;
+    margin: 2px; 
+    text-align: center;   
+    
+}
+
+.notice {
+    background-color: #1446A0;
+    color:#FFFFFF;
+    font-weight: bold;
+    padding: 10px 5px 10px 5px;
+    margin: 2px; 
+    text-align: center;   
+    
+}
 
 
-/******** MAIN **********/
+/******** FOOTER **********/
+footer {
+    color: #FF6700;
+    background-color: #000100;
+    text-align: center;
+    
+    
+}
+
+footer p {
+    padding: 3px 0 3px 0;
+    font-weight: bold;
+}
+
+
+
+
+
+/******** HOME **********/
 #hero {
     background-color: #000100;
 }
@@ -178,7 +218,7 @@ main > div > h1 {
     text-align: center;
     border-bottom: 5px solid #FF6700;
     margin: 0;
-    padding-top: 15px
+    padding-top: 50px;
         
 }
 
@@ -263,41 +303,65 @@ main div h2 {
 
 
 
+/******** VINYL COLLECTION **********/
 
-
-
-/******** MESSAGE **********/
-.message {
-    background-color: #1446A0;
-    color:#FFFFFF;
-    font-weight: bold;
-    padding: 10px 5px 10px 5px;
-    margin: 2px; 
-    text-align: center;   
-    
-}
-
-.notice {
-    background-color: #1446A0;
-    color:#FFFFFF;
-    font-weight: bold;
-    padding: 10px 5px 10px 5px;
-    margin: 2px; 
-    text-align: center;   
-    
-}
-
-
-/******** FOOTER **********/
-footer {
-    color: #FF6700;
-    background-color: #000100;
+.vinylRecordCollection h1 {
     text-align: center;
-    
-    
+    border-bottom: 5px solid #FF6700;
+    margin: 0;
+    padding-top: 50px;
+    background-color: #FFFFFF;
+
 }
 
-footer p {
-    padding: 3px 0 3px 0;
-    font-weight: bold;
+.pageLink {
+    text-align: center;
+    padding: 30px 0 30px 0;
 }
+
+.pageLink a {
+
+    text-decoration: none;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    padding: 15px 10px 15px 10px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 350px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+
+}
+
+.pageLink a:hover {
+    background-color: #000100;
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+
+.vinylRecordCollection {
+    width: 100%;
+}
+
+#vinyl-display img {
+    width: 80%;
+    
+
+}
+
+#vinyl-display p {
+    width: 90%;
+}
+
+#vinyl-detail {
+    width: 90%;
+}
+
+#vinyl-options {
+    width: 90%;
+}
+
+
+
