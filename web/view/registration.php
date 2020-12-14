@@ -15,7 +15,7 @@
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
 
 
-    <main>
+    <main class="registrationMain">
         <div class="formHeader">
             <h1>Create an Account</h1>
             <p>All fields are required.</p>
@@ -29,18 +29,18 @@
 
         <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
-                <label for="userName">Username</label><br>
+                <label for="userName">Username</label>
                 <input type='text' name="userName" id="userName" class='input' required <?php if (isset($userName)) {
                                                                                             echo "value='$userName'";
-                                                                                        }  ?>><br>
-                <label for="userEmail">Email Address</label><br>
+                                                                                        }  ?>>
+                <label for="userEmail">Email Address</label>
                 <input type='email' name="userEmail" id="userEmail" placeholder="example@gmail.com" class='input' required <?php if (isset($userEmail)) {
                                                                                                                                 echo "value='$userEmail'";
-                                                                                                                            }  ?>><br>
-                <label for="userPassword">Password</label><br>
-                <span id="registrationInstructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
-                <input type='password' name="userPassword" id="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
-                <br>
+                                                                                                                            }  ?>>
+                <label for="userPassword">Password</label>
+                <span id="registrationInstructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
+                <input type='password' name="userPassword" id="userPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                
                 <input type='submit' name='submit' value='Create Account' class='inputButton'>
                 <!--Add the action key - value pair -->
                 <input type="hidden" name="action" value="register">
