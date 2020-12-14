@@ -278,11 +278,13 @@ main div h2 {
     margin: 0 auto;
     width: 150px;
     padding: 5px;
+    background-color: #000100;
+    color: #FFFFFF;
 }
 
 .inputButton:hover {
     background-color: #000100;
-    color: #FFFFFF;
+    color: #FF6700;
 }
 
 #accountLink {
@@ -444,7 +446,81 @@ main h1 {
     font-size: large;
 }
 
-.profile
+.form fieldset {
+    padding-left: 15px;
+    background-color: #FF6700;
+    color: #FFFFFF;
+    border: none;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.form {
+    border: none;
+}
+
+.form label{
+    display: block;
+    padding-top: 10px;
+    font-weight: bold;
+    
+}
+
+.form .input {
+    display: block;
+    width: 90%;
+    padding: 7px 0 7px 0;
+    margin: 5px 0 0 0;
+}
+
+.form .inputButton {
+    margin-bottom: 15px;
+}
+
+.profile .formHeader h2 {
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.profile .formHeader p {
+    border-top: none;
+}
+
+#registrationInstructions {
+    font-size: small;
+    font-style: italic;
+    display: inline-block;
+    padding-right: 15px;
+    padding-top: 5px;
+}
+
+
+
+#vinylLink {
+    text-align: center;
+    padding: 10px 0 40px 0;
+    background-color: #FF6700;
+}
+
+#vinylLink a {
+    text-decoration: none;
+    background-color: #1446A0;
+    color: #FFFFFF;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#vinylLink a:hover {
+    
+    background-color: #000100;
+    color: #FFFFFF;
+    font-weight: bolder;
+
+}
+
 
 
 

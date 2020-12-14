@@ -39,12 +39,12 @@ if (!isset($_SESSION['loggedin'])) {
             <p>Use this form to update your name or email information.</p>
             <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
-                <label for="updatedUserName">Username</label><br>
+                <label for="updatedUserName">Username</label>
                 <input type='text' name="updatedUserName" id="updatedUserName" class='input' required <?php
                                                                                                         $sessionUserName = $_SESSION['userData']['username'];
                                                                                                         echo "value='$sessionUserName'";
                                                                                                         ?>><br>
-                <label for="updatedUserEmail">Email Address</label><br>
+                <label for="updatedUserEmail">Email Address</label>
                 <input type='email' name="updatedUserEmail" id="updatedUserEmail" placeholder="example@gmail.com" class='input' required <?php
                                                                                                                                 $sessionEmail = $_SESSION['userData']['useremail'];
                                                                                                                                 echo "value='$sessionEmail'";
@@ -63,10 +63,10 @@ if (!isset($_SESSION['loggedin'])) {
             <h2>Change Password</h2>
             <form class='form' action="../accounts/index.php" method="post">
             <fieldset>
-                <label for="updatedUserPassword">New Password</label><br>
+                <label for="updatedUserPassword">New Password</label>
                 <span id="registrationInstructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
                 <input type='password' name="updatedUserPassword" id="updatedUserPassword" class='input' required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
-                <br>
+                
 
                 <input type='submit' name='submit' value='Change Password' class='inputButton'>
                 <!--Add the action key - value pair -->
@@ -80,8 +80,8 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
 
 
-        <div>
-            <a href="../vinyl/index.php?action=vinylCollection"><h3>Access your vinyl collection</h3></a> 
+        <div id="vinylLink">
+            <a href="../vinyl/index.php?action=vinylCollection">Access your vinyl collection</a> 
         </div>
 
     </main>
