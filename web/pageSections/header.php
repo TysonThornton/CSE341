@@ -1,5 +1,5 @@
 <div class="logo">
-    <img src="../images/vinyl-record-large.png" alt="Vinyl Record Playlist Logo">
+    <img src="https://vinyl-record-playlist.s3-us-west-1.amazonaws.com/vinyl-record-large.png" alt="Vinyl Record Playlist Logo">
 </div>
 
 <?php 
