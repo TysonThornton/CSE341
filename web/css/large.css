@@ -15,6 +15,7 @@
     body {
         background-image: url('https://vinyl-record-playlist.s3-us-west-1.amazonaws.com/records.jpg');
         background-size: cover;
+        background-attachment: fixed;
         margin: 0;
     }
 
@@ -24,7 +25,7 @@
   
     }
 
-    footer {
+    .editWishlist footer, .deleteVinylMain footer, .registrationMain footer, .newWishlistMain footer, .loginMain footer {
         position:absolute;
         bottom:0;
         width: 100%;
