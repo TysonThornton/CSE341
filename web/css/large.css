@@ -14,15 +14,22 @@
 
     body {
         background-image: url('https://vinyl-record-playlist.s3-us-west-1.amazonaws.com/records.jpg');
-        background-size: contain;
+        background-size: cover;
         margin: 0;
     }
 
     footer p {
         margin: 0;
         padding: 5px 0 5px 0;
-
   
+    }
+
+    footer {
+        position:absolute;
+        bottom:0;
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
     }
 
     .logo {
