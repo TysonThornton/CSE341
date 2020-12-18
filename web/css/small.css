@@ -9,7 +9,7 @@
 
 }
 
-/******** HTML **********/
+/******** HTML **********/ 
 html {
     min-width: 350px;
 }
@@ -34,7 +34,7 @@ h6 {
 
 /******** HEADER **********/
 header {
-    background-color: #FFFFFF;
+    background-color: yellow;
     padding: 30px 0 10px 0;
 }
 
@@ -387,77 +387,6 @@ main div h2 {
 
 }
 
-
-
-
-
-
-
-
-#vinyl-condensed {
-    padding-top: 15px;
-    
-    
-}
-
-#vinyl-condensed p {
-    background-color: #FFFFFF;
-    border: 2px solid #FF6700;
-    color: #FF6700;
-    padding: 10px 5px 10px 5px;
-    text-align: center;
-    font-weight: normal;
-    }
-
-#vinyl-content {
-    display: none;
-}
-
-#vinyl-content p {
-    background-color: #FFFFFF;
-    border: 2px solid #FF6700;
-    color: #FF6700;
-    padding: 10px 5px 10px 5px;
-    text-align: left;
-    font-weight: normal;
-}
-
-#vinyl-content p span {
-    font-weight: bolder;
-    font-size: large;
-}
-
-#vinyl-detail {
-    margin: 0;
-}
-
-#vinyl-display img {
-padding-top: 50px;
-
-}
-
-#detailsButton {
-    text-align: center;
-    background-color: #000100;
-    color: #FFFFFF;
-    padding: 15px 10px 15px 10px;
-    border-radius: 5px;
-    width: 50%;
-    max-width: 300px;
-    margin-top: 15px;
-    font-size: medium;
-}
-
-#detailsButton:hover {
-    background-color: #7A7D7D;
-}
-
-
-
-
-
-
-
 #vinyl-detail p {
     background-color: #FFFFFF;
     border: 2px solid #FF6700;
@@ -475,7 +404,7 @@ padding-top: 50px;
 
 #vinyl-options {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 70px;
 
 }
 
@@ -495,10 +424,8 @@ padding-top: 50px;
 #vinyl-options a:hover {
     background-color: #7A7D7D;
     color: #FFFFFF;
-    
+    font-weight: bolder;
 }
-
-
 
 
 
@@ -1153,3 +1080,4 @@ main h1 {
     padding-bottom: 5px;
     
 }
+
