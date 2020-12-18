@@ -969,7 +969,7 @@ main h1 {
 }
 
 #total {
-    color: #1446A0;
+    color: #000100;
     margin: 0;
     background-color: #7A7D7D;
     padding: 20px 15px 20px 15px;
@@ -979,7 +979,7 @@ main h1 {
 }
 
 #total span {
-    color: #FF6700;
+    color: #FFFFFF;
     font-size: larger;
 }
 
