@@ -52,22 +52,21 @@ let data = "<?php //echo $vinylData ?>";
     <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
 </body>
 <script>
-    function displayContent() {
-        // Get the content to hide and unhide
-        let element = document.getElementsByClassName('vinyl-content');
+        function displayContent() {
+            // Get the content to hide and unhide
+            let element = document.querySelector('.vinyl-content');
 
-        // Find out the current display setting of the element
-        let currentStyles = getComputedStyles(element);
-        let currentDisplay = currentStyles.display;
+            // Find out the current display setting of the element
+            let currentDisplay = element.style.display;
 
-        //
-        if(currentDisplay === 'block') {
-            element.style.display = 'none';
-        } else {
-            element.style.display = 'block';
+            //
+            if (currentDisplay === 'block') {
+                element.style.display = 'none';
+            } else {
+                element.style.display = 'block';
+            }
         }
-    }
-</script>
+    </script>
 
 </html>
 <?php
