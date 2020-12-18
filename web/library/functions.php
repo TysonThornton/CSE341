@@ -43,7 +43,7 @@ function buildVinylDisplay($vinylData)
         $vr .= "<p><span>Album</span>: $vinyl[vinylalbum]</p>";
         $vr .= "</div>";
         $vr .= "</div>";
-        $vr .= "<div id='vinyl-content'>";
+        $vr .= "<div class='vinyl-content'>";
         $vr .= "<p><span>Release Year</span>: $vinyl[vinylyear]</p>";
         $vr .= "<p><span>Record Condition</span>: $vinyl[vinylcondition]</p>";
         $vr .= "<p><span>Genre</span>: $vinyl[vinylgenre]</p>";

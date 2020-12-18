@@ -54,7 +54,7 @@ let data = "<?php //echo $vinylData ?>";
 <script>
     function displayContent() {
         // Get the content to hide and unhide
-        let element = document.getElementById('vinyl-content');
+        let element = document.getElementsByClassName('vinyl-content');
 
         // Find out the current display setting of the element
         let currentDisplay = element.style.display;
