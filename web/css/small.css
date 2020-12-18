@@ -243,6 +243,10 @@ main div p, main div h2, .loginform, #accountLink {
 
 }
 
+main div h2 {
+    color: #000100;
+}
+
 main div p {
     border-top: 2px solid #FFFFFF;
     border-right: 2px solid #FFFFFF;
@@ -971,6 +975,11 @@ main h1 {
     font-size: larger;
     text-align: center;
     font-weight: bolder;
+}
+
+#total span {
+    color: #FF6700;
+    font-size: larger;
 }
 
 .wishlistMain a {

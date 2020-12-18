@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <meta charset="UTF-8">
@@ -33,7 +33,7 @@ if (!isset($_SESSION['loggedin'])) {
             echo $message;
         }
         if (isset($priceTotal)) {
-            echo "<p id='total'>Total Cost of Wishlist Vinyl Records: $$priceTotal</p>";
+            echo "<p id='total'>Total Cost of Wishlist Vinyl Records: <span>$$priceTotal</span></p>";
         }
         ?><br>
         <div class="pageLink">
