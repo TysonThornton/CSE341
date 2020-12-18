@@ -401,11 +401,11 @@ main div h2 {
     font-weight: normal;
     }
 
-#vinyl-content {
+.vinyl-content {
     display: none;
 }
 
-#vinyl-content p {
+.vinyl-content p {
     background-color: #FFFFFF;
     border: 2px solid #FF6700;
     color: #FF6700;
@@ -414,7 +414,7 @@ main div h2 {
     font-weight: normal;
 }
 
-#vinyl-content p span {
+.vinyl-content p span {
     font-weight: bolder;
     font-size: large;
 }
