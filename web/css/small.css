@@ -237,13 +237,14 @@ main > div > h1 {
         
 }
 
-main div p, main div h2, .loginform, #accountLink {
+main div p, .loginform, #accountLink {
     background-color: #FF6700;
     color: #FFFFFF;
 
 }
 
 main div h2 {
+    background-color: #FF6700;
     color: #000100;
 }
 
