@@ -57,7 +57,8 @@ let data = "<?php //echo $vinylData ?>";
         let element = document.getElementsByClassName('vinyl-content');
 
         // Find out the current display setting of the element
-        let currentDisplay = element.style.display;
+        let currentStyles = getComputedStyles(element);
+        let currentDisplay = currentStyles.display;
 
         //
         if(currentDisplay === 'block') {
