@@ -54,17 +54,52 @@ let data = "<?php //echo $vinylData ?>";
 <script>
         function displayContent() {
             // Get the content to hide and unhide
-            let element = document.querySelector('.vinyl-content');
+            let elementsVinyl = document.querySelectorAll('.vinyl-content');
+            let elementsShow = document.querySelectorAll('.show');
 
-            // Find out the current display setting of the element
-            let currentDisplay = element.style.display;
+            // // Find out the current display setting of the element
+            // let currentDisplay = element.style.display;
 
-            //
-            if (currentDisplay === 'block') {
-                element.style.display = 'none';
-            } else {
-                element.style.display = 'block';
-            }
+            // //
+            // if (currentDisplay === 'block') {
+            //     style.display = 'none';
+            // } else {
+            //     element.style.display = 'block';
+            // }
+
+
+            elementsVinyl.forEach(element => {
+
+                if (element.classList.contains("show") == true) {
+
+                    element.classList.remove("show");
+                    element.classList.add("vinyl-content");
+                } else if (element.classList.contains("vinyl-content") == true) {
+
+                    element.classList.remove("vinyl-content");
+                    element.classList.add("show");
+                }
+
+            })
+
+
+
+
+            elementsShow.forEach(element => {
+
+                if (element.classList.contains("show") == true) {
+
+                    element.classList.remove("show");
+                    element.classList.add("vinyl-content");
+                } else if (element.classList.contains("vinyl-content") == true) {
+
+                    element.classList.remove("vinyl-content");
+                    element.classList.add("show");
+                }
+
+
+            })
+
         }
     </script>
 

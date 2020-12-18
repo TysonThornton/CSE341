@@ -9,7 +9,7 @@
 
 }
 
-/******** HTML **********/ 
+/******** HTML **********/
 html {
     min-width: 350px;
 }
@@ -387,9 +387,17 @@ main div h2 {
 
 }
 
+
+
+
+
+
+
+
 #vinyl-condensed {
     padding-top: 15px;
-        
+    
+    
 }
 
 #vinyl-condensed p {
@@ -405,7 +413,11 @@ main div h2 {
     display: none;
 }
 
-.vinyl-content p {
+.show {
+    display: block;
+}
+
+.show p {
     background-color: #FFFFFF;
     border: 2px solid #FF6700;
     color: #FF6700;
@@ -414,7 +426,7 @@ main div h2 {
     font-weight: normal;
 }
 
-.vinyl-content p span {
+.show p span {
     font-weight: bolder;
     font-size: large;
 }
@@ -430,7 +442,7 @@ padding-top: 50px;
 
 #detailsButton {
     text-align: center;
-    background-color: #000100; 
+    background-color: #000100;
     color: #FFFFFF;
     padding: 15px 10px 15px 10px;
     border-radius: 5px;
@@ -445,6 +457,12 @@ padding-top: 50px;
 #detailsButton:hover {
     background-color: #7A7D7D;
 }
+
+
+
+
+
+
 
 
 #vinyl-detail p {
@@ -486,6 +504,9 @@ padding-top: 50px;
     color: #FFFFFF;
     
 }
+
+
+
 
 
 
@@ -1139,4 +1160,3 @@ main h1 {
     padding-bottom: 5px;
     
 }
-
