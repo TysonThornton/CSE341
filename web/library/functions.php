@@ -20,7 +20,7 @@ function checkPassword($userPassword)
 function passwordMatch($userPassword, $enteredPassword)
 {
 
-    if ($userPassword === $enteredPassword) {
+    if ($userPassword === $enteredPassword) { 
         return true;
     } else {
         return false;
@@ -33,6 +33,7 @@ function buildVinylDisplay($vinylData)
     $vr = '<div id="vinyl-display">';
     foreach ($vinylData as $vinyl) {
         //$vr .= "<div id='vinyl-image'><img src='$vinyl[imagepath]' alt='Image of $vinyl[vinylalbum]'></div>";
+        $vr .= "<div id='vinyl-condensed'>";
         $vr .= "<div id='vinyl-detail'>";
         if (isset($vinyl['imageurl'])) {
             $image = $vinyl['imageurl'];
@@ -40,13 +41,18 @@ function buildVinylDisplay($vinylData)
         }
         $vr .= "<p><span>Band / Artist</span>: $vinyl[vinylband]</p>";
         $vr .= "<p><span>Album</span>: $vinyl[vinylalbum]</p>";
+        $vr .= "</div>";
+        $vr .= "</div>";
+        $vr .= "<div id='vinyl-content'>";
         $vr .= "<p><span>Release Year</span>: $vinyl[vinylyear]</p>";
         $vr .= "<p><span>Record Condition</span>: $vinyl[vinylcondition]</p>";
-        $vr .= "<p><span>Genre</span>: $vinyl[vinylgenre]</p></div>";
+        $vr .= "<p><span>Genre</span>: $vinyl[vinylgenre]</p>";
         $vr .= "<div id='vinyl-options'>";
         $vr .= "<a href='../vinyl/index.php?action=editVinyl&vinylId=$vinyl[vinylid]' title='Click to edit'>Edit</a>";
         $vr .= "<a href='../vinyl/index.php?action=deleteVinyl&vinylId=$vinyl[vinylid]' title='Click to delete'>Delete</a>";
         $vr .= "</div>";
+        $vr .= "</div>";
+        $vr .= "<button onclick='displayContent()' id='detailsButton'>Show/Hide Details</button>";
     }
     $vr .= '</div>';
     return $vr;

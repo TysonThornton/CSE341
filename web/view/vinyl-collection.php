@@ -24,7 +24,7 @@ let data = "<?php //echo $vinylData ?>";
     <body>
     <header> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/header.php'; ?> </header>
     <nav> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/nav.php'; ?></nav>
-
+ 
     <main class="vinylRecordCollection">
         <h1>Vinyl Record Collection</h1>
 
@@ -51,6 +51,22 @@ let data = "<?php //echo $vinylData ?>";
     </main>
     <footer> <?php include $_SERVER['DOCUMENT_ROOT'] . '/pageSections/footer.php'; ?></footer>
 </body>
+<script>
+    function displayContent() {
+        // Get the content to hide and unhide
+        let element = document.getElementById('vinyl-content');
+
+        // Find out the current display setting of the element
+        let currentDisplay = element.style.display;
+
+        //
+        if(currentDisplay === 'block') {
+            element.style.display = 'none';
+        } else {
+            element.style.display = 'block';
+        }
+    }
+</script>
 
 </html>
 <?php
