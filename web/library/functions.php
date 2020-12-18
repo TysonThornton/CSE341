@@ -52,7 +52,7 @@ function buildVinylDisplay($vinylData)
         $vr .= "<a href='../vinyl/index.php?action=deleteVinyl&vinylId=$vinyl[vinylid]' title='Click to delete'>Delete</a>";
         $vr .= "</div>";
         $vr .= "</div>";
-        $vr .= "<button onclick='displayContent()' class='detailsButton'>Show/Hide Details</button>";
+        $vr .= "<button onclick='displayContent()' id='detailsButton'>Show/Hide Details</button>";
     }
     $vr .= '</div>';
     return $vr;

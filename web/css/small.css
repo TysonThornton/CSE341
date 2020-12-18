@@ -436,7 +436,7 @@ padding-top: 50px;
 
 }
 
-.detailsButton {
+#detailsButton {
     text-align: center;
     background-color: #000100;
     color: #FFFFFF;
@@ -446,8 +446,6 @@ padding-top: 50px;
     max-width: 300px;
     margin-top: 15px;
     font-size: medium;
-    
-
 }
 
 #detailsButton:hover {
