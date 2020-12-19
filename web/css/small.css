@@ -1013,6 +1013,7 @@ main h1 {
     padding: 10px 5px 10px 5px;
     text-align: left;
     font-weight: normal;
+    overflow-wrap: break-word;
 
 }
 

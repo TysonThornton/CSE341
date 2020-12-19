@@ -69,6 +69,7 @@ function buildWishlistDisplay($wishlistData)
         $wl .= "<p><span>Album</span>: $wishlistItem[wlvinylalbum]</p>";
         $wl .= "<p><span>Notes</span>: $wishlistItem[wlvinylnotes]</p>";
         $wl .= "<p><span>Price</span>: $$wishlistItem[wlvinylprice]</p>";
+        $wl .= "</div>";
         $wl .= "<div id='wishlist-vinyl-options'>";
         $wl .= "<a href='../wishlist/index.php?action=editWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to edit'>Edit</a>";
         $wl .= "<a href='../wishlist/index.php?action=deleteWlItem&wishlistId=$wishlistItem[wishlistid]' title='Click to delete'>Delete</a>";

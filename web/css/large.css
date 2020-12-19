@@ -1,6 +1,6 @@
 @media only screen and (min-width: 600px) {
 
-    main, .vinylRecordCollection, .profile, .loginMain, .registrationMain, .newVinylMain, .uploadMain, .editVinylMain, .changeImageMain, .deleteVinylMain, .wishlistMain, .editWishlist, .wlToCollection  {
+    main, .vinylRecordCollection, .profile, .loginMain, .registrationMain, .newVinylMain, .uploadMain, .editVinylMain, .changeImageMain, .deleteVinylMain, .wishlistMain, .newWishlistMain, .editWishlist, .wlToCollection  {
         max-width: 700px;
         width: 100%;
         margin: 0 auto;
@@ -25,7 +25,7 @@
   
     }
 
-    .editWishlist + footer, .deleteVinylMain + footer, .registrationMain + footer, .newWishlistMain + footer, .loginMain + footer {
+    .editWishlist + footer, .deleteVinylMain + footer, .registrationMain + footer, .loginMain + footer {
         position:absolute;
         bottom:0;
         width: 100%;
